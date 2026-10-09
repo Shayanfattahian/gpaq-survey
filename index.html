@@ -74,15 +74,16 @@
                     <div class="md:col-span-2">
                         <label class="block font-bold text-slate-700 mb-1">گروه شغلی: *</label>
                         <select id="job" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" onchange="toggleJobTitle()">
-                            <option value="نشسته">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
-                            <option value="شدید">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
-                            <option value="متوسط">مشاغل با تحرک متوسط (کادر درمان، معلم، فروشنده)</option>
+                            <option value="">انتخاب کنید...</option>
+                            <option value="بازنشسته">بازنشسته / فاقد شغل</option>
                             <option value="خانه‌دار">خانه‌دار (بدون شغل بیرون از منزل)</option>
                             <option value="دانشجو">دانشجو / محصل</option>
-                            <option value="بازنشسته">بازنشسته / فاقد شغل</option>
+                            <option value="نشسته">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
+                            <option value="متوسط">مشاغل با تحرک متوسط (کادر درمان، معلم، فروشنده)</option>
+                            <option value="شدید">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
                         </select>
                     </div>
-                    <div class="md:col-span-2" id="jobTitleContainer">
+                    <div class="md:col-span-2" id="jobTitleContainer" style="display: none;">
                         <label class="block font-bold text-slate-700 mb-1">عنوان دقیق شغل شما: *</label>
                         <input type="text" id="jobTitle" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً: پرستار بخش ICU، معلم، کارمند بانک...">
                     </div>
@@ -241,12 +242,6 @@
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۱. فعالیت‌های شدید در محل کار</h3>
-                
-                <!-- نمونه Show Card تصویری - (می‌توانید عکس دلخواه خود را در گیت هاب آپلود و اینجا آدرس دهی کنید) -->
-                <!-- <div class="bg-indigo-50/50 p-4 rounded-xl mb-6 border-2 border-indigo-100 shadow-sm text-center">
-                    <p class="text-sm font-bold text-indigo-900 mb-3">💡 کارت راهنما: نمونه فعالیت‌های کاری شدید (Show Card)</p>
-                    <img src="heavy-work.jpg" alt="Show Card" class="w-full max-w-sm mx-auto rounded-xl shadow-md">
-                </div> -->
                 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
@@ -448,7 +443,7 @@
         </div>
     </div>
 
-    <!-- فرم مخفی برای ارسال جامع اطلاعات به گوگل شیت -->
+    <!-- فرم مخفی -->
     <iframe name="hidden_iframe" style="display:none;"></iframe>
     <form id="hiddenGoogleForm" action="https://script.google.com/macros/s/AKfycbxWYemRTUxFXKo4p3oJPlpGSMgfjc8fUW27Cp6g2edC16_tgrGk0kXdpB6gtmg6swQnQA/exec" method="GET" target="hidden_iframe" style="display:none;">
         <input type="hidden" name="age" id="h_age">
@@ -533,9 +528,11 @@
                 isJobValid = false;
             }
 
-            if(!age || !weight || !height || !isJobValid) {
+            if(!age || !weight || !height || job === '' || !isJobValid) {
                 const errorDiv = document.getElementById('step1_error');
-                if(!isJobValid) {
+                if(job === '') {
+                    errorDiv.innerText = "لطفاً گروه شغلی خود را انتخاب کنید.";
+                } else if(!isJobValid) {
                     errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
                 } else {
                     errorDiv.innerText = "لطفاً فیلدهای ستاره‌دار (سن، وزن و قد) را وارد کنید.";
@@ -592,7 +589,6 @@
             return (el && el.value !== "") ? el.value : "-";
         }
 
-        // تابع اعتبارسنجی Data Cleaning بر اساس دستورالعمل WHO (بیشتر از 16 ساعت در روز غیرمنطقی است)
         function checkDailyLimit(hours, mins) {
             const totalMins = (parseFloat(hours) || 0) * 60 + (parseFloat(mins) || 0);
             return totalMins <= 960; 
@@ -600,9 +596,6 @@
 
         function processAndSubmit() {
             let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
-
-            // محاسبه بر اساس ضرایب و فرمول WHO:
-            // [(P2*P3*8) + (P5*P6*4) + (P8*P9*4) + (P11*P12*8) + (P14*P15*4)]
 
             if (document.getElementById('q1').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
@@ -647,10 +640,9 @@
 
             let grandTotalMET = workVigorous + workModerate + transport + recVigorous + recModerate;
             
-            // شاخص دوگانه استاندارد WHO به جای 3 گانه
-            let category = "نامطلوب / کم‌تحرک"; // Does not meet recommendations
+            let category = "نامطلوب / کم‌تحرک"; 
             if (grandTotalMET >= 600) {
-                category = "مطلوب (تامین توصیه‌های WHO)"; // Meets recommendations
+                category = "مطلوب (تامین توصیه‌های WHO)"; 
             }
 
             let sedHours = (parseFloat(document.getElementById('q16_h').value)||0) + ((parseFloat(document.getElementById('q16_m').value)||0)/60);
