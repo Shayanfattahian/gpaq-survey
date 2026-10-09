@@ -4,17 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سامانه سنجش فعالیت فیزیکی GPAQ</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lottie Player -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
-        /* لود فونت استاندارد و فوق‌العاده خوانای وزیرمتن مستقیم از سرورهای گوگل */
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
         
-        /* اعمال فونت جدید به کل صفحه با سایز پایه استاندارد وب */
         body, p, label, input, select, button, div, span, li, h1, h2, h3, h4 { 
             font-family: 'Vazirmatn', Tahoma, sans-serif; 
             font-size: 15px; 
@@ -25,7 +20,6 @@
         .step-card { display: none; }
         .step-card.active { display: block; }
         
-        /* سایز فیلدهای ورودی */
         input, select { font-size: 14px !important; }
     </style>
 </head>
@@ -41,11 +35,10 @@
 
         <div class="p-6 md:p-8">
 
-            <!-- ================= STEP 1: خوش‌آمدگویی و دموگرافیک ================= -->
+            <!-- ================= STEP 1: دموگرافیک ================= -->
             <div class="step-card active animate__animated animate__fadeIn" id="step1">
                 
                 <div class="bg-indigo-50 border border-indigo-200 p-5 rounded-2xl mb-8 shadow-sm">
-                    <!-- اصلاح سایز انیمیشن اول (بزرگ و چشم‌نواز) -->
                     <div class="flex justify-center mb-4">
                         <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
                     </div>
@@ -60,7 +53,7 @@
                     </div>
                 </div>
                 
-                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6 border-t pt-6">بخش اول: اطلاعات جمعیت‌شناختی و بالینی</h2>
+                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6 border-t pt-6">بخش اول: اطلاعات جمعیت‌شناختی</h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
                     <div>
@@ -150,13 +143,73 @@
 
                 <div id="step1_error" class="hidden mt-4 text-sm text-red-700 font-bold text-center bg-red-100 p-3 rounded-lg"></div>
 
-                <button type="button" onclick="goToStep2()" class="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">
-                    تایید رضایت و ورود به پرسشنامه GPAQ ➔
+                <button type="button" onclick="goToStep(2, 1)" class="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">
+                    ادامه به بخش سوابق پزشکی ➔
                 </button>
             </div>
 
-            <!-- ================= STEP 2: راهنمای GPAQ ================= -->
+            <!-- ================= STEP 2: سوابق پزشکی ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step2">
+                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6">بخش دوم: سوابق پزشکی و غربالگری بالینی</h2>
+                
+                <div class="space-y-5 text-sm md:text-base">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های مزمن (غیرواگیر):</label>
+                        <select id="med_chronic" class="w-full p-2.5 border rounded-xl bg-white outline-none">
+                            <option>هیچکدام</option>
+                            <option>دیابت</option>
+                            <option>فشارخون</option>
+                            <option>بیماری قلبی</option>
+                            <option>آسم / COPD</option>
+                        </select>
+                    </div>
+                    
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های غدد و متابولیک:</label>
+                        <select id="med_endocrine" class="w-full p-2.5 border rounded-xl bg-white outline-none">
+                            <option>هیچکدام</option>
+                            <option>هایپوتیروئیدی</option>
+                            <option>سندروم کوشینگ</option>
+                            <option>PCOS</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <label class="block font-bold text-slate-700 mb-2">محدودیت حرکتی و اسکلتی-عضلانی:</label>
+                        <select id="med_mobility" class="w-full p-2.5 border rounded-xl bg-white outline-none">
+                            <option>فاقد محدودیت</option>
+                            <option>آرتروز شدید</option>
+                            <option>سابقه جراحی ارتوپدی بزرگ</option>
+                            <option>قطع عضو</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <label class="block font-bold text-slate-700 mb-2">سابقه مصرف داروی خاص:</label>
+                        <select id="med_drugs" class="w-full p-2.5 border rounded-xl bg-white outline-none">
+                            <option>فاقد مصرف</option>
+                            <option>کورتیکواستروئیدها (کورتون‌ها)</option>
+                            <option>داروهای اعصاب و روان</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <label class="block font-bold text-slate-700 mb-2">وضعیت سلامت شناختی و روانی:</label>
+                        <select id="med_cognitive" class="w-full p-2.5 border rounded-xl bg-white outline-none">
+                            <option>هوشیاری کامل و فقدان اختلال حافظه</option>
+                            <option>دارای درجاتی از اختلال شناختی یا حافظه</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex gap-3 mt-6">
+                    <button type="button" onclick="goToStep(1, null)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="goToStep(3, 2)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ورود به پرسشنامه GPAQ ➔</button>
+                </div>
+            </div>
+
+            <!-- ================= STEP 3: راهنمای GPAQ ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step3">
                 <div class="flex justify-center mb-4">
                     <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_tuq29v2e.json" background="transparent" speed="1" style="width: 140px; height: 140px;" loop autoplay></lottie-player>
                 </div>
@@ -172,13 +225,13 @@
                     </ul>
                 </div>
                 <div class="flex gap-3">
-                    <button type="button" onclick="goToStep(1)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="goToStep(3)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">شروع سوالات کار (شدید) ➔</button>
+                    <button type="button" onclick="goToStep(2, null)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="goToStep(4, 3)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">شروع سوالات کار (شدید) ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 3: فعالیت کاری شدید ================= -->
-            <div class="step-card animate__animated animate__fadeIn" id="step3">
+            <!-- ================= STEP 4: فعالیت کاری شدید ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step4">
                 <div class="flex justify-center mb-3">
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
                 </div>
@@ -210,13 +263,13 @@
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="button" onclick="goToStep(2)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q1', 4)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(3, null)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="handleSkip('q1', 5)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 4: فعالیت کاری متوسط ================= -->
-            <div class="step-card animate__animated animate__fadeIn" id="step4">
+            <!-- ================= STEP 5: فعالیت کاری متوسط ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step5">
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">۲. فعالیت‌های متوسط در محل کار</h3>
                 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
@@ -245,13 +298,13 @@
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="button" onclick="goToStep(3)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q4', 5)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(4, null)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="handleSkip('q4', 6)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 5: رفت‌وآمد ================= -->
-            <div class="step-card animate__animated animate__fadeIn" id="step5">
+            <!-- ================= STEP 6: رفت‌وآمد ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step6">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose">
                     <b>راهنما:</b> این بخش شامل فعالیت‌های کاری قبلی نمی‌شود؛ بلکه مربوط به روش معمول رفت‌وآمد است.
                 </div>
@@ -283,13 +336,13 @@
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="button" onclick="goToStep(4)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q7', 6)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(5, null)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="handleSkip('q7', 7)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 6: تفریحی شدید ================= -->
-            <div class="step-card animate__animated animate__fadeIn" id="step6">
+            <!-- ================= STEP 7: تفریحی شدید ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step7">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose">
                     <b>راهنما:</b> این بخش مربوط به ورزش، تناسب اندام و فعالیت‌های تفریحی در اوقات فراغت است.
                 </div>
@@ -321,13 +374,13 @@
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="button" onclick="goToStep(5)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q10', 7)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(6, null)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="handleSkip('q10', 8)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 7: تفریحی متوسط ================= -->
-            <div class="step-card animate__animated animate__fadeIn" id="step7">
+            <!-- ================= STEP 8: تفریحی متوسط ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step8">
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">۵. فعالیت‌های تفریحی و ورزشی (متوسط)</h3>
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
@@ -356,13 +409,13 @@
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="button" onclick="goToStep(6)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q13', 8)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(7, null)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="handleSkip('q13', 9)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 8: کم‌تحرکی ================= -->
-            <div class="step-card animate__animated animate__fadeIn" id="step8">
+            <!-- ================= STEP 9: کم‌تحرکی ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step9">
                 <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-l-xl text-sm md:text-base text-red-900 mb-5 mt-4 leading-loose">
                     <b>توجه:</b> شامل نشستن/دراز کشیدن است. <b>زمان خواب را حساب نکنید.</b>
                 </div>
@@ -379,13 +432,13 @@
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="button" onclick="goToStep(7)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="goToStep(8, null)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="processAndSubmit()" class="w-2/3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">محاسبه و ثبت نهایی 🚀</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 9: نتیجه نهایی ================= -->
-            <div class="step-card animate__animated animate__fadeIn" id="step9">
+            <!-- ================= STEP 10: نتیجه نهایی ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step10">
                 <h2 class="font-black text-emerald-800 border-b-2 border-emerald-200 pb-3 mb-6 text-center text-lg md:text-xl">نتایج تحلیلی شاخص فعالیت بدنی (GPAQ)</h2>
 
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
@@ -429,6 +482,13 @@
         <input type="hidden" name="waist" id="h_waist">
         <input type="hidden" name="smoking" id="h_smoking">
         <input type="hidden" name="sleep" id="h_sleep">
+        
+        <!-- سوابق پزشکی جدید -->
+        <input type="hidden" name="med_chronic" id="h_med_chronic">
+        <input type="hidden" name="med_endocrine" id="h_med_endocrine">
+        <input type="hidden" name="med_mobility" id="h_med_mobility">
+        <input type="hidden" name="med_drugs" id="h_med_drugs">
+        <input type="hidden" name="med_cognitive" id="h_med_cognitive">
         
         <input type="hidden" name="q1" id="h_q1">
         <input type="hidden" name="q2" id="h_q2">
@@ -474,36 +534,37 @@
             }
         }
 
-        function goToStep(s) {
-            document.querySelectorAll('.step-card').forEach(el => el.classList.remove('active'));
-            document.getElementById('step' + s).classList.add('active');
-            window.scrollTo(0,0);
-        }
+        // تابع مدیریت مراحل (با اعتبارسنجی در مرحله 1)
+        function goToStep(targetStep, currentStep) {
+            if (currentStep === 1) {
+                const age = document.getElementById('age').value;
+                const weight = document.getElementById('weight').value;
+                const height = document.getElementById('height').value;
+                const job = document.getElementById('job').value;
+                const jobTitle = document.getElementById('jobTitle').value;
 
-        function goToStep2() {
-            const age = document.getElementById('age').value;
-            const weight = document.getElementById('weight').value;
-            const height = document.getElementById('height').value;
-            const job = document.getElementById('job').value;
-            const jobTitle = document.getElementById('jobTitle').value;
-
-            let isJobValid = true;
-            if ((job === 'نشسته' || job === 'شدید' || job === 'متوسط') && jobTitle.trim() === '') {
-                isJobValid = false;
-            }
-
-            if(!age || !weight || !height || !isJobValid) {
-                const errorDiv = document.getElementById('step1_error');
-                if(!isJobValid) {
-                    errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
-                } else {
-                    errorDiv.innerText = "لطفاً فیلدهای ستاره‌دار (سن، وزن و قد) را وارد کنید.";
+                let isJobValid = true;
+                if ((job === 'نشسته' || job === 'شدید' || job === 'متوسط') && jobTitle.trim() === '') {
+                    isJobValid = false;
                 }
-                errorDiv.classList.remove('hidden');
-            } else {
-                document.getElementById('step1_error').classList.add('hidden');
-                goToStep(2);
+
+                if(!age || !weight || !height || !isJobValid) {
+                    const errorDiv = document.getElementById('step1_error');
+                    if(!isJobValid) {
+                        errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
+                    } else {
+                        errorDiv.innerText = "لطفاً فیلدهای ستاره‌دار (سن، وزن و قد) را وارد کنید.";
+                    }
+                    errorDiv.classList.remove('hidden');
+                    return; // توقف تابع و عدم رفتن به مرحله بعد
+                } else {
+                    document.getElementById('step1_error').classList.add('hidden');
+                }
             }
+
+            document.querySelectorAll('.step-card').forEach(el => el.classList.remove('active'));
+            document.getElementById('step' + targetStep).classList.add('active');
+            window.scrollTo(0,0);
         }
 
         function toggleSub(selectId, subDivId) {
@@ -514,9 +575,9 @@
         function handleSkip(selectId, nextStep) {
             const val = document.getElementById(selectId).value;
             if(val === 'خیر' || val === '') {
-                goToStep(nextStep);
+                goToStep(nextStep, null);
             } else {
-                goToStep(nextStep);
+                goToStep(nextStep, null);
             }
         }
 
@@ -590,6 +651,13 @@
             document.getElementById('h_waist').value = getVal('waist');
             document.getElementById('h_smoking').value = getVal('smoking');
             document.getElementById('h_sleep').value = getVal('sleep');
+            
+            // پر کردن مقادیر سوابق پزشکی
+            document.getElementById('h_med_chronic').value = getVal('med_chronic');
+            document.getElementById('h_med_endocrine').value = getVal('med_endocrine');
+            document.getElementById('h_med_mobility').value = getVal('med_mobility');
+            document.getElementById('h_med_drugs').value = getVal('med_drugs');
+            document.getElementById('h_med_cognitive').value = getVal('med_cognitive');
 
             let q1Val = getVal('q1');
             document.getElementById('h_q1').value = q1Val;
@@ -629,7 +697,7 @@
             document.getElementById('h_sedentaryHours').value = sedHours.toFixed(1);
 
             document.getElementById('hiddenGoogleForm').submit();
-            goToStep(9);
+            goToStep(10, null);
         }
     </script>
 </body>
