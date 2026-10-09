@@ -9,25 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
-        
         body, p, label, input, select, button, div, span, li, h1, h2, h3, h4 { 
-            font-family: 'Vazirmatn', Tahoma, sans-serif; 
-            font-size: 15px; 
-            line-height: 1.8;
+            font-family: 'Vazirmatn', Tahoma, sans-serif; font-size: 15px; line-height: 1.8;
         }
-        
         body { background-color: #f1f5f9; }
         .step-card { display: none; }
         .step-card.active { display: block; }
-        
         input, select { font-size: 14px !important; }
     </style>
 </head>
 <body class="min-h-screen py-6 px-4 flex items-center justify-center">
 
     <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative">
-        
-        <!-- هدر اصلی -->
         <div class="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 p-6 text-white text-center">
             <h1 class="text-xl md:text-2xl font-black tracking-wide mb-1">سامانه هوشمند ارزیابی فعالیت فیزیکی (GPAQ)</h1>
             <p class="text-indigo-100 text-xs md:text-sm">طرح تحقیقاتی ملی و دانشگاهی</p>
@@ -35,9 +28,8 @@
 
         <div class="p-6 md:p-8">
 
-            <!-- ================= STEP 1: دموگرافیک ================= -->
+            <!-- ================= STEP 1 ================= -->
             <div class="step-card active animate__animated animate__fadeIn" id="step1">
-                
                 <div class="bg-indigo-50 border border-indigo-200 p-5 rounded-2xl mb-8 shadow-sm">
                     <div class="flex justify-center mb-4">
                         <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
@@ -54,7 +46,6 @@
                 </div>
                 
                 <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6 border-t pt-6">بخش اول: اطلاعات جمعیت‌شناختی</h2>
-                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">سن (سال): *</label>
@@ -63,33 +54,23 @@
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">جنسیت:</label>
                         <select id="gender" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>مرد</option>
-                            <option>زن</option>
+                            <option>مرد</option><option>زن</option>
                         </select>
                     </div>
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">تحصیلات:</label>
                         <select id="education" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>بی‌سواد</option>
-                            <option>خواندن و نوشتن</option>
-                            <option>سیکل</option>
-                            <option>دیپلم</option>
-                            <option>فوق‌دیپلم</option>
-                            <option>لیسانس</option>
-                            <option>فوق‌لیسانس</option>
-                            <option>دکترا</option>
+                            <option>بی‌سواد</option><option>خواندن و نوشتن</option><option>سیکل</option>
+                            <option>دیپلم</option><option>فوق‌دیپلم</option><option>لیسانس</option>
+                            <option>فوق‌لیسانس</option><option>دکترا</option>
                         </select>
                     </div>
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">وضعیت تأهل:</label>
                         <select id="marital" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>مجرد</option>
-                            <option>متأهل</option>
-                            <option>مطلقه</option>
-                            <option>بیوه</option>
+                            <option>مجرد</option><option>متأهل</option><option>مطلقه</option><option>بیوه</option>
                         </select>
                     </div>
-                    
                     <div class="md:col-span-2">
                         <label class="block font-bold text-slate-700 mb-1">گروه شغلی: *</label>
                         <select id="job" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" onchange="toggleJobTitle()">
@@ -101,18 +82,14 @@
                             <option value="بازنشسته">بازنشسته / فاقد شغل</option>
                         </select>
                     </div>
-                    
                     <div class="md:col-span-2" id="jobTitleContainer">
                         <label class="block font-bold text-slate-700 mb-1">عنوان دقیق شغل شما: *</label>
                         <input type="text" id="jobTitle" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً: پرستار بخش ICU، معلم، کارمند بانک...">
                     </div>
-
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">وضعیت اقتصادی:</label>
                         <select id="economy" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>خوب (کفاف هزینه‌ها و پس‌انداز)</option>
-                            <option>متوسط (کفاف مخارج پایه)</option>
-                            <option>ضعیف</option>
+                            <option>خوب (کفاف هزینه‌ها و پس‌انداز)</option><option>متوسط (کفاف مخارج پایه)</option><option>ضعیف</option>
                         </select>
                     </div>
                     <div>
@@ -130,9 +107,7 @@
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">استعمال دخانیات:</label>
                         <select id="smoking" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>غیر سیگاری</option>
-                            <option>سیگار / قلیان</option>
-                            <option>ترک کرده</option>
+                            <option>غیر سیگاری</option><option>سیگار / قلیان</option><option>ترک کرده</option>
                         </select>
                     </div>
                     <div class="md:col-span-2">
@@ -140,73 +115,53 @@
                         <input type="number" id="sleep" value="7" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
                     </div>
                 </div>
-
                 <div id="step1_error" class="hidden mt-4 text-sm text-red-700 font-bold text-center bg-red-100 p-3 rounded-lg"></div>
-
                 <button type="button" onclick="validateStep1()" class="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">
                     ادامه به بخش سوابق پزشکی ➔
                 </button>
             </div>
 
-            <!-- ================= STEP 2: سوابق پزشکی ================= -->
+            <!-- ================= STEP 2 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step2">
                 <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6">بخش دوم: سوابق پزشکی و بالینی</h2>
-                
                 <div class="space-y-5 text-sm md:text-base">
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های مزمن (غیرواگیر):</label>
                         <select id="med_chronic" class="w-full p-2.5 border rounded-xl bg-white outline-none">
-                            <option>هیچکدام</option>
-                            <option>دیابت</option>
-                            <option>فشارخون</option>
-                            <option>بیماری قلبی</option>
-                            <option>آسم / COPD</option>
+                            <option>هیچکدام</option><option>دیابت</option><option>فشارخون</option><option>بیماری قلبی</option><option>آسم / COPD</option>
                         </select>
                     </div>
-                    
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های غدد و متابولیک:</label>
                         <select id="med_endocrine" class="w-full p-2.5 border rounded-xl bg-white outline-none">
-                            <option>هیچکدام</option>
-                            <option>هایپوتیروئیدی</option>
-                            <option>سندروم کوشینگ</option>
-                            <option>PCOS</option>
+                            <option>هیچکدام</option><option>هایپوتیروئیدی</option><option>سندروم کوشینگ</option><option>PCOS</option>
                         </select>
                     </div>
-
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <label class="block font-bold text-slate-700 mb-2">محدودیت حرکتی و اسکلتی-عضلانی:</label>
                         <select id="med_mobility" class="w-full p-2.5 border rounded-xl bg-white outline-none">
-                            <option>فاقد محدودیت</option>
-                            <option>آرتروز شدید</option>
-                            <option>سابقه جراحی ارتوپدی بزرگ</option>
-                            <option>قطع عضو</option>
+                            <option>فاقد محدودیت</option><option>آرتروز شدید</option><option>سابقه جراحی ارتوپدی بزرگ</option><option>قطع عضو</option>
                         </select>
                     </div>
-
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <label class="block font-bold text-slate-700 mb-2">سابقه مصرف داروی خاص:</label>
                         <select id="med_drugs" class="w-full p-2.5 border rounded-xl bg-white outline-none">
-                            <option>فاقد مصرف</option>
-                            <option>کورتیکواستروئیدها (کورتون‌ها)</option>
-                            <option>داروهای اعصاب و روان</option>
+                            <option>فاقد مصرف</option><option>کورتیکواستروئیدها (کورتون‌ها)</option><option>داروهای اعصاب و روان</option>
                         </select>
                     </div>
                 </div>
-
                 <div class="flex gap-3 mt-6">
                     <button type="button" onclick="goToStep(1)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="nextFromStep2()" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 3: ارزیابی شناختی (AMTS) - ویژه سن بالای 65 ================= -->
+            <!-- ================= STEP 3 (AMTS) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step3">
                 <div class="bg-amber-50 border-r-4 border-amber-500 p-4 rounded-l-xl text-amber-900 mb-5 text-justify text-sm">
                     <b>توجه پژوهشگر:</b> با توجه به اینکه سن آزمودنی بالای ۶۵ سال است، لطفاً پیش از ورود به پرسشنامه اصلی، ارزیابی مختصر شناختی (AMTS) را جهت تایید اعتبار داده‌ها تکمیل نمایید.
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">ارزیابی شناختی (AMTS)</h3>
-                
                 <div class="space-y-3 text-sm">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <div class="bg-slate-50 p-3 rounded-lg border">
@@ -218,7 +173,7 @@
                             <select id="amts2" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border md:col-span-2">
-                            <label class="block font-bold mb-2">۳. آدرس حفظ شده (مثلا ۴۲ خیابان غربی) را در انتهای تست یادآوری می‌کند؟</label>
+                            <label class="block font-bold mb-2">۳. آدرس حفظ شده را در انتهای تست یادآوری می‌کند؟</label>
                             <select id="amts3" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
@@ -230,7 +185,7 @@
                             <select id="amts5" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
-                            <label class="block font-bold mb-2">۶. افراد اطراف (پزشک/پرستار) را می‌شناسد؟</label>
+                            <label class="block font-bold mb-2">۶. افراد اطراف را می‌شناسد؟</label>
                             <select id="amts6" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
@@ -238,7 +193,7 @@
                             <select id="amts7" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
-                            <label class="block font-bold mb-2">۸. سال وقوع انقلاب یا جنگ را می‌داند؟</label>
+                            <label class="block font-bold mb-2">۸. سال وقوع انقلاب/جنگ را می‌داند؟</label>
                             <select id="amts8" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
@@ -251,16 +206,14 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="amts_error" class="hidden mt-3 text-sm text-red-700 font-bold text-center bg-red-100 p-2 rounded-lg">لطفاً به تمامی ۱۰ سوال پاسخ دهید.</div>
-
                 <div class="flex gap-3 mt-6">
                     <button type="button" onclick="goToStep(2)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="validateAMTS()" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">تایید و ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 4: راهنمای GPAQ ================= -->
+            <!-- ================= STEP 4 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step4">
                 <div class="flex justify-center mb-4">
                     <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_tuq29v2e.json" background="transparent" speed="1" style="width: 140px; height: 140px;" loop autoplay></lottie-player>
@@ -282,24 +235,27 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 5: فعالیت کاری شدید ================= -->
+            <!-- ================= STEP 5 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step5">
                 <div class="flex justify-center mb-3">
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۱. فعالیت‌های شدید در محل کار</h3>
                 
+                <!-- نمونه Show Card تصویری - (می‌توانید عکس دلخواه خود را در گیت هاب آپلود و اینجا آدرس دهی کنید) -->
+                <!-- <div class="bg-indigo-50/50 p-4 rounded-xl mb-6 border-2 border-indigo-100 shadow-sm text-center">
+                    <p class="text-sm font-bold text-indigo-900 mb-3">💡 کارت راهنما: نمونه فعالیت‌های کاری شدید (Show Card)</p>
+                    <img src="heavy-work.jpg" alt="Show Card" class="w-full max-w-sm mx-auto rounded-xl shadow-md">
+                </div> -->
+                
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
                         ۱. آیا کار شما شامل فعالیت‌های بدنی شدید و سنگینی است که حداقل ۱۰ دقیقه به‌طور مداوم طول بکشد؟
                     </label>
                     <select id="q1" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q1', 'q1_sub')">
-                        <option value="">انتخاب کنید</option>
-                        <option value="بله">بله</option>
-                        <option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
                     </select>
                 </div>
-
                 <div id="q1_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۲. معمولاً در طول یک هفته، چند روز در محل کارتان چنین فعالیت شدیدی انجام می‌دهید؟</label>
@@ -313,28 +269,23 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(4)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="handleSkip('q1', 6)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 6: فعالیت کاری متوسط ================= -->
+            <!-- ================= STEP 6 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step6">
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">۲. فعالیت‌های متوسط در محل کار</h3>
-                
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
                         ۴. آیا کار شما شامل فعالیت‌های بدنی متوسطی است که حداقل ۱۰ دقیقه طول بکشد و تنفس را کمی تندتر کند؟
                     </label>
                     <select id="q4" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q4', 'q4_sub')">
-                        <option value="">انتخاب کنید</option>
-                        <option value="بله">بله</option>
-                        <option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
                     </select>
                 </div>
-
                 <div id="q4_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۵. چند روز در هفته چنین فعالیت متوسطی دارید؟</label>
@@ -348,31 +299,26 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(5)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="handleSkip('q4', 7)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 7: رفت‌وآمد ================= -->
+            <!-- ================= STEP 7 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step7">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose">
                     <b>راهنما:</b> این بخش شامل فعالیت‌های کاری قبلی نمی‌شود؛ بلکه مربوط به روش معمول رفت‌وآمد است.
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۳. رفت‌وآمد به مکان‌های مختلف</h3>
-
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
                         ۷. آیا برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم پیاده‌روی یا دوچرخه‌سواری می‌کنید؟
                     </label>
                     <select id="q7" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q7', 'q7_sub')">
-                        <option value="">انتخاب کنید</option>
-                        <option value="بله">بله</option>
-                        <option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
                     </select>
                 </div>
-
                 <div id="q7_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۸. چند روز در هفته برای رفت‌وآمد پیاده‌روی یا دوچرخه‌سواری می‌کنید؟</label>
@@ -386,31 +332,26 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(6)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="handleSkip('q7', 8)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 8: تفریحی شدید ================= -->
+            <!-- ================= STEP 8 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step8">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose">
                     <b>راهنما:</b> این بخش مربوط به ورزش، تناسب اندام و فعالیت‌های تفریحی در اوقات فراغت است.
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۴. فعالیت‌های تفریحی و ورزشی (شدید)</h3>
-
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
                         ۱۰. آیا در اوقات فراغت، ورزش یا تفریح شدیدی انجام می‌دهید که حداقل ۱۰ دقیقه طول بکشد؟
                     </label>
                     <select id="q10" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q10', 'q10_sub')">
-                        <option value="">انتخاب کنید</option>
-                        <option value="بله">بله</option>
-                        <option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
                     </select>
                 </div>
-
                 <div id="q10_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۱۱. چند روز در هفته چنین ورزشی انجام می‌دهید؟</label>
@@ -424,28 +365,23 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(7)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="handleSkip('q10', 9)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 9: تفریحی متوسط ================= -->
+            <!-- ================= STEP 9 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step9">
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">۵. فعالیت‌های تفریحی و ورزشی (متوسط)</h3>
-
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
                         ۱۳. آیا در اوقات فراغت، ورزش یا تفریح با شدت متوسط انجام می‌دهید؟
                     </label>
                     <select id="q13" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q13', 'q13_sub')">
-                        <option value="">انتخاب کنید</option>
-                        <option value="بله">بله</option>
-                        <option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
                     </select>
                 </div>
-
                 <div id="q13_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۱۴. چند روز در هفته چنین فعالیت متوسطی انجام می‌دهید؟</label>
@@ -459,20 +395,18 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(8)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="handleSkip('q13', 10)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 10: کم‌تحرکی ================= -->
+            <!-- ================= STEP 10 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step10">
                 <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-l-xl text-sm md:text-base text-red-900 mb-5 mt-4 leading-loose">
                     <b>توجه:</b> شامل نشستن/دراز کشیدن است. <b>زمان خواب را حساب نکنید.</b>
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۶. رفتارهای کم‌تحرک</h3>
-
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
                         ۱۶. معمولاً در طول یک روز، مجموعاً چقدر از وقتتان را در حالت نشسته یا درازکش سپری می‌کنید؟
@@ -482,7 +416,6 @@
                         <input type="number" id="q16_m" placeholder="دقیقه در روز" class="w-1/2 p-2.5 border rounded-lg" value="0">
                     </div>
                 </div>
-
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(9)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="processAndSubmit()" class="w-2/3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">محاسبه و ثبت نهایی 🚀</button>
@@ -492,27 +425,23 @@
             <!-- ================= STEP 11: نتیجه نهایی ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step11">
                 <h2 class="font-black text-emerald-800 border-b-2 border-emerald-200 pb-3 mb-6 text-center text-lg md:text-xl">نتایج تحلیلی شاخص فعالیت بدنی (GPAQ)</h2>
-
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
                     ✅ اطلاعات شما با موفقیت در سامانه دانشگاه ثبت شد. از مشارکت شما سپاسگزاریم!
                 </div>
-
                 <div class="grid grid-cols-2 gap-4 mb-6 text-center">
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
                         <span class="text-xs md:text-sm text-slate-500 block mb-2">مجموع MET هفته:</span>
                         <span id="res_total_met" class="text-xl md:text-2xl font-black text-indigo-700 dir-ltr">0 MET-min</span>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
-                        <span class="text-xs md:text-sm text-slate-500 block mb-2">سطح فعالیت (WHO):</span>
+                        <span class="text-xs md:text-sm text-slate-500 block mb-2">توصیه‌های WHO:</span>
                         <span id="res_category" class="text-sm md:text-base font-bold text-slate-800">-</span>
                     </div>
                 </div>
-
                 <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-5 mb-8">
                     <h4 class="text-base md:text-lg font-bold text-indigo-900 mb-2">بازخورد و توصیه سبک زندگی:</h4>
                     <p id="ai_recommendation" class="text-sm md:text-base text-indigo-900 leading-loose text-justify">-</p>
                 </div>
-
                 <button type="button" onclick="location.reload()" class="w-full bg-slate-800 text-white font-bold text-base py-3.5 rounded-xl hover:bg-slate-900 transition shadow-lg">تکمیل مجدد (آزمودنی جدید) ↺</button>
             </div>
 
@@ -540,7 +469,7 @@
         <input type="hidden" name="med_mobility" id="h_med_mobility">
         <input type="hidden" name="med_drugs" id="h_med_drugs">
         
-        <input type="hidden" name="amts_score" id="h_amts_score"> <!-- نمره AMTS -->
+        <input type="hidden" name="amts_score" id="h_amts_score"> 
         
         <input type="hidden" name="q1" id="h_q1">
         <input type="hidden" name="q2" id="h_q2">
@@ -586,14 +515,12 @@
             }
         }
 
-        // بررسی و رفتن به مراحل ساده
-        function goToStep(stepNumber) {
+        function goToStep(targetStep) {
             document.querySelectorAll('.step-card').forEach(el => el.classList.remove('active'));
-            document.getElementById('step' + stepNumber).classList.add('active');
+            document.getElementById('step' + targetStep).classList.add('active');
             window.scrollTo(0,0);
         }
 
-        // اعتبارسنجی صفحه اول
         function validateStep1() {
             const age = document.getElementById('age').value;
             const weight = document.getElementById('weight').value;
@@ -620,17 +547,15 @@
             }
         }
 
-        // مدیریت رفتن به مرحله بعد از سوابق پزشکی (پرش هوشمند سن)
         function nextFromStep2() {
             const age = parseInt(document.getElementById('age').value);
             if (age > 65) {
-                goToStep(3); // رفتن به ارزیابی شناختی
+                goToStep(3); 
             } else {
-                goToStep(4); // پرش از ارزیابی شناختی و ورود به راهنمای GPAQ
+                goToStep(4); 
             }
         }
 
-        // اعتبارسنجی 10 سوال AMTS
         function validateAMTS() {
             let isValid = true;
             for(let i=1; i<=10; i++) {
@@ -640,17 +565,16 @@
                 document.getElementById('amts_error').classList.remove('hidden');
             } else {
                 document.getElementById('amts_error').classList.add('hidden');
-                goToStep(4); // ادامه به راهنمای GPAQ
+                goToStep(4); 
             }
         }
 
-        // دکمه بازگشت در مرحله راهنمای GPAQ (برگشت هوشمند)
         function prevFromStep4() {
             const age = parseInt(document.getElementById('age').value);
             if (age > 65) {
-                goToStep(3); // برگشت به ارزیابی شناختی
+                goToStep(3); 
             } else {
-                goToStep(2); // برگشت به سوابق پزشکی
+                goToStep(2); 
             }
         }
 
@@ -668,41 +592,65 @@
             return (el && el.value !== "") ? el.value : "-";
         }
 
+        // تابع اعتبارسنجی Data Cleaning بر اساس دستورالعمل WHO (بیشتر از 16 ساعت در روز غیرمنطقی است)
+        function checkDailyLimit(hours, mins) {
+            const totalMins = (parseFloat(hours) || 0) * 60 + (parseFloat(mins) || 0);
+            return totalMins <= 960; 
+        }
+
         function processAndSubmit() {
             let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
 
+            // محاسبه بر اساس ضرایب و فرمول WHO:
+            // [(P2*P3*8) + (P5*P6*4) + (P8*P9*4) + (P11*P12*8) + (P14*P15*4)]
+
             if (document.getElementById('q1').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
+                    alert("خطا: زمان وارد شده برای فعالیت شغلی شدید غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
                 let d = parseFloat(document.getElementById('q2').value) || 0;
                 let m = ((parseFloat(document.getElementById('q3_h').value)||0)*60) + (parseFloat(document.getElementById('q3_m').value)||0);
                 workVigorous = d * m * 8.0;
             }
             if (document.getElementById('q4').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q6_h').value, document.getElementById('q6_m').value)) {
+                    alert("خطا: زمان وارد شده برای فعالیت شغلی متوسط غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
                 let d = parseFloat(document.getElementById('q5').value) || 0;
                 let m = ((parseFloat(document.getElementById('q6_h').value)||0)*60) + (parseFloat(document.getElementById('q6_m').value)||0);
                 workModerate = d * m * 4.0;
             }
             if (document.getElementById('q7').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q9_h').value, document.getElementById('q9_m').value)) {
+                    alert("خطا: زمان وارد شده برای رفت‌وآمد غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
                 let d = parseFloat(document.getElementById('q8').value) || 0;
                 let m = ((parseFloat(document.getElementById('q9_h').value)||0)*60) + (parseFloat(document.getElementById('q9_m').value)||0);
                 transport = d * m * 4.0;
             }
             if (document.getElementById('q10').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q12_h').value, document.getElementById('q12_m').value)) {
+                    alert("خطا: زمان وارد شده برای تفریحات شدید غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
                 let d = parseFloat(document.getElementById('q11').value) || 0;
                 let m = ((parseFloat(document.getElementById('q12_h').value)||0)*60) + (parseFloat(document.getElementById('q12_m').value)||0);
                 recVigorous = d * m * 8.0;
             }
             if (document.getElementById('q13').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q15_h').value, document.getElementById('q15_m').value)) {
+                    alert("خطا: زمان وارد شده برای تفریحات متوسط غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
                 let d = parseFloat(document.getElementById('q14').value) || 0;
                 let m = ((parseFloat(document.getElementById('q15_h').value)||0)*60) + (parseFloat(document.getElementById('q15_m').value)||0);
                 recModerate = d * m * 4.0;
             }
 
             let grandTotalMET = workVigorous + workModerate + transport + recVigorous + recModerate;
-            let category = "کم‌تحرک / ضعیف (Low)";
-            if (grandTotalMET >= 3000 || (workVigorous + recVigorous >= 1500)) {
-                category = "شدید / بالا (High)";
-            } else if (grandTotalMET >= 600) {
-                category = "متوسط (Moderate)";
+            
+            // شاخص دوگانه استاندارد WHO به جای 3 گانه
+            let category = "نامطلوب / کم‌تحرک"; // Does not meet recommendations
+            if (grandTotalMET >= 600) {
+                category = "مطلوب (تامین توصیه‌های WHO)"; // Meets recommendations
             }
 
             let sedHours = (parseFloat(document.getElementById('q16_h').value)||0) + ((parseFloat(document.getElementById('q16_m').value)||0)/60);
@@ -714,10 +662,10 @@
             if (sedHours > 7) {
                 msg += "میزان رفتار کم‌تحرک شما بالاست. پیشنهاد می‌شود هر ۴۵ دقیقه نشستن، ۲ دقیقه پیاده‌روی یا کشش انجام دهید. ";
             }
-            if (category.includes("Low")) {
-                msg += "سطح فعالیت بدنی شما کمتر از حد استاندارد WHO است. روزانه حداقل ۳۰ دقیقه پیاده‌روی تند را برنامه‌ریزی کنید.";
+            if (category.includes("نامطلوب")) {
+                msg += "سطح فعالیت بدنی شما کمتر از حد استاندارد سازمان جهانی بهداشت (WHO) است. روزانه حداقل ۳۰ دقیقه پیاده‌روی تند را برنامه‌ریزی کنید.";
             } else {
-                msg += "سطح فعالیت شما مطلوب است. حفظ این حالت برای سلامت قلبی‌عروقی عالی است.";
+                msg += "سطح فعالیت بدنی شما در محدوده توصیه‌شده و مطلوب قرار دارد. حفظ این سبک زندگی به شدت توصیه می‌شود.";
             }
             document.getElementById('ai_recommendation').innerText = msg;
 
@@ -739,7 +687,6 @@
             document.getElementById('h_med_mobility').value = getVal('med_mobility');
             document.getElementById('h_med_drugs').value = getVal('med_drugs');
 
-            // محاسبه نمره AMTS در صورتی که سن بالای 65 باشد
             const age = parseInt(document.getElementById('age').value);
             if (age > 65) {
                 let amtsScore = 0;
