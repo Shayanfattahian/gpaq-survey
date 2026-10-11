@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سامانه سنجش فعالیت فیزیکی GPAQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
         body, p, label, input, select, button, div, span, li, h1, h2, h3, h4 { 
@@ -28,11 +30,11 @@
 
         <div class="p-6 md:p-8">
 
-            <!-- ================= بخش اول: اطلاعات جمعیت‌شناختی و اجتماعی - اقتصادی ================= -->
+            <!-- STEP 1 -->
             <div class="step-card active animate__animated animate__fadeIn" id="step1">
                 <div class="bg-indigo-50 border border-indigo-200 p-5 rounded-2xl mb-8 shadow-sm">
                     <div class="flex justify-center mb-4">
-                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
+                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
                     </div>
                     <h3 class="font-bold text-indigo-900 text-center mb-3 text-lg">خوش آمدید! 🌸</h3>
                     <p class="text-sm md:text-base text-indigo-900 leading-loose mb-4 text-justify">
@@ -137,7 +139,7 @@
                 </button>
             </div>
 
-            <!-- ================= بخش دوم: سوابق پزشکی و غربالگری بالینی ================= -->
+            <!-- STEP 2 -->
             <div class="step-card animate__animated animate__fadeIn" id="step2">
                 <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6">سوابق پزشکی و غربالگری بالینی</h2>
                 <div class="space-y-5 text-sm md:text-base">
@@ -172,7 +174,7 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 3: ارزیابی شناختی (AMTS) ================= -->
+            <!-- STEP 3 (AMTS) -->
             <div class="step-card animate__animated animate__fadeIn" id="step3">
                 <div class="bg-amber-50 border-r-4 border-amber-500 p-4 rounded-l-xl text-amber-900 mb-5 text-justify text-sm">
                     <b>توجه پژوهشگر:</b> با توجه به اینکه سن آزمودنی بالای ۶۵ سال است، لطفاً پیش از ورود به پرسشنامه اصلی، ارزیابی مختصر شناختی (AMTS) را جهت تایید اعتبار داده‌ها تکمیل نمایید.
@@ -229,7 +231,7 @@
                 </div>
             </div>
 
-            <!-- ================= پرسشنامه جهانی فعالیت فیزیکی (GPAQ): مقدمه ================= -->
+            <!-- STEP 4 -->
             <div class="step-card animate__animated animate__fadeIn" id="step4">
                 <div class="flex justify-center mb-4">
                     <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_tuq29v2e.json" background="transparent" speed="1" style="width: 140px; height: 140px;" loop autoplay></lottie-player>
@@ -249,7 +251,7 @@
                 </div>
             </div>
 
-            <!-- ================= فعالیت در محل کار (شدید) ================= -->
+            <!-- STEP 5 -->
             <div class="step-card animate__animated animate__fadeIn" id="step5">
                 <div class="flex justify-center mb-3">
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
@@ -258,7 +260,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">کارت راهنما: نمونه فعالیت‌های کاری شدید (Show Card)</p>
-                    <img src="work-vigorous.jpg" alt="فعالیت کاری شدید" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
+                    <img src="work-vigorous.jpg" loading="lazy" decoding="async" alt="فعالیت کاری شدید" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
                 </div>
                 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
@@ -269,7 +271,7 @@
                     <select id="q1" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q1', 'q1_sub')">
                         <option value="">انتخاب کنید</option>
                         <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال ۴ بروید)</option>
                     </select>
                 </div>
                 <div id="q1_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
@@ -291,13 +293,13 @@
                 </div>
             </div>
 
-            <!-- ================= فعالیت در محل کار (متوسط) ================= -->
+            <!-- STEP 6 -->
             <div class="step-card animate__animated animate__fadeIn" id="step6">
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">فعالیت در محل کار (متوسط)</h3>
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">کارت راهنما: نمونه فعالیت‌های کاری با شدت متوسط (Show Card)</p>
-                    <img src="work-moderate.jpg" alt="فعالیت کاری متوسط" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
+                    <img src="work-moderate.jpg" loading="lazy" decoding="async" alt="فعالیت کاری متوسط" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
@@ -308,7 +310,7 @@
                     <select id="q4" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q4', 'q4_sub')">
                         <option value="">انتخاب کنید</option>
                         <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 7 بروید)</option>
                     </select>
                 </div>
                 <div id="q4_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
@@ -330,7 +332,7 @@
                 </div>
             </div>
 
-            <!-- ================= رفت‌وآمد به مکان‌های مختلف ================= -->
+            <!-- STEP 7 -->
             <div class="step-card animate__animated animate__fadeIn" id="step7">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose text-justify">
                     <b>رفت‌وآمد به مکان‌های مختلف:</b><br>
@@ -340,7 +342,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">کارت راهنما: نمونه فعالیت‌های رفت‌وآمد و سفر فعال (Show Card)</p>
-                    <img src="travel.jpg" alt="رفت‌وآمد فعال" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
+                    <img src="travel.jpg" loading="lazy" decoding="async" alt="رفت‌وآمد فعال" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
@@ -350,7 +352,7 @@
                     <select id="q7" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q7', 'q7_sub')">
                         <option value="">انتخاب کنید</option>
                         <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 10 بروید)</option>
                     </select>
                 </div>
                 <div id="q7_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
@@ -372,7 +374,7 @@
                 </div>
             </div>
 
-            <!-- ================= فعالیت‌های تفریحی (اوقات فراغت) - شدید ================= -->
+            <!-- STEP 8 -->
             <div class="step-card animate__animated animate__fadeIn" id="step8">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose text-justify">
                     <b>فعالیت‌های تفریحی (اوقات فراغت):</b><br>
@@ -382,7 +384,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">کارت راهنما: نمونه فعالیت‌های تفریحی و ورزشی شدید (Show Card)</p>
-                    <img src="recreation-vigorous.jpg" alt="فعالیت تفریحی شدید" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
+                    <img src="recreation-vigorous.jpg" loading="lazy" decoding="async" alt="فعالیت تفریحی شدید" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
@@ -392,7 +394,7 @@
                     <select id="q10" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q10', 'q10_sub')">
                         <option value="">انتخاب کنید</option>
                         <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 13 بروید)</option>
                     </select>
                 </div>
                 <div id="q10_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
@@ -414,13 +416,13 @@
                 </div>
             </div>
 
-            <!-- ================= فعالیت‌های تفریحی (اوقات فراغت) - متوسط ================= -->
+            <!-- STEP 9 -->
             <div class="step-card animate__animated animate__fadeIn" id="step9">
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">فعالیت‌های تفریحی (اوقات فراغت) - متوسط</h3>
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">کارت راهنما: نمونه فعالیت‌های تفریحی با شدت متوسط (Show Card)</p>
-                    <img src="recreation-moderate.jpg" alt="فعالیت تفریحی متوسط" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
+                    <img src="recreation-moderate.jpg" loading="lazy" decoding="async" alt="فعالیت تفریحی متوسط" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
@@ -430,7 +432,7 @@
                     <select id="q13" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q13', 'q13_sub')">
                         <option value="">انتخاب کنید</option>
                         <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 16 بروید)</option>
                     </select>
                 </div>
                 <div id="q13_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
@@ -452,7 +454,7 @@
                 </div>
             </div>
 
-            <!-- ================= رفتارهای کم‌تحرک ================= -->
+            <!-- STEP 10 -->
             <div class="step-card animate__animated animate__fadeIn" id="step10">
                 <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-l-xl text-sm md:text-base text-red-900 mb-5 mt-4 leading-loose text-justify">
                     <b>رفتارهای کم‌تحرک:</b><br>
@@ -462,7 +464,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">کارت راهنما: نمونه رفتارهای نشسته و کم‌تحرک در منزل (Show Card)</p>
-                    <img src="sedentary.jpg" alt="رفتارهای کم‌تحرک" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
+                    <img src="sedentary.jpg" loading="lazy" decoding="async" alt="رفتارهای کم‌تحرک" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
@@ -480,7 +482,7 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 11: نتیجه نهایی ================= -->
+            <!-- STEP 11 -->
             <div class="step-card animate__animated animate__fadeIn" id="step11">
                 <h2 class="font-black text-emerald-800 border-b-2 border-emerald-200 pb-3 mb-6 text-center text-lg md:text-xl">نتایج تحلیلی شاخص فعالیت بدنی (GPAQ)</h2>
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
@@ -506,7 +508,295 @@
         </div>
     </div>
 
-    <!-- فرم مخفی برای ارسال به گوگل شیت -->
+    <!-- فرم مخفی -->
     <iframe name="hidden_iframe" style="display:none;"></iframe>
     <form id="hiddenGoogleForm" action="https://script.google.com/macros/s/AKfycbxWYemRTUxFXKo4p3oJPlpGSMgfjc8fUW27Cp6g2edC16_tgrGk0kXdpB6gtmg6swQnQA/exec" method="GET" target="hidden_iframe" style="display:none;">
-        <input type="hidden" name="age" id="h_
+        <input type="hidden" name="age" id="h_age">
+        <input type="hidden" name="gender" id="h_gender">
+        <input type="hidden" name="education" id="h_education">
+        <input type="hidden" name="religion" id="h_religion">
+        <input type="hidden" name="marital" id="h_marital">
+        <input type="hidden" name="job" id="h_job">
+        <input type="hidden" name="jobTitle" id="h_jobTitle"> 
+        <input type="hidden" name="economy" id="h_economy">
+        <input type="hidden" name="weight" id="h_weight">
+        <input type="hidden" name="height" id="h_height">
+        <input type="hidden" name="waist" id="h_waist">
+        <input type="hidden" name="smoking" id="h_smoking">
+        <input type="hidden" name="sleep" id="h_sleep">
+        
+        <input type="hidden" name="med_chronic" id="h_med_chronic">
+        <input type="hidden" name="med_endocrine" id="h_med_endocrine">
+        <input type="hidden" name="med_mobility" id="h_med_mobility">
+        <input type="hidden" name="med_drugs" id="h_med_drugs">
+        
+        <input type="hidden" name="amts_score" id="h_amts_score"> 
+        
+        <input type="hidden" name="q1" id="h_q1">
+        <input type="hidden" name="q2" id="h_q2">
+        <input type="hidden" name="q3_h" id="h_q3_h">
+        <input type="hidden" name="q3_m" id="h_q3_m">
+        <input type="hidden" name="q4" id="h_q4">
+        <input type="hidden" name="q5" id="h_q5">
+        <input type="hidden" name="q6_h" id="h_q6_h">
+        <input type="hidden" name="q6_m" id="h_q6_m">
+        <input type="hidden" name="q7" id="h_q7">
+        <input type="hidden" name="q8" id="h_q8">
+        <input type="hidden" name="q9_h" id="h_q9_h">
+        <input type="hidden" name="q9_m" id="h_q9_m">
+        <input type="hidden" name="q10" id="h_q10">
+        <input type="hidden" name="q11" id="h_q11">
+        <input type="hidden" name="q12_h" id="h_q12_h">
+        <input type="hidden" name="q12_m" id="h_q12_m">
+        <input type="hidden" name="q13" id="h_q13">
+        <input type="hidden" name="q14" id="h_q14">
+        <input type="hidden" name="q15_h" id="h_q15_h">
+        <input type="hidden" name="q15_m" id="h_q15_m">
+        <input type="hidden" name="q16_h" id="h_q16_h">
+        <input type="hidden" name="q16_m" id="h_q16_m">
+        
+        <input type="hidden" name="totalMet" id="h_totalMet">
+        <input type="hidden" name="category" id="h_category">
+        <input type="hidden" name="sedentaryHours" id="h_sedentaryHours">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            toggleJobTitle();
+        });
+
+        function toggleJobTitle() {
+            const job = document.getElementById('job').value;
+            const container = document.getElementById('jobTitleContainer');
+            if(job.includes('خانه‌دار') || job.includes('دانشجو') || job.includes('بازنشسته') || job === '') {
+                container.style.display = 'none';
+                document.getElementById('jobTitle').value = ''; 
+            } else {
+                container.style.display = 'block';
+            }
+        }
+
+        function goToStep(targetStep) {
+            document.querySelectorAll('.step-card').forEach(el => el.classList.remove('active'));
+            document.getElementById('step' + targetStep).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        function validateStep1() {
+            const age = document.getElementById('age').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const job = document.getElementById('job').value;
+            const jobTitle = document.getElementById('jobTitle').value;
+
+            let isJobValid = true;
+            if ((job.includes('نشسته') || job.includes('شدید') || job.includes('متوسط')) && jobTitle.trim() === '') {
+                isJobValid = false;
+            }
+
+            if(!age || !weight || !height || job === '' || !isJobValid) {
+                const errorDiv = document.getElementById('step1_error');
+                if(job === '') {
+                    errorDiv.innerText = "لطفاً شغل خود را انتخاب کنید.";
+                } else if(!isJobValid) {
+                    errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
+                } else {
+                    errorDiv.innerText = "لطفاً فیلدهای ستاره‌دار (سن، وزن و قد) را وارد کنید.";
+                }
+                errorDiv.classList.remove('hidden');
+            } else {
+                document.getElementById('step1_error').classList.add('hidden');
+                goToStep(2);
+            }
+        }
+
+        function nextFromStep2() {
+            const age = parseInt(document.getElementById('age').value);
+            if (age > 65) {
+                goToStep(3); 
+            } else {
+                goToStep(4); 
+            }
+        }
+
+        function validateAMTS() {
+            let isValid = true;
+            for(let i=1; i<=10; i++) {
+                if(document.getElementById('amts' + i).value === "") isValid = false;
+            }
+            if(!isValid) {
+                document.getElementById('amts_error').classList.remove('hidden');
+            } else {
+                document.getElementById('amts_error').classList.add('hidden');
+                goToStep(4); 
+            }
+        }
+
+        function prevFromStep4() {
+            const age = parseInt(document.getElementById('age').value);
+            if (age > 65) {
+                goToStep(3); 
+            } else {
+                goToStep(2); 
+            }
+        }
+
+        function toggleSub(selectId, subDivId) {
+            const val = document.getElementById(selectId).value;
+            document.getElementById(subDivId).classList.toggle('hidden', val !== 'بله');
+        }
+
+        function handleSkip(selectId, nextStep) {
+            goToStep(nextStep);
+        }
+
+        function getVal(id) {
+            const el = document.getElementById(id);
+            return (el && el.value !== "") ? el.value : "-";
+        }
+
+        function checkDailyLimit(hours, mins) {
+            const totalMins = (parseFloat(hours) || 0) * 60 + (parseFloat(mins) || 0);
+            return totalMins <= 960; 
+        }
+
+        function processAndSubmit() {
+            let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
+
+            if (document.getElementById('q1').value.includes('بله')) {
+                if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
+                    alert("خطا: زمان وارد شده برای فعالیت شغلی شدید غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
+                let d = parseFloat(document.getElementById('q2').value) || 0;
+                let m = ((parseFloat(document.getElementById('q3_h').value)||0)*60) + (parseFloat(document.getElementById('q3_m').value)||0);
+                workVigorous = d * m * 8.0;
+            }
+            if (document.getElementById('q4').value.includes('بله')) {
+                if(!checkDailyLimit(document.getElementById('q6_h').value, document.getElementById('q6_m').value)) {
+                    alert("خطا: زمان وارد شده برای فعالیت شغلی متوسط غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
+                let d = parseFloat(document.getElementById('q5').value) || 0;
+                let m = ((parseFloat(document.getElementById('q6_h').value)||0)*60) + (parseFloat(document.getElementById('q6_m').value)||0);
+                workModerate = d * m * 4.0;
+            }
+            if (document.getElementById('q7').value.includes('بله')) {
+                if(!checkDailyLimit(document.getElementById('q9_h').value, document.getElementById('q9_m').value)) {
+                    alert("خطا: زمان وارد شده برای رفت‌وآمد غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
+                let d = parseFloat(document.getElementById('q8').value) || 0;
+                let m = ((parseFloat(document.getElementById('q9_h').value)||0)*60) + (parseFloat(document.getElementById('q9_m').value)||0);
+                transport = d * m * 4.0;
+            }
+            if (document.getElementById('q10').value.includes('بله')) {
+                if(!checkDailyLimit(document.getElementById('q12_h').value, document.getElementById('q12_m').value)) {
+                    alert("خطا: زمان وارد شده برای تفریحات شدید غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
+                let d = parseFloat(document.getElementById('q11').value) || 0;
+                let m = ((parseFloat(document.getElementById('q12_h').value)||0)*60) + (parseFloat(document.getElementById('q12_m').value)||0);
+                recVigorous = d * m * 8.0;
+            }
+            if (document.getElementById('q13').value.includes('بله')) {
+                if(!checkDailyLimit(document.getElementById('q15_h').value, document.getElementById('q15_m').value)) {
+                    alert("خطا: زمان وارد شده برای تفریحات متوسط غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                }
+                let d = parseFloat(document.getElementById('q14').value) || 0;
+                let m = ((parseFloat(document.getElementById('q15_h').value)||0)*60) + (parseFloat(document.getElementById('q15_m').value)||0);
+                recModerate = d * m * 4.0;
+            }
+
+            let grandTotalMET = workVigorous + workModerate + transport + recVigorous + recModerate;
+            
+            let category = "نامطلوب / کم‌تحرک (Not meeting WHO recommendations)"; 
+            if (grandTotalMET >= 600) {
+                category = "مطلوب (Meets WHO recommendations)"; 
+            }
+
+            let sedHours = (parseFloat(document.getElementById('q16_h').value)||0) + ((parseFloat(document.getElementById('q16_m').value)||0)/60);
+
+            document.getElementById('res_total_met').innerText = grandTotalMET.toFixed(0) + " MET-min";
+            document.getElementById('res_category').innerText = category;
+
+            let msg = `با توجه به وضعیت شغلی و میزان نشستن روزانه (${sedHours.toFixed(1)} ساعت): `;
+            if (sedHours > 7) {
+                msg += "میزان رفتار کم‌تحرک شما بالاست. پیشنهاد می‌شود هر ۴۵ دقیقه نشستن، ۲ دقیقه پیاده‌روی یا کشش انجام دهید. ";
+            }
+            if (category.includes("نامطلوب")) {
+                msg += "سطح فعالیت بدنی شما کمتر از حد استاندارد سازمان جهانی بهداشت (WHO) است. روزانه حداقل ۳۰ دقیقه پیاده‌روی تند را برنامه‌ریزی کنید.";
+            } else {
+                msg += "سطح فعالیت بدنی شما در محدوده توصیه‌شده و مطلوب قرار دارد. حفظ این سبک زندگی به شدت توصیه می‌شود.";
+            }
+            document.getElementById('ai_recommendation').innerText = msg;
+
+            document.getElementById('h_age').value = getVal('age');
+            document.getElementById('h_gender').value = getVal('gender');
+            document.getElementById('h_education').value = getVal('education');
+            document.getElementById('h_religion').value = getVal('religion');
+            document.getElementById('h_marital').value = getVal('marital');
+            document.getElementById('h_job').value = getVal('job');
+            document.getElementById('h_jobTitle').value = getVal('jobTitle');
+            document.getElementById('h_economy').value = getVal('economy');
+            document.getElementById('h_weight').value = getVal('weight');
+            document.getElementById('h_height').value = getVal('height');
+            document.getElementById('h_waist').value = getVal('waist');
+            document.getElementById('h_smoking').value = getVal('smoking');
+            document.getElementById('h_sleep').value = getVal('sleep');
+            
+            document.getElementById('h_med_chronic').value = getVal('med_chronic');
+            document.getElementById('h_med_endocrine').value = getVal('med_endocrine');
+            document.getElementById('h_med_mobility').value = getVal('med_mobility');
+            document.getElementById('h_med_drugs').value = getVal('med_drugs');
+
+            const age = parseInt(document.getElementById('age').value);
+            if (age > 65) {
+                let amtsScore = 0;
+                for(let i=1; i<=10; i++) {
+                    amtsScore += parseInt(document.getElementById('amts'+i).value) || 0;
+                }
+                document.getElementById('h_amts_score').value = amtsScore;
+            } else {
+                document.getElementById('h_amts_score').value = "-";
+            }
+
+            let q1Val = getVal('q1');
+            document.getElementById('h_q1').value = q1Val;
+            document.getElementById('h_q2').value = (q1Val.includes('بله')) ? getVal('q2') : '-';
+            document.getElementById('h_q3_h').value = (q1Val.includes('بله')) ? getVal('q3_h') : '-';
+            document.getElementById('h_q3_m').value = (q1Val.includes('بله')) ? getVal('q3_m') : '-';
+
+            let q4Val = getVal('q4');
+            document.getElementById('h_q4').value = q4Val;
+            document.getElementById('h_q5').value = (q4Val.includes('بله')) ? getVal('q5') : '-';
+            document.getElementById('h_q6_h').value = (q4Val.includes('بله')) ? getVal('q6_h') : '-';
+            document.getElementById('h_q6_m').value = (q4Val.includes('بله')) ? getVal('q6_m') : '-';
+
+            let q7Val = getVal('q7');
+            document.getElementById('h_q7').value = q7Val;
+            document.getElementById('h_q8').value = (q7Val.includes('بله')) ? getVal('q8') : '-';
+            document.getElementById('h_q9_h').value = (q7Val.includes('بله')) ? getVal('q9_h') : '-';
+            document.getElementById('h_q9_m').value = (q7Val.includes('بله')) ? getVal('q9_m') : '-';
+
+            let q10Val = getVal('q10');
+            document.getElementById('h_q10').value = q10Val;
+            document.getElementById('h_q11').value = (q10Val.includes('بله')) ? getVal('q11') : '-';
+            document.getElementById('h_q12_h').value = (q10Val.includes('بله')) ? getVal('q12_h') : '-';
+            document.getElementById('h_q12_m').value = (q10Val.includes('بله')) ? getVal('q12_m') : '-';
+
+            let q13Val = getVal('q13');
+            document.getElementById('h_q13').value = q13Val;
+            document.getElementById('h_q14').value = (q13Val.includes('بله')) ? getVal('q14') : '-';
+            document.getElementById('h_q15_h').value = (q13Val.includes('بله')) ? getVal('q15_h') : '-';
+            document.getElementById('h_q15_m').value = (q13Val.includes('بله')) ? getVal('q15_m') : '-';
+
+            document.getElementById('h_q16_h').value = getVal('q16_h');
+            document.getElementById('h_q16_m').value = getVal('q16_m');
+
+            document.getElementById('h_totalMet').value = grandTotalMET.toFixed(0);
+            document.getElementById('h_category').value = category;
+            document.getElementById('h_sedentaryHours').value = sedHours.toFixed(1);
+
+            document.getElementById('hiddenGoogleForm').submit();
+            goToStep(11);
+        }
+    </script>
+</body>
+</html>
