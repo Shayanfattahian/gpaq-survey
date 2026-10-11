@@ -28,7 +28,7 @@
 
         <div class="p-6 md:p-8">
 
-            <!-- ================= STEP 1 ================= -->
+            <!-- ================= بخش اول: اطلاعات جمعیت‌شناختی و اجتماعی - اقتصادی ================= -->
             <div class="step-card active animate__animated animate__fadeIn" id="step1">
                 <div class="bg-indigo-50 border border-indigo-200 p-5 rounded-2xl mb-8 shadow-sm">
                     <div class="flex justify-center mb-4">
@@ -45,10 +45,10 @@
                     </div>
                 </div>
                 
-                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6 border-t pt-6">بخش اول: اطلاعات جمعیت‌شناختی</h2>
+                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6 border-t pt-6">متغیرهای جمعیت‌شناختی و اجتماعی - اقتصادی</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
                     <div>
-                        <label class="block font-bold text-slate-700 mb-1">سن (سال): *</label>
+                        <label class="block font-bold text-slate-700 mb-1">سن (برحسب سال): *</label>
                         <input type="number" id="age" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً 25">
                     </div>
                     <div>
@@ -58,11 +58,17 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block font-bold text-slate-700 mb-1">تحصیلات:</label>
+                        <label class="block font-bold text-slate-700 mb-1">سطح تحصیلات:</label>
                         <select id="education" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
                             <option>بی‌سواد</option><option>خواندن و نوشتن</option><option>سیکل</option>
                             <option>دیپلم</option><option>فوق‌دیپلم</option><option>لیسانس</option>
                             <option>فوق‌لیسانس</option><option>دکترا</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">دین:</label>
+                        <select id="religion" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
+                            <option>اسلام-شیعه</option><option>اسلام-اهل‌تسنن</option><option>سایر ادیان</option>
                         </select>
                     </div>
                     <div>
@@ -72,59 +78,68 @@
                         </select>
                     </div>
                     <div class="md:col-span-2">
-                        <label class="block font-bold text-slate-700 mb-1">گروه شغلی: *</label>
+                        <label class="block font-bold text-slate-700 mb-1">شغل: *</label>
                         <select id="job" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" onchange="toggleJobTitle()">
                             <option value="">انتخاب کنید...</option>
-                            <option value="بازنشسته">بازنشسته / فاقد شغل</option>
-                            <option value="خانه‌دار">خانه‌دار (بدون شغل بیرون از منزل)</option>
-                            <option value="دانشجو">دانشجو / محصل</option>
-                            <option value="نشسته">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
-                            <option value="متوسط">مشاغل با تحرک متوسط (کادر درمان، معلم، فروشنده)</option>
-                            <option value="شدید">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
+                            <option value="بازنشسته / فاقد شغل">بازنشسته / فاقد شغل</option>
+                            <option value="خانه‌دار (بدون شغل بیرون از منزل)">خانه‌دار (بدون شغل بیرون از منزل)</option>
+                            <option value="دانشجو / محصل">دانشجو / محصل</option>
+                            <option value="مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
+                            <option value="مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)">مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)</option>
+                            <option value="مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
                         </select>
                     </div>
                     <div class="md:col-span-2" id="jobTitleContainer" style="display: none;">
                         <label class="block font-bold text-slate-700 mb-1">عنوان دقیق شغل شما: *</label>
                         <input type="text" id="jobTitle" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً: پرستار بخش ICU، معلم، کارمند بانک...">
                     </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">وضعیت اقتصادی:</label>
+                    <div class="md:col-span-2">
+                        <label class="block font-bold text-slate-700 mb-1">وضعیت اقتصادی (تخمین خوداظهاری):</label>
                         <select id="economy" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
                             <option>خوب (کفاف هزینه‌ها و پس‌انداز)</option><option>متوسط (کفاف مخارج پایه)</option><option>ضعیف</option>
                         </select>
                     </div>
+                </div>
+
+                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center my-6 border-t pt-6">شاخص‌های آنتروپومتریک</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
                     <div>
-                        <label class="block font-bold text-slate-700 mb-1">وزن (کیلوگرم): *</label>
+                        <label class="block font-bold text-slate-700 mb-1">وزن (کیلوگرم - بدون کفش و لباس): *</label>
                         <input type="number" id="weight" step="0.1" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" placeholder="مثلاً 70">
                     </div>
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">قد (سانتی‌متر): *</label>
                         <input type="number" id="height" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" placeholder="مثلاً 175">
                     </div>
-                    <div>
+                    <div class="md:col-span-2">
                         <label class="block font-bold text-slate-700 mb-1">دور کمر (سانتی‌متر):</label>
                         <input type="number" id="waist" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" placeholder="اختیاری">
                     </div>
+                </div>
+
+                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center my-6 border-t pt-6">عادات سبک زندگی</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
                     <div>
-                        <label class="block font-bold text-slate-700 mb-1">استعمال دخانیات:</label>
+                        <label class="block font-bold text-slate-700 mb-1">وضعیت استعمال دخانیات:</label>
                         <select id="smoking" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
                             <option>غیر سیگاری</option><option>سیگار / قلیان</option><option>ترک کرده</option>
                         </select>
                     </div>
-                    <div class="md:col-span-2">
-                        <label class="block font-bold text-slate-700 mb-1">الگوی خواب شبانه‌روز (ساعت):</label>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">الگوی خواب شبانه‌روز (ساعت در ۲۴ ساعت شبانه‌روز):</label>
                         <input type="number" id="sleep" value="7" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
                     </div>
                 </div>
+
                 <div id="step1_error" class="hidden mt-4 text-sm text-red-700 font-bold text-center bg-red-100 p-3 rounded-lg"></div>
                 <button type="button" onclick="validateStep1()" class="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">
-                    ادامه به بخش سوابق پزشکی ➔
+                    ادامه به بخش سوابق پزشکی و غربالگری بالینی ➔
                 </button>
             </div>
 
-            <!-- ================= STEP 2 ================= -->
+            <!-- ================= بخش دوم: سوابق پزشکی و غربالگری بالینی ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step2">
-                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6">بخش دوم: سوابق پزشکی و بالینی</h2>
+                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6">سوابق پزشکی و غربالگری بالینی</h2>
                 <div class="space-y-5 text-sm md:text-base">
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های مزمن (غیرواگیر):</label>
@@ -139,13 +154,13 @@
                         </select>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <label class="block font-bold text-slate-700 mb-2">محدودیت حرکتی و اسکلتی-عضلانی:</label>
+                        <label class="block font-bold text-slate-700 mb-2">محدودیت حرکتی و اسکلتی - عضلانی:</label>
                         <select id="med_mobility" class="w-full p-2.5 border rounded-xl bg-white outline-none">
                             <option>فاقد محدودیت</option><option>آرتروز شدید</option><option>سابقه جراحی ارتوپدی بزرگ</option><option>قطع عضو</option>
                         </select>
                     </div>
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <label class="block font-bold text-slate-700 mb-2">سابقه مصرف داروی خاص:</label>
+                        <label class="block font-bold text-slate-700 mb-2">سابقه مصرف دارویی خاص:</label>
                         <select id="med_drugs" class="w-full p-2.5 border rounded-xl bg-white outline-none">
                             <option>فاقد مصرف</option><option>کورتیکواستروئیدها (کورتون‌ها)</option><option>داروهای اعصاب و روان</option>
                         </select>
@@ -157,7 +172,7 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 3 (AMTS) ================= -->
+            <!-- ================= STEP 3: ارزیابی شناختی (AMTS) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step3">
                 <div class="bg-amber-50 border-r-4 border-amber-500 p-4 rounded-l-xl text-amber-900 mb-5 text-justify text-sm">
                     <b>توجه پژوهشگر:</b> با توجه به اینکه سن آزمودنی بالای ۶۵ سال است، لطفاً پیش از ورود به پرسشنامه اصلی، ارزیابی مختصر شناختی (AMTS) را جهت تایید اعتبار داده‌ها تکمیل نمایید.
@@ -214,53 +229,54 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 4 ================= -->
+            <!-- ================= پرسشنامه جهانی فعالیت فیزیکی (GPAQ): مقدمه ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step4">
                 <div class="flex justify-center mb-4">
                     <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_tuq29v2e.json" background="transparent" speed="1" style="width: 140px; height: 140px;" loop autoplay></lottie-player>
                 </div>
                 <div class="bg-indigo-50/80 border border-indigo-200 p-5 rounded-2xl mb-8">
-                    <h3 class="font-bold text-indigo-900 mb-3 text-base md:text-lg">مقدمه و راهنمای عمومی پاسخ‌دهی</h3>
-                    <p class="text-sm md:text-base text-indigo-900 leading-loose mb-4">
-                        در ادامه، سؤالاتی درباره مدت‌زمانی که معمولاً در طول یک هفته صرف انجام فعالیت‌های بدنی مختلف می‌کنید پرسیده می‌شود. لطفاً حتی اگر خودتان را فردی پرتحرک نمی‌دانید به این سؤالات پاسخ دهید.
+                    <h3 class="font-bold text-indigo-900 mb-3 text-base md:text-lg">پرسشنامه جهانی فعالیت فیزیکی (GPAQ) - مقدمه</h3>
+                    <p class="text-sm md:text-base text-indigo-900 leading-loose mb-4 text-justify">
+                        در ادامه، می‌خواهم از شما درباره مدت‌زمانی که معمولا در طول یک هفته صرف انجام فعالیت‌های بدنی مختلف می‌کنید، سؤالاتی بپرسم. لطفاً ، حتی اگر خودتان را فردِ پُرتحرکی نمی‌دانید به این سؤالات پاسخ دهید. ابتدا به زمانی که صرفِ کار کردن می‌کنید فکر کنید. منظور از کار، فعالیت‌هایی است که وظیفه دارید انجام دهید؛ که از جمله آن میتوان به کارِ باحقوق یا بدون حقوق، درس خواندن و آموزش دیدن، کارهای خانه، کشاورزی و برداشت محصول، ماهیگیری یا شکار برای تهیه غذا، و حتی گشتن به دنبال کار اشاره کرد.
                     </p>
-                    <ul class="text-sm md:text-base text-indigo-900 space-y-2 list-disc list-inside">
-                        <li><b>منظور از کار:</b> فعالیت‌های موظفی مانند شغل، کارهای خانه، درس خواندن و کشاورزی.</li>
-                        <li><b>فعالیت شدید:</b> نیازمند تلاش بدنی زیاد که باعث نفس‌نفس زدن شدید یا افزایش زیاد ضربان قلب شود.</li>
-                        <li><b>فعالیت متوسط:</b> نیازمند تلاش بدنی متوسط که تنفس را فقط کمی تندتر کند.</li>
-                    </ul>
+                    <p class="text-sm md:text-base text-indigo-900 leading-loose text-justify">
+                        در پاسخ به سؤالات زیر، منظور از فعالیت‌های شدید (سنگین) ، کارهایی است که به تلاش بدنی زیادی نیاز دارند و باعث می‌شوند به شدت نفس‌نفس بزنید یا ضربان قلبتان خیلی بالا برود. منظور از فعالیت‌های متوسط (سبک‌) ، کارهایی است که به تلاش بدنی متوسطی نیاز دارند و باعث می‌شوند تنفس یا ضربان قلب شما فقط کمی تندتر شود.
+                    </p>
                 </div>
                 <div class="flex gap-3">
                     <button type="button" onclick="prevFromStep4()" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="goToStep(5)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">شروع سوالات کار (شدید) ➔</button>
+                    <button type="button" onclick="goToStep(5)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">شروع سوالات فعالیت در محل کار ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 5 ================= -->
+            <!-- ================= فعالیت در محل کار (شدید) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step5">
                 <div class="flex justify-center mb-3">
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
                 </div>
-                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۱. فعالیت‌های شدید در محل کار</h3>
+                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">فعالیت در محل کار</h3>
                 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
-                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
-                        ۱. آیا کار شما شامل فعالیت‌های بدنی شدید و سنگینی است که حداقل ۱۰ دقیقه به‌طور مداوم طول بکشد؟
+                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
+                        1. آیا کارِ شما شامل فعالیت‌های بدنی شدید و سنگینی است که حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) طول بکشد و باعث شود به شدت نفس‌نفس بزنید یا ضربان قلبتان خیلی بالا برود؟ <br>
+                        <span class="text-xs md:text-sm font-normal text-slate-600">(مانند [حمل یا بلند کردن بارهای سنگین، کندن زمین یا کارهای ساختمانی])</span>
                     </label>
                     <select id="q1" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q1', 'q1_sub')">
-                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option>
+                        <option value="بله">بله (۱)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال ۴ بروید)</option>
                     </select>
                 </div>
                 <div id="q1_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۲. معمولاً در طول یک هفته، چند روز در محل کارتان چنین فعالیت شدیدی انجام می‌دهید؟</label>
-                        <input type="number" id="q2" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روزها (۱ تا ۷)">
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">2. معمولا در طول یک هفته، چند روز در محل کارتان چنین فعالیت‌های شدید و سنگین را انجام می‌دهید؟</label>
+                        <input type="number" id="q2" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
                     </div>
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۳. در یک روز معمولی چقدر زمان صرف آن می‌کنید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">3. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های شدید در محل کار می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q3_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q3_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q3_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q3_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
                         </div>
                     </div>
                 </div>
@@ -270,27 +286,30 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 6 ================= -->
+            <!-- ================= فعالیت در محل کار (متوسط) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step6">
-                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">۲. فعالیت‌های متوسط در محل کار</h3>
+                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">فعالیت در محل کار (متوسط)</h3>
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
-                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
-                        ۴. آیا کار شما شامل فعالیت‌های بدنی متوسطی است که حداقل ۱۰ دقیقه طول بکشد و تنفس را کمی تندتر کند؟
+                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
+                        4. آیا کارِ شما شامل فعالیت‌های بدنی متوسط (سبک) است که حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) طول بکشد و باعث شود تنفس یا ضربان قلبتان فقط کمی تندتر شود؟ <br>
+                        <span class="text-xs md:text-sm font-normal text-slate-600">مانند راه رفتن سریع (یا جابه‌جا کردن بارهای سبک)</span>
                     </label>
                     <select id="q4" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q4', 'q4_sub')">
-                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option>
+                        <option value="بله">بله (۱)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 7 بروید)</option>
                     </select>
                 </div>
                 <div id="q4_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۵. چند روز در هفته چنین فعالیت متوسطی دارید؟</label>
-                        <input type="number" id="q5" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روزها (۱ تا ۷)">
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">5. معمولا در طول یک هفته، چند روز در محل کارتان چنین فعالیت‌های با شدت متوسط (سبک) را انجام می‌دهید؟</label>
+                        <input type="number" id="q5" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
                     </div>
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۶. در یک روز معمولی چقدر زمان صرف آن می‌کنید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">6. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های با شدت متوسط (سبک) در محل کار می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q6_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q6_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q6_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q6_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
                         </div>
                     </div>
                 </div>
@@ -300,30 +319,33 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 7 ================= -->
+            <!-- ================= رفت‌وآمد به مکان‌های مختلف ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step7">
-                <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose">
-                    <b>راهنما:</b> این بخش شامل فعالیت‌های کاری قبلی نمی‌شود؛ بلکه مربوط به روش معمول رفت‌وآمد است.
+                <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose text-justify">
+                    <b>رفت‌وآمد به مکان‌های مختلف:</b><br>
+                    سؤالات این بخش، شامل فعالیت‌های بدنی در محل کار (که قبلاً پاسخ دادید) نمی‌شود. حالا می‌خواهم درباره روش معمولِ رفت‌وآمد شما به مکان‌های مختلف سؤال کنم. مثلاً رفتن به محل کار، خرید، بازار، یا مکان‌های مذهبی
                 </div>
-                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۳. رفت‌وآمد به مکان‌های مختلف</h3>
+                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">رفت‌وآمد به مکان‌های مختلف</h3>
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
-                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
-                        ۷. آیا برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم پیاده‌روی یا دوچرخه‌سواری می‌کنید؟
+                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
+                        7. آیا برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) پیاده‌روی یا دوچرخه‌سواری می کنید؟
                     </label>
                     <select id="q7" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q7', 'q7_sub')">
-                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option>
+                        <option value="بله">بله (۱)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 10 بروید)</option>
                     </select>
                 </div>
                 <div id="q7_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۸. چند روز در هفته برای رفت‌وآمد پیاده‌روی یا دوچرخه‌سواری می‌کنید؟</label>
-                        <input type="number" id="q8" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روزها (۱ تا ۷)">
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">8. معمولا در طول یک هفته، چند روز برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم پیاده‌روی یا دوچرخه‌سواری می‌کنید؟</label>
+                        <input type="number" id="q8" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
                     </div>
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۹. در یک روز معمولی چقدر زمان صرف آن می‌کنید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">9. معمولا در طول یک روز، چقدر از وقتتان را صرفِ پیاده‌روی یا دوچرخه‌سواری برای رفت‌وآمد می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q9_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q9_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q9_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q9_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
                         </div>
                     </div>
                 </div>
@@ -333,30 +355,33 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 8 ================= -->
+            <!-- ================= فعالیت‌های تفریحی (اوقات فراغت) - شدید ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step8">
-                <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose">
-                    <b>راهنما:</b> این بخش مربوط به ورزش، تناسب اندام و فعالیت‌های تفریحی در اوقات فراغت است.
+                <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose text-justify">
+                    <b>فعالیت‌های تفریحی (اوقات فراغت):</b><br>
+                    سؤالات این بخش، شامل فعالیت‌های کاری و رفت‌وآمدی (که قبلاً پاسخ دادید) نمی‌شود. حالا می‌خواهم درباره ورزش، تناسب اندام و فعالیت‌های تفریحی شما در اوقات فراغتی که دارید سؤال کنم.
                 </div>
-                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۴. فعالیت‌های تفریحی و ورزشی (شدید)</h3>
+                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">فعالیت‌های تفریحی (اوقات فراغت)</h3>
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
-                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
-                        ۱۰. آیا در اوقات فراغت، ورزش یا تفریح شدیدی انجام می‌دهید که حداقل ۱۰ دقیقه طول بکشد؟
+                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
+                        10. آیا در اوقات فراغت خود، ورزش، تمرینات تناسب اندام یا فعالیت‌های تفریحیِ شدید و سنگینی انجام می‌دهید که حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) طول بکشد و باعث شود به شدت نفس‌نفس بزنید یا ضربان قلبتان خیلی بالا برود؟ (مانند دویدن یا فوتبال بازی کردن)
                     </label>
                     <select id="q10" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q10', 'q10_sub')">
-                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option>
+                        <option value="بله">بله (۱)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 13 بروید)</option>
                     </select>
                 </div>
                 <div id="q10_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۱۱. چند روز در هفته چنین ورزشی انجام می‌دهید؟</label>
-                        <input type="number" id="q11" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روزها (۱ تا ۷)">
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">11. معمولا در طول یک هفته، چند روز چنین فعالیت‌های ورشی یا تفریحیِ شدید و سنگین را انجام می‌دهید؟</label>
+                        <input type="number" id="q11" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
                     </div>
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۱۲. در یک روز معمولی چقدر زمان صرف آن می‌کنید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">12. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های ورزشی یا تفریحیِ شدید می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q12_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q12_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q12_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q12_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
                         </div>
                     </div>
                 </div>
@@ -366,27 +391,29 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 9 ================= -->
+            <!-- ================= فعالیت‌های تفریحی (اوقات فراغت) - متوسط ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step9">
-                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">۵. فعالیت‌های تفریحی و ورزشی (متوسط)</h3>
+                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">فعالیت‌های تفریحی (اوقات فراغت) - متوسط</h3>
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
-                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
-                        ۱۳. آیا در اوقات فراغت، ورزش یا تفریح با شدت متوسط انجام می‌دهید؟
+                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
+                        13. آیا در اوقات فراغت خود، ورزش، تمرینات تناسب اندام یا فعالیت‌های تفریحیِ با شدت متوسطی (سبکی) انجام می‌دهید که حداقل ۱۰ دقیقه به‌طور مداوم طول بکشد و باعث شود تنفس یا ضربان قلبتان فقط کمی تندتر شود؟ (مانند پیاده‌روی تند، دوچرخه‌سواری، شنا یا والیبال)
                     </label>
                     <select id="q13" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q13', 'q13_sub')">
-                        <option value="">انتخاب کنید</option><option value="بله">بله</option><option value="خیر">خیر</option>
+                        <option value="">انتخاب کنید</option>
+                        <option value="بله">بله (۱)</option>
+                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 16 بروید)</option>
                     </select>
                 </div>
                 <div id="q13_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۱۴. چند روز در هفته چنین فعالیت متوسطی انجام می‌دهید؟</label>
-                        <input type="number" id="q14" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روزها (۱ تا ۷)">
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">14. معمولا در طول یک هفته، چند روز چنین فعالیت‌های ورزشی یا تفریحیِ با شدت متوسط (سبک) را انجام می‌دهید؟</label>
+                        <input type="number" id="q14" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
                     </div>
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">۱۵. در یک روز معمولی چقدر زمان صرف آن می‌کنید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">15. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های ورزشی یا تفریحیِ با شدت متوسط (سبک) می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q15_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q15_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q15_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q15_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
                         </div>
                     </div>
                 </div>
@@ -396,19 +423,20 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 10 ================= -->
+            <!-- ================= رفتارهای کم‌تحرک ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step10">
-                <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-l-xl text-sm md:text-base text-red-900 mb-5 mt-4 leading-loose">
-                    <b>توجه:</b> شامل نشستن/دراز کشیدن است. <b>زمان خواب را حساب نکنید.</b>
+                <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-l-xl text-sm md:text-base text-red-900 mb-5 mt-4 leading-loose text-justify">
+                    <b>رفتارهای کم‌تحرک:</b><br>
+                    سؤال بعدی درباره نشستن یا دراز کشیدن در محل کار، خانه، مسیر رفت‌وآمد، یا دورهمی با دوستان است. این زمان شامل زمان‌هایی است که صرف (نشستن پشت میز، نشستن کنار دوستان، مسافرت با ماشین، اتوبوس یا قطار، مطالعه کردن، بازی های کارتی، یا تماشای تلویزیون) می‌کنید؛ توجه داشته باشید که زمانِ خوابیدن را نباید حساب کنید!
                 </div>
-                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">۶. رفتارهای کم‌تحرک</h3>
+                <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">رفتارهای کم‌تحرک</h3>
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
-                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose">
-                        ۱۶. معمولاً در طول یک روز، مجموعاً چقدر از وقتتان را در حالت نشسته یا درازکش سپری می‌کنید؟
+                    <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
+                        16. معمولا در طول یک روز، مجموعا چقدر از وقتتان را در حالت نشسته یا درازکش سپری می‌کنید؟
                     </label>
                     <div class="flex gap-3 text-base">
-                        <input type="number" id="q16_h" placeholder="ساعت در روز" class="w-1/2 p-2.5 border rounded-lg" value="6">
-                        <input type="number" id="q16_m" placeholder="دقیقه در روز" class="w-1/2 p-2.5 border rounded-lg" value="0">
+                        <input type="number" id="q16_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg" value="6">
+                        <input type="number" id="q16_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg" value="0">
                     </div>
                 </div>
                 <div class="flex gap-3">
@@ -443,12 +471,13 @@
         </div>
     </div>
 
-    <!-- فرم مخفی -->
+    <!-- فرم مخفی برای ارسال به گوگل شیت -->
     <iframe name="hidden_iframe" style="display:none;"></iframe>
     <form id="hiddenGoogleForm" action="https://script.google.com/macros/s/AKfycbxWYemRTUxFXKo4p3oJPlpGSMgfjc8fUW27Cp6g2edC16_tgrGk0kXdpB6gtmg6swQnQA/exec" method="GET" target="hidden_iframe" style="display:none;">
         <input type="hidden" name="age" id="h_age">
         <input type="hidden" name="gender" id="h_gender">
         <input type="hidden" name="education" id="h_education">
+        <input type="hidden" name="religion" id="h_religion">
         <input type="hidden" name="marital" id="h_marital">
         <input type="hidden" name="job" id="h_job">
         <input type="hidden" name="jobTitle" id="h_jobTitle"> 
@@ -502,7 +531,7 @@
         function toggleJobTitle() {
             const job = document.getElementById('job').value;
             const container = document.getElementById('jobTitleContainer');
-            if(job === 'خانه‌دار' || job === 'دانشجو' || job === 'بازنشسته') {
+            if(job.includes('خانه‌دار') || job.includes('دانشجو') || job.includes('بازنشسته') || job === '') {
                 container.style.display = 'none';
                 document.getElementById('jobTitle').value = ''; 
             } else {
@@ -524,14 +553,14 @@
             const jobTitle = document.getElementById('jobTitle').value;
 
             let isJobValid = true;
-            if ((job === 'نشسته' || job === 'شدید' || job === 'متوسط') && jobTitle.trim() === '') {
+            if ((job.includes('نشسته') || job.includes('شدید') || job.includes('متوسط')) && jobTitle.trim() === '') {
                 isJobValid = false;
             }
 
             if(!age || !weight || !height || job === '' || !isJobValid) {
                 const errorDiv = document.getElementById('step1_error');
                 if(job === '') {
-                    errorDiv.innerText = "لطفاً گروه شغلی خود را انتخاب کنید.";
+                    errorDiv.innerText = "لطفاً شغل خود را انتخاب کنید.";
                 } else if(!isJobValid) {
                     errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
                 } else {
@@ -640,9 +669,9 @@
 
             let grandTotalMET = workVigorous + workModerate + transport + recVigorous + recModerate;
             
-            let category = "نامطلوب / کم‌تحرک"; 
+            let category = "نامطلوب / کم‌تحرک (Not meeting WHO recommendations)"; 
             if (grandTotalMET >= 600) {
-                category = "مطلوب (تامین توصیه‌های WHO)"; 
+                category = "مطلوب (Meets WHO recommendations)"; 
             }
 
             let sedHours = (parseFloat(document.getElementById('q16_h').value)||0) + ((parseFloat(document.getElementById('q16_m').value)||0)/60);
@@ -650,7 +679,7 @@
             document.getElementById('res_total_met').innerText = grandTotalMET.toFixed(0) + " MET-min";
             document.getElementById('res_category').innerText = category;
 
-            let msg = `با توجه به گروه شغلی و میزان نشستن روزانه (${sedHours.toFixed(1)} ساعت): `;
+            let msg = `با توجه به وضعیت شغلی و میزان نشستن روزانه (${sedHours.toFixed(1)} ساعت): `;
             if (sedHours > 7) {
                 msg += "میزان رفتار کم‌تحرک شما بالاست. پیشنهاد می‌شود هر ۴۵ دقیقه نشستن، ۲ دقیقه پیاده‌روی یا کشش انجام دهید. ";
             }
@@ -664,6 +693,7 @@
             document.getElementById('h_age').value = getVal('age');
             document.getElementById('h_gender').value = getVal('gender');
             document.getElementById('h_education').value = getVal('education');
+            document.getElementById('h_religion').value = getVal('religion');
             document.getElementById('h_marital').value = getVal('marital');
             document.getElementById('h_job').value = getVal('job');
             document.getElementById('h_jobTitle').value = getVal('jobTitle');
