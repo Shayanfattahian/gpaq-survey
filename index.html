@@ -25,12 +25,12 @@
     <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative">
         <div class="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 p-6 text-white text-center">
             <h1 class="text-xl md:text-2xl font-black tracking-wide mb-1">سامانه هوشمند ارزیابی فعالیت فیزیکی (GPAQ)</h1>
-            <p class="text-indigo-100 text-xs md:text-sm">طرح تحقیقاتی دانشگاهی</p>
+            <p class="text-indigo-100 text-xs md:text-sm">طرح تحقیقاتی ملی و دانشگاهی</p>
         </div>
 
         <div class="p-6 md:p-8">
 
-            <!-- STEP 1 -->
+            <!-- ================= بخش اول: اطلاعات جمعیت‌شناختی و اجتماعی - اقتصادی ================= -->
             <div class="step-card active animate__animated animate__fadeIn" id="step1">
                 <div class="bg-indigo-50 border border-indigo-200 p-5 rounded-2xl mb-8 shadow-sm">
                     <div class="flex justify-center mb-4">
@@ -41,7 +41,7 @@
                         شما جهت شرکت در طرح تحقیقاتی با عنوان <b>«ترجمه و روان‌سنجی نسخه فارسی پرسشنامه جهانی فعالیت فیزیکی (GPAQ)»</b> دعوت شده‌اید. هدف از این پژوهش، ارزیابی دقیق سطح فعالیت بدنی در مشاغل و سبک زندگی جامعه است. مشارکت و پاسخ‌های صادقانه شما به ما در استانداردسازی این ابزار بین‌المللی متعلق به سازمان جهانی بهداشت (WHO) کمک شایانی خواهد کرد.
                     </p>
                     <div class="bg-white p-4 rounded-xl text-xs md:text-sm text-slate-800 space-y-3 border border-indigo-100 leading-relaxed">
-                        <p>🎓 <b>مجری طرح:</b> شایان فتاحیان کلیشادرخی (دانشجوی کارشناسی ارشد پرستاری، دانشگاه علوم پزشکی کاشان)</p>
+                        <p>🎓 <b>مجری طرح:</b> شایان فتاحیان (دانشجوی کارشناسی ارشد پرستاری، دانشگاه علوم پزشکی کاشان)</p>
                         <p>⚖️ <b>کد مصوب کمیته اخلاق:</b> <span class="font-bold text-indigo-700" dir="ltr">IR.KAUMS.NUHEPM.REC.1405.046</span></p>
                         <p>🔒 <b>محرمانگی:</b> به شما اطمینان می‌دهیم که تمامی اطلاعات فردی شما کاملاً محرمانه و ناشناس محفوظ خواهد ماند.</p>
                     </div>
@@ -80,15 +80,15 @@
                         </select>
                     </div>
                     <div class="md:col-span-2">
-                        <label class="block font-bold text-slate-700 mb-1">گروه شغلی: *</label>
+                        <label class="block font-bold text-slate-700 mb-1">شغل: *</label>
                         <select id="job" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" onchange="toggleJobTitle()">
                             <option value="">انتخاب کنید...</option>
                             <option value="بازنشسته / فاقد شغل">بازنشسته / فاقد شغل</option>
                             <option value="خانه‌دار (بدون شغل بیرون از منزل)">خانه‌دار (بدون شغل بیرون از منزل)</option>
                             <option value="دانشجو / محصل">دانشجو / محصل</option>
-                            <option value="مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)">مشاغل نشسته و کم‌تحرک (مثلا کارمند اداری، راننده، حسابدار)</option>
-                            <option value="مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)">مشاغل با تحرک و ایستادن متوسط (مثلا کادر درمان، معلم، فروشنده، آرایشگر)</option>
-                            <option value="مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)">مشاغل با فعالیت فیزیکی شدید (مثلا کارگر، کشاورز، باربر)</option>
+                            <option value="مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
+                            <option value="مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)">مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)</option>
+                            <option value="مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
                         </select>
                     </div>
                     <div class="md:col-span-2" id="jobTitleContainer" style="display: none;">
@@ -139,42 +139,80 @@
                 </button>
             </div>
 
-            <!-- STEP 2 -->
+            <!-- ================= بخش دوم: سوابق پزشکی و غربالگری بالینی ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step2">
                 <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6">سوابق پزشکی و غربالگری بالینی</h2>
                 <div class="space-y-5 text-sm md:text-base">
+                    
+                    <!-- اصلاح ۱: بیماری‌های مزمن به‌صورت چک‌باکس چندانتخابی -->
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های مزمن (غیرواگیر):</label>
-                        <select id="med_chronic" class="w-full p-2.5 border rounded-xl bg-white outline-none">
-                            <option>هیچکدام</option><option>دیابت</option><option>فشارخون</option><option>بیماری قلبی</option><option>آسم / COPD</option>
-                        </select>
+                        <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های مزمن (غیرواگیر) - امکان انتخاب چند مورد: *</label>
+                        <div class="grid grid-cols-2 gap-2 mt-2">
+                            <label class="flex items-center gap-2 p-2 bg-white rounded-lg border cursor-pointer hover:bg-slate-100">
+                                <input type="checkbox" name="chronic" value="دیابت" onchange="handleChronicChange(this)" class="w-4 h-4 text-indigo-600 rounded">
+                                <span>دیابت</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white rounded-lg border cursor-pointer hover:bg-slate-100">
+                                <input type="checkbox" name="chronic" value="فشارخون" onchange="handleChronicChange(this)" class="w-4 h-4 text-indigo-600 rounded">
+                                <span>فشارخون</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white rounded-lg border cursor-pointer hover:bg-slate-100">
+                                <input type="checkbox" name="chronic" value="بیماری قلبی" onchange="handleChronicChange(this)" class="w-4 h-4 text-indigo-600 rounded">
+                                <span>بیماری قلبی</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white rounded-lg border cursor-pointer hover:bg-slate-100">
+                                <input type="checkbox" name="chronic" value="آسم / COPD" onchange="handleChronicChange(this)" class="w-4 h-4 text-indigo-600 rounded">
+                                <span>آسم / COPD</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2 bg-white rounded-lg border cursor-pointer hover:bg-slate-100 col-span-2">
+                                <input type="checkbox" id="chronic_none" name="chronic" value="هیچکدام" onchange="handleChronicNone(this)" class="w-4 h-4 text-indigo-600 rounded" checked>
+                                <span class="font-bold text-slate-800">هیچکدام</span>
+                            </label>
+                        </div>
                     </div>
+
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های غدد و متابولیک:</label>
                         <select id="med_endocrine" class="w-full p-2.5 border rounded-xl bg-white outline-none">
                             <option>هیچکدام</option><option>هایپوتیروئیدی</option><option>سندروم کوشینگ</option><option>PCOS</option>
                         </select>
                     </div>
+
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <label class="block font-bold text-slate-700 mb-2">محدودیت حرکتی و اسکلتی - عضلانی:</label>
                         <select id="med_mobility" class="w-full p-2.5 border rounded-xl bg-white outline-none">
                             <option>فاقد محدودیت</option><option>آرتروز شدید</option><option>سابقه جراحی ارتوپدی بزرگ</option><option>قطع عضو</option>
                         </select>
                     </div>
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <label class="block font-bold text-slate-700 mb-2">سابقه مصرف دارویی خاص:</label>
-                        <select id="med_drugs" class="w-full p-2.5 border rounded-xl bg-white outline-none">
-                            <option>فاقد مصرف</option><option>کورتیکواستروئیدها (کورتون‌ها)</option><option>داروهای اعصاب و روان</option>
-                        </select>
+
+                    <!-- اصلاح ۲: داروهای مصرفی و باکس فعال‌شونده دوز و نام دارو -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-2">سابقه مصرف دارویی خاص:</label>
+                            <select id="med_drugs" class="w-full p-2.5 border rounded-xl bg-white outline-none" onchange="toggleDrugDetails()">
+                                <option value="فاقد مصرف">فاقد مصرف</option>
+                                <option value="کورتیکواستروئیدها (کورتون‌ها)">کورتیکواستروئیدها (کورتون‌ها)</option>
+                                <option value="داروهای اعصاب و روان">داروهای اعصاب و روان</option>
+                                <option value="سایر داروها">سایر داروهای مداوم</option>
+                            </select>
+                        </div>
+                        <div id="drugDetailsContainer" style="display: none;">
+                            <label class="block font-bold text-indigo-900 mb-1 text-sm">نام و دوز داروهای مصرفی: *</label>
+                            <input type="text" id="med_drugDetails" class="w-full p-2.5 bg-white border border-indigo-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً: پردنیزولون ۵ میلی‌گرم روزانه، متفورمین ۵۰۰...">
+                        </div>
                     </div>
+
                 </div>
+
+                <div id="step2_error" class="hidden mt-4 text-sm text-red-700 font-bold text-center bg-red-100 p-3 rounded-lg"></div>
+
                 <div class="flex gap-3 mt-6">
                     <button type="button" onclick="goToStep(1)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="nextFromStep2()" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="validateAndNextStep2()" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- STEP 3 (AMTS) -->
+            <!-- ================= STEP 3: ارزیابی شناختی (AMTS) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step3">
                 <div class="bg-amber-50 border-r-4 border-amber-500 p-4 rounded-l-xl text-amber-900 mb-5 text-justify text-sm">
                     <b>توجه پژوهشگر:</b> با توجه به اینکه سن آزمودنی بالای ۶۵ سال است، لطفاً پیش از ورود به پرسشنامه اصلی، ارزیابی مختصر شناختی (AMTS) را جهت تایید اعتبار داده‌ها تکمیل نمایید.
@@ -231,7 +269,7 @@
                 </div>
             </div>
 
-            <!-- STEP 4 -->
+            <!-- ================= پرسشنامه جهانی فعالیت فیزیکی (GPAQ): مقدمه ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step4">
                 <div class="flex justify-center mb-4">
                     <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_tuq29v2e.json" background="transparent" speed="1" style="width: 140px; height: 140px;" loop autoplay></lottie-player>
@@ -251,7 +289,7 @@
                 </div>
             </div>
 
-            <!-- STEP 5 -->
+            <!-- ================= فعالیت در محل کار (شدید) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step5">
                 <div class="flex justify-center mb-3">
                     <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
@@ -293,7 +331,7 @@
                 </div>
             </div>
 
-            <!-- STEP 6 -->
+            <!-- ================= فعالیت در محل کار (متوسط) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step6">
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">فعالیت در محل کار (متوسط)</h3>
                 
@@ -332,7 +370,7 @@
                 </div>
             </div>
 
-            <!-- STEP 7 -->
+            <!-- ================= رفت‌وآمد به مکان‌های مختلف ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step7">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose text-justify">
                     <b>رفت‌وآمد به مکان‌های مختلف:</b><br>
@@ -374,7 +412,7 @@
                 </div>
             </div>
 
-            <!-- STEP 8 -->
+            <!-- ================= فعالیت‌های تفریحی (اوقات فراغت) - شدید ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step8">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose text-justify">
                     <b>فعالیت‌های تفریحی (اوقات فراغت):</b><br>
@@ -416,7 +454,7 @@
                 </div>
             </div>
 
-            <!-- STEP 9 -->
+            <!-- ================= فعالیت‌های تفریحی (اوقات فراغت) - متوسط ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step9">
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg mt-4">فعالیت‌های تفریحی (اوقات فراغت) - متوسط</h3>
                 
@@ -454,7 +492,7 @@
                 </div>
             </div>
 
-            <!-- STEP 10 -->
+            <!-- ================= رفتارهای کم‌تحرک ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step10">
                 <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-l-xl text-sm md:text-base text-red-900 mb-5 mt-4 leading-loose text-justify">
                     <b>رفتارهای کم‌تحرک:</b><br>
@@ -482,12 +520,13 @@
                 </div>
             </div>
 
-            <!-- STEP 11 -->
+            <!-- ================= STEP 11: نتیجه نهایی و توصیه‌های بازطراحی‌شده WHO 2020 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step11">
                 <h2 class="font-black text-emerald-800 border-b-2 border-emerald-200 pb-3 mb-6 text-center text-lg md:text-xl">نتایج تحلیلی شاخص فعالیت بدنی (GPAQ)</h2>
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
-                    ✅ اطلاعات شما با موفقیت در سامانه ثبت شد. از مشارکت شما سپاسگزاریم!
+                    ✅ اطلاعات شما با موفقیت در سامانه دانشگاه ثبت شد. از مشارکت شما سپاسگزاریم!
                 </div>
+                
                 <div class="grid grid-cols-2 gap-4 mb-6 text-center">
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
                         <span class="text-xs md:text-sm text-slate-500 block mb-2">مجموع MET هفته:</span>
@@ -498,17 +537,23 @@
                         <span id="res_category" class="text-sm md:text-base font-bold text-slate-800">-</span>
                     </div>
                 </div>
-                <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-5 mb-8">
-                    <h4 class="text-base md:text-lg font-bold text-indigo-900 mb-2">بازخورد و توصیه سبک زندگی:</h4>
-                    <p id="ai_recommendation" class="text-sm md:text-base text-indigo-900 leading-loose text-justify">-</p>
+
+                <div class="bg-gradient-to-br from-indigo-50 to-slate-50 border border-indigo-200 rounded-2xl p-6 mb-8 text-slate-800 space-y-4">
+                    <div class="flex items-center gap-2 border-b border-indigo-100 pb-3">
+                        <span class="text-2xl">📋</span>
+                        <h4 class="text-base md:text-lg font-black text-indigo-950">توصیه‌های اختصاصی بر اساس راهنمای سلامت WHO (2020)</h4>
+                    </div>
+                    <div id="ai_recommendation" class="space-y-3 text-sm md:text-base leading-loose text-justify">
+                    </div>
                 </div>
+
                 <button type="button" onclick="location.reload()" class="w-full bg-slate-800 text-white font-bold text-base py-3.5 rounded-xl hover:bg-slate-900 transition shadow-lg">تکمیل مجدد (آزمودنی جدید) ↺</button>
             </div>
 
         </div>
     </div>
 
-    <!-- فرم مخفی -->
+    <!-- فرم مخفی برای ارسال به گوگل شیت -->
     <iframe name="hidden_iframe" style="display:none;"></iframe>
     <form id="hiddenGoogleForm" action="https://script.google.com/macros/s/AKfycbxWYemRTUxFXKo4p3oJPlpGSMgfjc8fUW27Cp6g2edC16_tgrGk0kXdpB6gtmg6swQnQA/exec" method="GET" target="hidden_iframe" style="display:none;">
         <input type="hidden" name="age" id="h_age">
@@ -529,6 +574,7 @@
         <input type="hidden" name="med_endocrine" id="h_med_endocrine">
         <input type="hidden" name="med_mobility" id="h_med_mobility">
         <input type="hidden" name="med_drugs" id="h_med_drugs">
+        <input type="hidden" name="med_drugDetails" id="h_med_drugDetails"> <!-- فیلد جدید دوز و نام دارو -->
         
         <input type="hidden" name="amts_score" id="h_amts_score"> 
         
@@ -563,6 +609,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             toggleJobTitle();
+            toggleDrugDetails();
         });
 
         function toggleJobTitle() {
@@ -573,6 +620,46 @@
                 document.getElementById('jobTitle').value = ''; 
             } else {
                 container.style.display = 'block';
+            }
+        }
+
+        // مدیریت تغییر وضعیت چک‌باکس‌های بیماری مزمن
+        function handleChronicChange(checkbox) {
+            const noneCheckbox = document.getElementById('chronic_none');
+            if (checkbox.checked) {
+                noneCheckbox.checked = false;
+            } else {
+                checkIfNoneNeeded();
+            }
+        }
+
+        function handleChronicNone(noneCheckbox) {
+            if (noneCheckbox.checked) {
+                const checkboxes = document.querySelectorAll('input[name="chronic"]');
+                checkboxes.forEach(cb => {
+                    if (cb !== noneCheckbox) cb.checked = false;
+                });
+            }
+        }
+
+        function checkIfNoneNeeded() {
+            const checkedItems = document.querySelectorAll('input[name="chronic"]:checked');
+            if (checkedItems.length === 0) {
+                document.getElementById('chronic_none').checked = true;
+            }
+        }
+
+        // تابع فعال‌سازی فیلد جزئیات و دوز داروها
+        function toggleDrugDetails() {
+            const drugVal = document.getElementById('med_drugs').value;
+            const container = document.getElementById('drugDetailsContainer');
+            const detailsInput = document.getElementById('med_drugDetails');
+            
+            if (drugVal !== "فاقد مصرف") {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+                detailsInput.value = '';
             }
         }
 
@@ -610,7 +697,20 @@
             }
         }
 
-        function nextFromStep2() {
+        // اعتبارسنجی بخش دوم (داروها و بیماری‌ها)
+        function validateAndNextStep2() {
+            const drugVal = document.getElementById('med_drugs').value;
+            const drugDetails = document.getElementById('med_drugDetails').value;
+            const errorDiv = document.getElementById('step2_error');
+
+            if (drugVal !== "فاقد مصرف" && drugDetails.trim() === "") {
+                errorDiv.innerText = "لطفاً نام و دوز داروی مصرفی خود را وارد نمایید.";
+                errorDiv.classList.remove('hidden');
+                return;
+            } else {
+                errorDiv.classList.add('hidden');
+            }
+
             const age = parseInt(document.getElementById('age').value);
             if (age > 65) {
                 goToStep(3); 
@@ -716,17 +816,73 @@
             document.getElementById('res_total_met').innerText = grandTotalMET.toFixed(0) + " MET-min";
             document.getElementById('res_category').innerText = category;
 
-            let msg = `با توجه به وضعیت شغلی و میزان نشستن روزانه (${sedHours.toFixed(1)} ساعت): `;
-            if (sedHours > 7) {
-                msg += "میزان رفتار کم‌تحرک شما بالاست. پیشنهاد می‌شود هر ۴۵ دقیقه نشستن، ۲ دقیقه پیاده‌روی یا کشش انجام دهید. ";
-            }
-            if (category.includes("نامطلوب")) {
-                msg += "سطح فعالیت بدنی شما کمتر از حد استاندارد سازمان جهانی بهداشت (WHO) است. روزانه حداقل ۳۰ دقیقه پیاده‌روی تند را برنامه‌ریزی کنید.";
-            } else {
-                msg += "سطح فعالیت بدنی شما در محدوده توصیه‌شده و مطلوب قرار دارد. حفظ این سبک زندگی به شدت توصیه می‌شود.";
-            }
-            document.getElementById('ai_recommendation').innerText = msg;
+            // استخراج بیماری‌های مزمن انتخاب‌شده
+            let selectedChronic = [];
+            document.querySelectorAll('input[name="chronic"]:checked').forEach(cb => {
+                selectedChronic.push(cb.value);
+            });
+            let chronicStr = selectedChronic.length > 0 ? selectedChronic.join("، ") : "هیچکدام";
 
+            // تولید توصیه‌های هوشمند و بالینی بر اساس WHO Guidelines 2020
+            const ageVal = parseInt(document.getElementById('age').value) || 30;
+            const mobilityVal = document.getElementById('med_mobility').value;
+            const isMeets = grandTotalMET >= 600;
+
+            let recHTML = "";
+
+            if (isMeets) {
+                recHTML += `<div class="p-3 bg-emerald-50 border-r-4 border-emerald-500 rounded-lg">
+                    <b class="text-emerald-900">✅ وضعیت فعالیت هوازی:</b> 
+                    مجموع فعالیت فیزیکی هفتگی شما در محدوده استاندارد سلامت سازمان جهانی بهداشت (حداقل ۱۵۰ تا ۳۰۰ دقیقه فعالیت با شدت متوسط یا ۷۵ تا ۱۵۰ دقیقه فعالیت با شدت زیاد در هفته) قرار دارد. این سطح از تحرک، ریسک بیماری‌های قلبی-عروقی، پرفشاری خون، دیابت نوع ۲ و سرطان‌ها را به میزان معناداری کاهش می‌دهد.
+                </div>`;
+            } else {
+                recHTML += `<div class="p-3 bg-amber-50 border-r-4 border-amber-500 rounded-lg">
+                    <b class="text-amber-900">⚠️ وضعیت فعالیت هوازی:</b> 
+                    سطح تحرک بدنی شما کمتر از آستانه توصیه‌شده WHO (معادل ۱۵۰ دقیقه فعالیت متوسط در هفته یا ۶۰۰ MET-دقیقه) است. بر اساس اصل <i>«Doing some physical activity is better than doing none»</i>، هرگونه افزایش تدریجی تحرک حتی با فعالیت‌های روزمره سبک و پیاده‌روی سریع دارای منافع مستقیم برای سلامت عمومی است.
+                </div>`;
+            }
+
+            recHTML += `<div class="p-3 bg-indigo-50 border-r-4 border-indigo-500 rounded-lg">
+                <b class="text-indigo-900">💪 تمرینات تقویت عضلات (Muscle Strengthening):</b> 
+                بر اساس دستورالعمل WHO، توصیه اکید می‌شود حداقل <b>۲ روز در هفته</b> تمرینات مقاومتی و تقویت‌کننده عضلانی با شدت متوسط یا بیشتر که کلیه گروه‌های عضلانی اصلی (پاها، بالاتنه، شکم و پشت) را درگیر کنند، انجام دهید.
+            </div>`;
+
+            if (ageVal >= 65) {
+                recHTML += `<div class="p-3 bg-purple-50 border-r-4 border-purple-500 rounded-lg">
+                    <b class="text-purple-900">👴 توصیه‌های ویژه گروه سنی ۶۵ سال به بالا (Older Adults):</b> 
+                    سازمان جهانی بهداشت تأکید می‌کند که سالمندان باید حداقل <b>۳ روز در هفته</b> تمرینات چندوجهی (Multicomponent Physical Activity) با تمرکز بر تعادل عملکردی (Functional Balance) و تمرینات قدرتی با شدت متوسط تا بیشتر انجام دهند تا ظرفیت عملکردی حفظ شده و از خطر زمین خوردن (Falls Prevention) پیشگیری شود.
+                </div>`;
+            }
+
+            if (sedHours > 7.5) {
+                recHTML += `<div class="p-3 bg-rose-50 border-r-4 border-rose-500 rounded-lg">
+                    <b class="text-rose-900">🪑 رفتار کم‌تحرک و زمان نشستن بالا (${sedHours.toFixed(1)} ساعت در روز):</b> 
+                    مدت‌زمان نشستن روزانه شما بالاست. طبق گایدلاین WHO، برای تعدیل اثرات سوء نشستن طولانی‌مدت بر سلامت متابولیک، باید زمان‌های بی‌تحرکی طولانی را با فعالیت‌های سبک (ایستادن، راه رفتن کوتاه) بشکنید و در صورت امکان حجم فعالیت بدنی متوسط تا شدید هفتگی خود را فراتر از حداقل‌های توصیه شده افزایش دهید.
+                </div>`;
+            } else {
+                recHTML += `<div class="p-3 bg-slate-50 border-r-4 border-slate-400 rounded-lg">
+                    <b class="text-slate-800">⏱️ مدیریت نشستن روزانه (${sedHours.toFixed(1)} ساعت):</b> 
+                    میزان رفتار کم‌تحرک شما در وضعیت کنترل‌شده قرار دارد. توصیه می‌شود وضعیت نشستن پشت میز یا صفحه نمایش را در فواصل ۴۵ دقیقه‌ای تغییر داده و از تحرک مقطعی غافل نشوید.
+                </div>`;
+            }
+
+            if (chronicStr !== "هیچکدام") {
+                recHTML += `<div class="p-3 bg-blue-50 border-r-4 border-blue-500 rounded-lg">
+                    <b class="text-blue-900">🩺 توصیه برای بیماری‌های مزمن گزارش‌شده (${chronicStr}):</b> 
+                    بر اساس راهنمای ۲۰۲۰ سازمان جهانی بهداشت، فعالیت بدنی منظم در افراد مبتلا به ${chronicStr} کاملاً ایمن و به عنوان یک مداخله استاندارد درمانی برای کنترل پیشرفت بیماری توصیه می‌شود. شروع باید با شدت سبک تا متوسط و با افزایش تدریجی مدت‌زمان باشد.
+                </div>`;
+            }
+
+            if (mobilityVal !== "فاقد محدودیت") {
+                recHTML += `<div class="p-3 bg-teal-50 border-r-4 border-teal-500 rounded-lg">
+                    <b class="text-teal-900">♿ ملاحظات محدودیت حرکتی (${mobilityVal}):</b> 
+                    طبق دستورالعمل افراد دارای محدودیت عملکردی، انجام فعالیت بدنی متناسب با توان حرکتی ایمن است. فعالیت‌ها باید متناسب با توان عضلانی، بدون ایجاد فشار مضاعف و در صورت نیاز با تمرینات بالاتنه یا حرکات نشسته اجرا شوند.
+                </div>`;
+            }
+
+            document.getElementById('ai_recommendation').innerHTML = recHTML;
+
+            // پر کردن مقادیر فرم مخفی برای ارسال به شیت
             document.getElementById('h_age').value = getVal('age');
             document.getElementById('h_gender').value = getVal('gender');
             document.getElementById('h_education').value = getVal('education');
@@ -741,10 +897,11 @@
             document.getElementById('h_smoking').value = getVal('smoking');
             document.getElementById('h_sleep').value = getVal('sleep');
             
-            document.getElementById('h_med_chronic').value = getVal('med_chronic');
+            document.getElementById('h_med_chronic').value = chronicStr;
             document.getElementById('h_med_endocrine').value = getVal('med_endocrine');
             document.getElementById('h_med_mobility').value = getVal('med_mobility');
             document.getElementById('h_med_drugs').value = getVal('med_drugs');
+            document.getElementById('h_med_drugDetails').value = getVal('med_drugDetails');
 
             const age = parseInt(document.getElementById('age').value);
             if (age > 65) {
