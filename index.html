@@ -104,12 +104,12 @@
                             <label class="block font-medium text-slate-700 mb-1">گروه شغلی: *</label>
                             <select id="job" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none" onchange="toggleJobTitle()">
                                 <option value="">انتخاب کنید...</option>
-                                <option value="بازنشسته / فاقد شغل">بازنشسته / فاقد شغل</option>
-                                <option value="خانه‌دار (بدون شغل بیرون از منزل)">خانه‌دار (بدون شغل بیرون از منزل)</option>
-                                <option value="دانشجو / محصل">دانشجو / محصل</option>
-                                <option value="مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
-                                <option value="مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)">مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)</option>
-                                <option value="مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
+                                <option value="retired">بازنشسته / فاقد شغل</option>
+                                <option value="homemaker">خانه‌دار (بدون شغل بیرون از منزل)</option>
+                                <option value="student">دانشجو / محصل</option>
+                                <option value="sedentary">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
+                                <option value="moderate">مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)</option>
+                                <option value="vigorous">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
                             </select>
                         </div>
                         <div class="md:col-span-2" id="jobTitleContainer" style="display: none;">
@@ -430,7 +430,7 @@
                 </div>
                 <div id="q7_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">8. معمولا در طول یک هفته، چند روز برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه پیاده‌روی یا دوچرخه‌سواری می‌کنید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">8. معمولا در طول یک هفته، چند روز برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم پیاده‌روی یا دوچرخه‌سواری می‌کنید؟</label>
                         <input type="number" id="q8" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
@@ -739,7 +739,6 @@
         <input type="hidden" name="q10" id="h_q10">
         <input type="hidden" name="q11" id="h_q11">
         <input type="hidden" name="q12_h" id="h_q12_h">
-        <input type="hidden" name="q12_m" id="h_q12_m">
         <input type="hidden" name="q13" id="h_q13">
         <input type="hidden" name="q14" id="h_q14">
         <input type="hidden" name="q15_h" id="h_q15_h">
@@ -771,14 +770,25 @@
             toggleDrugDetails();
         });
 
+        const jobLabelsMap = {
+            'retired': 'بازنشسته / فاقد شغل',
+            'homemaker': 'خانه‌دار (بدون شغل بیرون از منزل)',
+            'student': 'دانشجو / محصل',
+            'sedentary': 'مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)',
+            'moderate': 'مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)',
+            'vigorous': 'مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)'
+        };
+
         function toggleJobTitle() {
-            const job = document.getElementById('job').value;
+            const jobVal = document.getElementById('job').value;
             const container = document.getElementById('jobTitleContainer');
-            if(job.includes('خانه‌دار') || job.includes('دانشجو') || job.includes('بازنشسته') || job === '') {
-                container.style.display = 'none';
-                document.getElementById('jobTitle').value = ''; 
-            } else {
+            const jobTitleInput = document.getElementById('jobTitle');
+            
+            if (jobVal === 'sedentary' || jobVal === 'moderate' || jobVal === 'vigorous') {
                 container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+                if (jobTitleInput) jobTitleInput.value = ''; 
             }
         }
 
@@ -848,30 +858,38 @@
             const age = document.getElementById('age').value;
             const weight = document.getElementById('weight').value;
             const height = document.getElementById('height').value;
-            const job = document.getElementById('job').value;
+            const jobVal = document.getElementById('job').value;
             const jobTitle = document.getElementById('jobTitle').value;
 
-            let isJobValid = true;
-            if ((job.includes('نشسته') || job.includes('شدید') || job.includes('متوسط')) && jobTitle.trim() === '') {
-                isJobValid = false;
+            const errorDiv = document.getElementById('step1_error');
+
+            if (!interviewer) {
+                errorDiv.innerText = "لطفاً مشخص نمایید تکمیل‌کننده فرم چه کسی است (پژوهشگر اصلی یا همکار).";
+                errorDiv.classList.remove('hidden');
+                return;
             }
 
-            if(!interviewer || !age || !weight || !height || job === '' || !isJobValid) {
-                const errorDiv = document.getElementById('step1_error');
-                if(!interviewer) {
-                    errorDiv.innerText = "لطفاً مشخص نمایید تکمیل‌کننده فرم چه کسی است (پژوهشگر اصلی یا همکار).";
-                } else if(job === '') {
-                    errorDiv.innerText = "لطفاً گروه شغلی خود را انتخاب کنید.";
-                } else if(!isJobValid) {
-                    errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
-                } else {
-                    errorDiv.innerText = "لطفاً فیلدهای ستاره‌دار (سن، وزن و قد) را وارد کنید.";
-                }
+            if (!jobVal) {
+                errorDiv.innerText = "لطفاً گروه شغلی خود را انتخاب کنید.";
                 errorDiv.classList.remove('hidden');
-            } else {
-                document.getElementById('step1_error').classList.add('hidden');
-                goToStep(2);
+                return;
             }
+
+            const needsTitle = (jobVal === 'sedentary' || jobVal === 'moderate' || jobVal === 'vigorous');
+            if (needsTitle && (!jobTitle || jobTitle.trim() === '')) {
+                errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+
+            if (!age || !weight || !height) {
+                errorDiv.innerText = "لطفاً فیلدهای ستاره‌دار (سن، وزن و قد) را وارد کنید.";
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+
+            errorDiv.classList.add('hidden');
+            goToStep(2);
         }
 
         function validateAndNextStep2() {
@@ -1069,8 +1087,11 @@
             document.getElementById('h_education').value = getVal('education');
             document.getElementById('h_religion').value = getVal('religion');
             document.getElementById('h_marital').value = getVal('marital');
-            document.getElementById('h_job').value = getVal('job');
+            
+            const rawJob = document.getElementById('job').value;
+            document.getElementById('h_job').value = jobLabelsMap[rawJob] || "-";
             document.getElementById('h_jobTitle').value = getVal('jobTitle');
+            
             document.getElementById('h_economy').value = getVal('economy');
             document.getElementById('h_weight').value = getVal('weight');
             document.getElementById('h_height').value = getVal('height');
@@ -1134,7 +1155,7 @@
             document.getElementById('h_q16_h').value = getVal('q16_h');
             document.getElementById('h_q16_m').value = getVal('q16_m');
 
-            // IPAQ (ایمن‌سازی در برابر Null)
+            // IPAQ
             if (isRetestAgree) {
                 const q1None = document.getElementById('ipaq_q1_none');
                 document.getElementById('h_ipaq_q1').value = (q1None && q1None.checked) ? "۰" : getVal('ipaq_q1');
