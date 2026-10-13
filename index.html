@@ -7,8 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;900&display=swap');
         body, p, label, input, select, button, div, span, li, h1, h2, h3, h4 { 
@@ -32,7 +30,7 @@
 
         <div class="p-6 md:p-8">
 
-            <!-- ================= بخش اول: اطلاعات جمعیت‌شناختی و تن‌سنجی (طراحی متقارن) ================= -->
+            <!-- ================= بخش اول: اطلاعات جمعیت‌شناختی و تن‌سنجی ================= -->
             <div class="step-card active animate__animated animate__fadeIn" id="step1">
                 <div class="bg-indigo-50/70 border border-indigo-100 p-5 rounded-2xl mb-8 shadow-sm">
                     <div class="flex justify-center mb-3">
@@ -45,11 +43,10 @@
                     <div class="bg-white p-3.5 rounded-xl text-xs md:text-sm text-slate-800 space-y-2 border border-indigo-100 leading-relaxed">
                         <p>🎓 <b>مجری طرح:</b> شایان فتاحیان (دانشجوی کارشناسی ارشد پرستاری، دانشگاه علوم پزشکی کاشان)</p>
                         <p>⚖️ <b>کد مصوب کمیته اخلاق:</b> <span class="font-bold text-indigo-700" dir="ltr">IR.KAUMS.NUHEPM.REC.1405.046</span></p>
-                        <p>🔒 <b>محرمانگی:</b> به شما اطمینان می‌دهیم که تمامی اطلاعات فردی شما کاملاً محرمانه و ناشناس محفوظ خواهد ماند.</p>
+                        <p>🔒 <b>محرمانگی:</b> تمامی اطلاعات فردی شما کاملاً محرمانه محفوظ خواهد ماند.</p>
                     </div>
                 </div>
 
-                <!-- مشخصات مصاحبه‌کننده -->
                 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-6">
                     <label class="block font-bold text-indigo-950 mb-1.5 text-sm md:text-base">تکمیل‌کننده پرسشنامه: *</label>
                     <select id="interviewer" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500 font-semibold text-slate-800">
@@ -59,7 +56,6 @@
                     </select>
                 </div>
 
-                <!-- بلوک ۱: متغیرهای دموگرافیک پایه -->
                 <div class="border border-slate-200 rounded-2xl p-4 md:p-5 mb-5 bg-white shadow-sm">
                     <h3 class="font-bold text-slate-800 text-sm md:text-base mb-4 flex items-center gap-2 border-b pb-2">
                         <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
@@ -123,7 +119,6 @@
                     </div>
                 </div>
 
-                <!-- بلوک ۲: شاخص‌های آنتروپومتریک متقارن -->
                 <div class="border border-slate-200 rounded-2xl p-4 md:p-5 mb-5 bg-white shadow-sm">
                     <h3 class="font-bold text-slate-800 text-sm md:text-base mb-4 flex items-center gap-2 border-b pb-2">
                         <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
@@ -145,7 +140,6 @@
                     </div>
                 </div>
 
-                <!-- بلوک ۳: عادات سبک زندگی و ارتباط -->
                 <div class="border border-slate-200 rounded-2xl p-4 md:p-5 mb-6 bg-white shadow-sm">
                     <h3 class="font-bold text-slate-800 text-sm md:text-base mb-4 flex items-center gap-2 border-b pb-2">
                         <span class="w-2 h-2 rounded-full bg-purple-600"></span>
@@ -182,7 +176,7 @@
                 </button>
             </div>
 
-            <!-- ================= بخش دوم: سوابق پزشکی و غربالگری بالینی ================= -->
+            <!-- ================= بخش دوم: سوابق پزشکی ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step2">
                 <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6">سوابق پزشکی و غربالگری بالینی</h2>
                 <div class="space-y-5 text-sm md:text-base">
@@ -256,7 +250,7 @@
             <!-- ================= STEP 3: ارزیابی شناختی (AMTS) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step3">
                 <div class="bg-amber-50 border-r-4 border-amber-500 p-4 rounded-l-xl text-amber-900 mb-5 text-justify text-sm">
-                    <b>توجه پژوهشگر:</b> با توجه به اینکه سن آزمودنی بالای ۶۵ سال است، لطفاً پیش از ورود به پرسشنامه اصلی، ارزیابی مختصر شناختی (AMTS) را جهت تایید اعتبار داده‌ها تکمیل نمایید.
+                    <b>توجه پژوهشگر:</b> با توجه به اینکه سن آزمودنی بالای ۶۵ سال است، لطفاً پیش از ورود به پرسشنامه اصلی، ارزیابی مختصر شناختی (AMTS) را تکمیل نمایید.
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">ارزیابی شناختی (AMTS)</h3>
                 <div class="space-y-3 text-sm">
@@ -344,7 +338,7 @@
                 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
-                        1. آیا کارِ شما شامل فعالیت‌های بدنی شدید و سنگینی است که حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) طول بکشد و باعث شود به شدت نفس‌نفس بزنید یا ضربان قلبتان خیلی بالا برود؟ <br>
+                        1. آیا کارِ شما شامل فعالیت‌های بدنی شدید و سنگینی است که حداقل ۱۰ دقیقه به‌طور مداوم طول بکشد و باعث شود به شدت نفس‌نفس بزنید یا ضربان قلبتان خیلی بالا برود؟ <br>
                         <span class="text-xs md:text-sm font-normal text-slate-600">(مانند حمل یا بلند کردن بارهای سنگین، کندن زمین یا کارهای ساختمانی)</span>
                     </label>
                     <select id="q1" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q1', 'q1_sub')">
@@ -368,7 +362,7 @@
                 </div>
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(4)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q1', 6)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(6)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
@@ -383,7 +377,7 @@
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
-                        4. آیا کارِ شما شامل فعالیت‌های بدنی متوسط (سبک) است که حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) طول بکشد و باعث شود تنفس یا ضربان قلبتان فقط کمی تندتر شود؟ <br>
+                        4. آیا کارِ شما شامل فعالیت‌های بدنی متوسط (سبک) است که حداقل ۱۰ دقیقه به‌طور مداوم طول بکشد و باعث شود تنفس یا ضربان قلبتان فقط کمی تندتر شود؟ <br>
                         <span class="text-xs md:text-sm font-normal text-slate-600">مانند راه رفتن سریع یا جابه‌جا کردن بارهای سبک</span>
                     </label>
                     <select id="q4" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q4', 'q4_sub')">
@@ -407,7 +401,7 @@
                 </div>
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(5)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q4', 7)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(7)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
@@ -415,7 +409,7 @@
             <div class="step-card animate__animated animate__fadeIn" id="step7">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose text-justify">
                     <b>رفت‌وآمد به مکان‌های مختلف:</b><br>
-                    سؤالات این بخش، شامل فعالیت‌های بدنی در محل کار (که قبلاً پاسخ دادید) نمی‌شود. حالا می‌خواهم درباره روش معمولِ رفت‌وآمد شما به مکان‌های مختلف سؤال کنم. مثلاً رفتن به محل کار، خرید، بازار، یا مکان‌های مذهبی
+                    سؤالات این بخش، شامل فعالیت‌های بدنی در محل کار نمی‌شود. حالا می‌خواهم درباره روش معمولِ رفت‌وآمد شما به مکان‌های مختلف سؤال کنم. مثلاً رفتن به محل کار، خرید، بازار، یا مکان‌های مذهبی
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">رفت‌وآمد به مکان‌های مختلف</h3>
                 
@@ -426,7 +420,7 @@
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
-                        7. آیا برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) پیاده‌روی یا دوچرخه‌سواری می کنید؟
+                        7. آیا برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم پیاده‌روی یا دوچرخه‌سواری می کنید؟
                     </label>
                     <select id="q7" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q7', 'q7_sub')">
                         <option value="">انتخاب کنید</option>
@@ -436,7 +430,7 @@
                 </div>
                 <div id="q7_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">8. معمولا در طول یک هفته، چند روز برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم پیاده‌روی یا دوچرخه‌سواری می‌کنید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">8. معمولا در طول یک هفته، چند روز برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه پیاده‌روی یا دوچرخه‌سواری می‌کنید؟</label>
                         <input type="number" id="q8" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
@@ -449,7 +443,7 @@
                 </div>
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(6)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q7', 8)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(8)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
@@ -457,7 +451,7 @@
             <div class="step-card animate__animated animate__fadeIn" id="step8">
                 <div class="bg-blue-50 p-3.5 rounded-xl text-sm md:text-base text-blue-900 mb-5 border border-blue-200 mt-4 leading-loose text-justify">
                     <b>فعالیت‌های تفریحی (اوقات فراغت):</b><br>
-                    سؤالات این بخش، شامل فعالیت‌های کاری و رفت‌وآمدی (که قبلاً پاسخ دادید) نمی‌شود. حالا می‌خواهم درباره ورزش، تناسب اندام و فعالیت‌های تفریحی شما در اوقات فراغتی که دارید سؤال کنم.
+                    سؤالات این بخش، شامل فعالیت‌های کاری و رفت‌وآمدی نمی‌شود. حالا می‌خواهم درباره ورزش، تناسب اندام و فعالیت‌های تفریحی شما در اوقات فراغتی که دارید سؤال کنم.
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">فعالیت‌های تفریحی (اوقات فراغت)</h3>
                 
@@ -468,7 +462,7 @@
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
-                        10. آیا در اوقات فراغت خود، ورزش، تمرینات تناسب اندام یا فعالیت‌های تفریحیِ شدید و سنگینی انجام می‌دهید که حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) طول بکشد و باعث شود به شدت نفس‌نفس بزنید یا ضربان قلبتان خیلی بالا برود؟ (مانند دویدن یا فوتبال بازی کردن)
+                        10. آیا در اوقات فراغت خود، ورزش، تمرینات تناسب اندام یا فعالیت‌های تفریحیِ شدید و سنگینی انجام می‌دهید که حداقل ۱۰ دقیقه به‌طور مداوم طول بکشد و باعث شود به شدت نفس‌نفس بزنید یا ضربان قلبتان خیلی بالا برود؟ (مانند دویدن یا فوتبال بازی کردن)
                     </label>
                     <select id="q10" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q10', 'q10_sub')">
                         <option value="">انتخاب کنید</option>
@@ -478,7 +472,7 @@
                 </div>
                 <div id="q10_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">11. معمولا در طول یک هفته، چند روز چنین فعالیت‌های ورشی یا تفریحیِ شدید و سنگین را انجام می‌دهید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">11. معمولا در طول یک هفته، چند روز چنین فعالیت‌های ورزشی یا تفریحیِ شدید را انجام می‌دهید؟</label>
                         <input type="number" id="q11" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
@@ -491,7 +485,7 @@
                 </div>
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(7)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q10', 9)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(9)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
@@ -506,7 +500,7 @@
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
-                        13. آیا در اوقات فراغت خود، ورزش، تمرینات تناسب اندام یا فعالیت‌های تفریحیِ با شدت متوسطی (سبکی) انجام می‌دهید که حداقل ۱۰ دقیقه به‌طور مداوم طول بکشد و باعث شود تنفس یا ضربان قلبتان فقط کمی تندتر شود؟ (مانند پیاده‌روی تند، دوچرخه‌سواری، شنا یا والیبال)
+                        13. آیا در اوقات فراغت خود، ورزش، تمرینات تناسب اندام یا فعالیت‌های تفریحیِ با شدت متوسطی انجام می‌دهید که حداقل ۱۰ دقیقه طول بکشد و باعث شود تنفس یا ضربان قلبتان فقط کمی تندتر شود؟ (مانند پیاده‌روی تند، دوچرخه‌سواری، شنا یا والیبال)
                     </label>
                     <select id="q13" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q13', 'q13_sub')">
                         <option value="">انتخاب کنید</option>
@@ -516,11 +510,11 @@
                 </div>
                 <div id="q13_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">14. معمولا در طول یک هفته، چند روز چنین فعالیت‌های ورزشی یا تفریحیِ با شدت متوسط (سبک) را انجام می‌دهید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">14. معمولا در طول یک هفته، چند روز چنین فعالیت‌های ورزشی یا تفریحیِ با شدت متوسط را انجام می‌دهید؟</label>
                         <input type="number" id="q14" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
-                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">15. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های ورزشی یا تفریحیِ با شدت متوسط (سبک) می‌کنید؟</label>
+                        <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">15. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های ورزشی یا تفریحیِ با شدت متوسط می‌کنید؟</label>
                         <div class="flex gap-3">
                             <input type="number" id="q15_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
                             <input type="number" id="q15_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
@@ -529,7 +523,7 @@
                 </div>
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(8)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="handleSkip('q13', 10)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
+                    <button type="button" onclick="goToStep(10)" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg">ادامه ➔</button>
                 </div>
             </div>
 
@@ -557,11 +551,11 @@
                 </div>
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(9)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="nextAfterGPAQ()" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">تایید و ادامه ➔</button>
+                    <button type="button" id="btn_step10_next" onclick="nextAfterGPAQ()" class="w-2/3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">تایید و ادامه ➔</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 11: پرسشنامه بین‌المللی فعالیت بدنی (IPAQ) ================= -->
+            <!-- ================= STEP 11: پرسشنامه IPAQ ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step_ipaq">
                 <div class="bg-indigo-50 border-r-4 border-indigo-600 p-4 rounded-l-xl text-indigo-950 mb-5 text-justify leading-relaxed">
                     <h3 class="font-bold text-base md:text-lg mb-2">پرسشنامه بين المللي فعاليت بدني (IPAQ)</h3>
@@ -668,7 +662,7 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 12: نتیجه نهایی و توصیه‌های بازطراحی‌شده WHO 2020 ================= -->
+            <!-- ================= STEP 12: نتیجه نهایی ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step_result">
                 <h2 class="font-black text-emerald-800 border-b-2 border-emerald-200 pb-3 mb-6 text-center text-lg md:text-xl">نتایج تحلیلی شاخص فعالیت بدنی (GPAQ)</h2>
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
@@ -745,6 +739,7 @@
         <input type="hidden" name="q10" id="h_q10">
         <input type="hidden" name="q11" id="h_q11">
         <input type="hidden" name="q12_h" id="h_q12_h">
+        <input type="hidden" name="q12_m" id="h_q12_m">
         <input type="hidden" name="q13" id="h_q13">
         <input type="hidden" name="q14" id="h_q14">
         <input type="hidden" name="q15_h" id="h_q15_h">
@@ -842,7 +837,9 @@
         function goToStep(targetStep) {
             document.querySelectorAll('.step-card').forEach(el => el.classList.remove('active'));
             const targetEl = (typeof targetStep === 'string') ? document.getElementById(targetStep) : document.getElementById('step' + targetStep);
-            if (targetEl) targetEl.classList.add('active');
+            if (targetEl) {
+                targetEl.classList.add('active');
+            }
             window.scrollTo(0,0);
         }
 
@@ -864,7 +861,7 @@
                 if(!interviewer) {
                     errorDiv.innerText = "لطفاً مشخص نمایید تکمیل‌کننده فرم چه کسی است (پژوهشگر اصلی یا همکار).";
                 } else if(job === '') {
-                    errorDiv.innerText = "لطفاً شغل خود را انتخاب کنید.";
+                    errorDiv.innerText = "لطفاً گروه شغلی خود را انتخاب کنید.";
                 } else if(!isJobValid) {
                     errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
                 } else {
@@ -890,7 +887,7 @@
                 errorDiv.classList.add('hidden');
             }
 
-            const age = parseInt(document.getElementById('age').value);
+            const age = parseInt(document.getElementById('age').value) || 0;
             if (age > 65) {
                 goToStep(3); 
             } else {
@@ -912,7 +909,7 @@
         }
 
         function prevFromStep4() {
-            const age = parseInt(document.getElementById('age').value);
+            const age = parseInt(document.getElementById('age').value) || 0;
             if (age > 65) {
                 goToStep(3); 
             } else {
@@ -925,13 +922,10 @@
             document.getElementById(subDivId).classList.toggle('hidden', val !== 'بله');
         }
 
-        function handleSkip(selectId, nextStep) {
-            goToStep(nextStep);
-        }
-
         function nextAfterGPAQ() {
-            const retestAgree = document.getElementById('retest_agree').checked;
-            if (retestAgree) {
+            const agreeCheckbox = document.getElementById('retest_agree');
+            const isAgree = agreeCheckbox && agreeCheckbox.checked;
+            if (isAgree) {
                 goToStep('step_ipaq'); 
             } else {
                 processAndSubmit(); 
@@ -940,7 +934,7 @@
 
         function getVal(id) {
             const el = document.getElementById(id);
-            return (el && el.value !== "") ? el.value : "-";
+            return (el && el.value !== undefined && el.value !== "") ? el.value : "-";
         }
 
         function checkDailyLimit(hours, mins) {
@@ -953,7 +947,7 @@
 
             if (document.getElementById('q1').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
-                    alert("خطا: زمان وارد شده برای فعالیت شغلی شدید غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                    alert("خطا: زمان فعالیت شغلی شدید بیشتر از ۱۶ ساعت در روز است."); return;
                 }
                 let d = parseFloat(document.getElementById('q2').value) || 0;
                 let m = ((parseFloat(document.getElementById('q3_h').value)||0)*60) + (parseFloat(document.getElementById('q3_m').value)||0);
@@ -961,7 +955,7 @@
             }
             if (document.getElementById('q4').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q6_h').value, document.getElementById('q6_m').value)) {
-                    alert("خطا: زمان وارد شده برای فعالیت شغلی متوسط غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                    alert("خطا: زمان فعالیت شغلی متوسط بیشتر از ۱۶ ساعت در روز است."); return;
                 }
                 let d = parseFloat(document.getElementById('q5').value) || 0;
                 let m = ((parseFloat(document.getElementById('q6_h').value)||0)*60) + (parseFloat(document.getElementById('q6_m').value)||0);
@@ -969,7 +963,7 @@
             }
             if (document.getElementById('q7').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q9_h').value, document.getElementById('q9_m').value)) {
-                    alert("خطا: زمان وارد شده برای رفت‌وآمد غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                    alert("خطا: زمان رفت‌وآمد بیشتر از ۱۶ ساعت در روز است."); return;
                 }
                 let d = parseFloat(document.getElementById('q8').value) || 0;
                 let m = ((parseFloat(document.getElementById('q9_h').value)||0)*60) + (parseFloat(document.getElementById('q9_m').value)||0);
@@ -977,7 +971,7 @@
             }
             if (document.getElementById('q10').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q12_h').value, document.getElementById('q12_m').value)) {
-                    alert("خطا: زمان وارد شده برای تفریحات شدید غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                    alert("خطا: زمان تفریحات شدید بیشتر از ۱۶ ساعت در روز است."); return;
                 }
                 let d = parseFloat(document.getElementById('q11').value) || 0;
                 let m = ((parseFloat(document.getElementById('q12_h').value)||0)*60) + (parseFloat(document.getElementById('q12_m').value)||0);
@@ -985,7 +979,7 @@
             }
             if (document.getElementById('q13').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q15_h').value, document.getElementById('q15_m').value)) {
-                    alert("خطا: زمان وارد شده برای تفریحات متوسط غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
+                    alert("خطا: زمان تفریحات متوسط بیشتر از ۱۶ ساعت در روز است."); return;
                 }
                 let d = parseFloat(document.getElementById('q14').value) || 0;
                 let m = ((parseFloat(document.getElementById('q15_h').value)||0)*60) + (parseFloat(document.getElementById('q15_m').value)||0);
@@ -1068,7 +1062,7 @@
 
             document.getElementById('ai_recommendation').innerHTML = recHTML;
 
-            // پر کردن مقادیر فرم مخفی
+            // پر کردن فرم مخفی
             document.getElementById('h_interviewer').value = getVal('interviewer');
             document.getElementById('h_age').value = getVal('age');
             document.getElementById('h_gender').value = getVal('gender');
@@ -1084,7 +1078,10 @@
             document.getElementById('h_smoking').value = getVal('smoking');
             document.getElementById('h_sleep').value = getVal('sleep');
             document.getElementById('h_phone').value = getVal('phone');
-            document.getElementById('h_retest_agree').value = document.getElementById('retest_agree').checked ? "بله" : "خیر";
+            
+            const retestAgreeEl = document.getElementById('retest_agree');
+            const isRetestAgree = retestAgreeEl && retestAgreeEl.checked;
+            document.getElementById('h_retest_agree').value = isRetestAgree ? "بله" : "خیر";
             
             document.getElementById('h_med_chronic').value = chronicStr;
             document.getElementById('h_med_endocrine').value = getVal('med_endocrine');
@@ -1092,7 +1089,7 @@
             document.getElementById('h_med_drugs').value = getVal('med_drugs');
             document.getElementById('h_med_drugDetails').value = getVal('med_drugDetails');
 
-            const age = parseInt(document.getElementById('age').value);
+            const age = parseInt(document.getElementById('age').value) || 0;
             if (age > 65) {
                 let amtsScore = 0;
                 for(let i=1; i<=10; i++) {
@@ -1137,19 +1134,22 @@
             document.getElementById('h_q16_h').value = getVal('q16_h');
             document.getElementById('h_q16_m').value = getVal('q16_m');
 
-            // IPAQ
-            if (document.getElementById('retest_agree').checked) {
-                document.getElementById('h_ipaq_q1').value = document.getElementById('ipaq_q1_none').checked ? "۰" : getVal('ipaq_q1');
-                document.getElementById('h_ipaq_q2_h').value = document.getElementById('ipaq_q1_none').checked ? "-" : getVal('ipaq_q2_h');
-                document.getElementById('h_ipaq_q2_m').value = document.getElementById('ipaq_q1_none').checked ? "-" : getVal('ipaq_q2_m');
+            // IPAQ (ایمن‌سازی در برابر Null)
+            if (isRetestAgree) {
+                const q1None = document.getElementById('ipaq_q1_none');
+                document.getElementById('h_ipaq_q1').value = (q1None && q1None.checked) ? "۰" : getVal('ipaq_q1');
+                document.getElementById('h_ipaq_q2_h').value = (q1None && q1None.checked) ? "-" : getVal('ipaq_q2_h');
+                document.getElementById('h_ipaq_q2_m').value = (q1None && q1None.checked) ? "-" : getVal('ipaq_q2_m');
 
-                document.getElementById('h_ipaq_q3').value = document.getElementById('ipaq_q3_none').checked ? "۰" : getVal('ipaq_q3');
-                document.getElementById('h_ipaq_q4_h').value = document.getElementById('ipaq_q3_none').checked ? "-" : getVal('ipaq_q4_h');
-                document.getElementById('h_ipaq_q4_m').value = document.getElementById('ipaq_q3_none').checked ? "-" : getVal('ipaq_q4_m');
+                const q3None = document.getElementById('ipaq_q3_none');
+                document.getElementById('h_ipaq_q3').value = (q3None && q3None.checked) ? "۰" : getVal('ipaq_q3');
+                document.getElementById('h_ipaq_q4_h').value = (q3None && q3None.checked) ? "-" : getVal('ipaq_q4_h');
+                document.getElementById('h_ipaq_q4_m').value = (q3None && q3None.checked) ? "-" : getVal('ipaq_q4_m');
 
-                document.getElementById('h_ipaq_q5').value = document.getElementById('ipaq_q5_none').checked ? "۰" : getVal('ipaq_q5');
-                document.getElementById('h_ipaq_q6_h').value = document.getElementById('ipaq_q5_none').checked ? "-" : getVal('ipaq_q6_h');
-                document.getElementById('h_ipaq_q6_m').value = document.getElementById('ipaq_q5_none').checked ? "-" : getVal('ipaq_q6_m');
+                const q5None = document.getElementById('ipaq_q5_none');
+                document.getElementById('h_ipaq_q5').value = (q5None && q5None.checked) ? "۰" : getVal('ipaq_q5');
+                document.getElementById('h_ipaq_q6_h').value = (q5None && q5None.checked) ? "-" : getVal('ipaq_q6_h');
+                document.getElementById('h_ipaq_q6_m').value = (q5None && q5None.checked) ? "-" : getVal('ipaq_q6_m');
 
                 document.getElementById('h_ipaq_q7_h').value = getVal('ipaq_q7_h');
                 document.getElementById('h_ipaq_q7_m').value = getVal('ipaq_q7_m');
@@ -1171,7 +1171,11 @@
             document.getElementById('h_category').value = category;
             document.getElementById('h_sedentaryHours').value = sedHours.toFixed(1);
 
-            document.getElementById('hiddenGoogleForm').submit();
+            try {
+                document.getElementById('hiddenGoogleForm').submit();
+            } catch (err) {
+                console.error("Submission error:", err);
+            }
             goToStep('step_result');
         }
     </script>
