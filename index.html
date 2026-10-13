@@ -25,7 +25,7 @@
     <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative">
         <div class="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 p-6 text-white text-center">
             <h1 class="text-xl md:text-2xl font-black tracking-wide mb-1">سامانه هوشمند ارزیابی فعالیت فیزیکی (GPAQ)</h1>
-            <p class="text-indigo-100 text-xs md:text-sm">طرح تحقیقاتی دانشگاهی</p>
+            <p class="text-indigo-100 text-xs md:text-sm">طرح تحقیقاتی ملی و دانشگاهی</p>
         </div>
 
         <div class="p-6 md:p-8">
@@ -41,7 +41,7 @@
                         شما جهت شرکت در طرح تحقیقاتی با عنوان <b>«ترجمه و روان‌سنجی نسخه فارسی پرسشنامه جهانی فعالیت فیزیکی (GPAQ)»</b> دعوت شده‌اید. هدف از این پژوهش، ارزیابی دقیق سطح فعالیت بدنی در مشاغل و سبک زندگی جامعه است. مشارکت و پاسخ‌های صادقانه شما به ما در استانداردسازی این ابزار بین‌المللی متعلق به سازمان جهانی بهداشت (WHO) کمک شایانی خواهد کرد.
                     </p>
                     <div class="bg-white p-4 rounded-xl text-xs md:text-sm text-slate-800 space-y-3 border border-indigo-100 leading-relaxed">
-                        <p>🎓 <b>مجری طرح:</b> شایان فتاحیان کلیشادرخی (دانشجوی کارشناسی ارشد پرستاری، دانشگاه علوم پزشکی کاشان)</p>
+                        <p>🎓 <b>مجری طرح:</b> شایان فتاحیان (دانشجوی کارشناسی ارشد پرستاری، دانشگاه علوم پزشکی کاشان)</p>
                         <p>⚖️ <b>کد مصوب کمیته اخلاق:</b> <span class="font-bold text-indigo-700" dir="ltr">IR.KAUMS.NUHEPM.REC.1405.046</span></p>
                         <p>🔒 <b>محرمانگی:</b> به شما اطمینان می‌دهیم که تمامی اطلاعات فردی شما کاملاً محرمانه و ناشناس محفوظ خواهد ماند.</p>
                     </div>
@@ -86,9 +86,9 @@
                             <option value="بازنشسته / فاقد شغل">بازنشسته / فاقد شغل</option>
                             <option value="خانه‌دار (بدون شغل بیرون از منزل)">خانه‌دار (بدون شغل بیرون از منزل)</option>
                             <option value="دانشجو / محصل">دانشجو / محصل</option>
-                            <option value="مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)">مشاغل نشسته و کم‌تحرک (مثال کارمند اداری، راننده، حسابدار)</option>
-                            <option value="مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)">مشاغل با تحرک و ایستادن متوسط (مثال کادر درمان، معلم، فروشنده، آرایشگر)</option>
-                            <option value="مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)">مشاغل با فعالیت فیزیکی شدید (مثال کارگر، کشاورز، باربر)</option>
+                            <option value="مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
+                            <option value="مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)">مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)</option>
+                            <option value="مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
                         </select>
                     </div>
                     <div class="md:col-span-2" id="jobTitleContainer" style="display: none;">
@@ -119,7 +119,7 @@
                     </div>
                 </div>
 
-                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center my-6 border-t pt-6">عادات سبک زندگی</h2>
+                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center my-6 border-t pt-6">عادات سبک زندگی و ارتباط با آزمودنی</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
                     <div>
                         <label class="block font-bold text-slate-700 mb-1">وضعیت استعمال دخانیات:</label>
@@ -128,8 +128,22 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block font-bold text-slate-700 mb-1">الگوی خواب شبانه‌روز (ساعت در ۲۴ ساعت شبانه‌روز):</label>
+                        <label class="block font-bold text-slate-700 mb-1">الگوی خواب شبانه‌روز (ساعت در ۲۴ ساعت):</label>
                         <input type="number" id="sleep" value="7" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
+                    </div>
+                    
+                    <!-- اصلاح ۱: شماره تماس اختیاری -->
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">شماره تماس همراه (اختیاری):</label>
+                        <input type="tel" id="phone" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+                    </div>
+
+                    <!-- اصلاح ۲: موافقت با بازآزمون و همکاری مجدد -->
+                    <div class="flex items-center pt-6">
+                        <label class="flex items-center gap-2 p-2.5 bg-indigo-50/70 border border-indigo-200 rounded-xl cursor-pointer hover:bg-indigo-100/50 w-full">
+                            <input type="checkbox" id="retest_agree" class="w-5 h-5 text-indigo-600 rounded">
+                            <span class="text-xs md:text-sm font-bold text-indigo-950">مایل به همکاری مجدد و تکمیل پرسشنامه در مرحله بعد (یک‌ماه آینده) هستم.</span>
+                        </label>
                     </div>
                 </div>
 
@@ -144,7 +158,6 @@
                 <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6">سوابق پزشکی و غربالگری بالینی</h2>
                 <div class="space-y-5 text-sm md:text-base">
                     
-                    <!-- اصلاح ۱: بیماری‌های مزمن به‌صورت چک‌باکس چندانتخابی -->
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
                         <label class="block font-bold text-slate-700 mb-2">ابتلا به بیماری‌های مزمن (غیرواگیر) - امکان انتخاب چند مورد: *</label>
                         <div class="grid grid-cols-2 gap-2 mt-2">
@@ -185,7 +198,6 @@
                         </select>
                     </div>
 
-                    <!-- اصلاح ۲: داروهای مصرفی و باکس فعال‌شونده دوز و نام دارو -->
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
                         <div>
                             <label class="block font-bold text-slate-700 mb-2">سابقه مصرف دارویی خاص:</label>
@@ -516,15 +528,122 @@
                 </div>
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(9)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
+                    <button type="button" onclick="nextAfterGPAQ()" class="w-2/3 bg-indigo-600 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">تایید و ادامه ➔</button>
+                </div>
+            </div>
+
+            <!-- ================= STEP 11: پرسشنامه بین‌المللی فعالیت بدنی (IPAQ) - روایی همگرا ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step_ipaq">
+                <div class="bg-indigo-50 border-r-4 border-indigo-600 p-4 rounded-l-xl text-indigo-950 mb-5 text-justify leading-relaxed">
+                    <h3 class="font-bold text-base md:text-lg mb-2">پرسشنامه بين المللي فعاليت بدني (IPAQ)</h3>
+                    <p class="text-xs md:text-sm">
+                        ما قصد داریم درباره فعاليتهاي بدني که مردم به عنوان بخشی از زندگي روزمره شان انجام می دهند، اطلاعات کسب کنیم. سؤالها در مورد زمانهایی خواهد بود که شما در طول 7 روز گذشته به صورت حرکات بدني فعال بوده اید. لطفاً به تك تك سؤالات پاسخ دهید حتی اگر خود را فرد فعالی به حساب نمی آورید. لطفاً فعالیتهایی را که در محل کار یا به عنوان بخشی از کار منزل و حیاط (باغچه)، رفتن از جایی به جاي ديگر، تمرینات ورزشی و فعالیتهایی که به عنوان سرگرمی در اوقات فراغت انجام می دهید، مدنظر قرار دهید.
+                    </p>
+                </div>
+
+                <!-- IPAQ Q1 & Q2: فعالیت شدید -->
+                <div class="bg-slate-50 p-4 rounded-xl mb-5 border">
+                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed">
+                        تمام فعاليتهاي شديدي را که در طول 7 روز اخیر انجام داده اید، مدنظر قرار دهید. فعاليت هاي شدید به فعالیتهایی اطلاق می شود که قدرت بدني زيادي ميخواهد و باعث میشود بسیار شدیدتر از حالت عادي نفس بکشید. لطفاً فقط فعالیتهایی را مدنظر قرار دهید که حداقل به مدت 10 دقیقه به صورت پیوسته انجام داده اید.
+                    </p>
+                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed">
+                        ۱. در طول 7 روز اخیر چند روز آن فعالیت بدنی شدید مانند بلند کردن اجسام سنگین، حفاري (مثل کندن باغچه)، ايروبيك (ورزش هوازي)، دوچرخه سواري سريع، فوتبال و دویدن داشته اید؟
+                    </label>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <input type="number" id="ipaq_q1" min="0" max="7" class="w-32 p-2 border rounded-lg text-sm bg-white" placeholder="روز در هفته">
+                            <label class="flex items-center gap-2 cursor-pointer text-sm">
+                                <input type="checkbox" id="ipaq_q1_none" onchange="toggleIPAQSkip('ipaq_q1', 'ipaq_q2_box', this)">
+                                <span>فعالیت بدنی شدید نداشته ام (مراجعه به سؤال ۳)</span>
+                            </label>
+                        </div>
+                        <div id="ipaq_q2_box" class="space-y-2 pt-2 border-t">
+                            <label class="block text-sm font-bold text-slate-700">۲. معمولاً چه مدت زماني در چنين روزهايي براي انجام اين فعاليت هاي بدنی شدید به صورت پیوسته صرف کرده اید؟</label>
+                            <div class="flex gap-3">
+                                <input type="number" id="ipaq_q2_h" placeholder="ساعت در روز" class="w-1/2 p-2 border rounded-lg text-sm bg-white">
+                                <input type="number" id="ipaq_q2_m" placeholder="دقیقه در روز" class="w-1/2 p-2 border rounded-lg text-sm bg-white">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPAQ Q3 & Q4: فعالیت متوسط -->
+                <div class="bg-slate-50 p-4 rounded-xl mb-5 border">
+                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed">
+                        فعاليتهاي بدني متوسطي را که در طول 7 روز اخیر انجام داده اید، مدنظر قرار دهید. فعاليتهاي فيزيكي متوسط به فعالیتهایی اطلاق ميشود که قدرت متوسطي ميخواهد و باعث میشود شما کمی تندتر از حالت عادي نفس بکشید. لطفاً فقط فعالیتهایی را مدنظر قرار دهید که حداقل به مدت 10 دقیقه به صورت پیوسته انجام داده اید.
+                    </p>
+                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed">
+                        ۳. در طول 7 روز اخیر چند روز آن فعالیت فيزيكي متوسط مانند حمل بارهاي سبك، دوچرخه سواري با سرعت متوسط یا والیبال انجام داده اید؟ لطفاً پياده روي را به حساب نیاورید.
+                    </label>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <input type="number" id="ipaq_q3" min="0" max="7" class="w-32 p-2 border rounded-lg text-sm bg-white" placeholder="روز در هفته">
+                            <label class="flex items-center gap-2 cursor-pointer text-sm">
+                                <input type="checkbox" id="ipaq_q3_none" onchange="toggleIPAQSkip('ipaq_q3', 'ipaq_q4_box', this)">
+                                <span>فعالیت بدني متوسط نداشته ام (مراجعه به سؤال ۵)</span>
+                            </label>
+                        </div>
+                        <div id="ipaq_q4_box" class="space-y-2 pt-2 border-t">
+                            <label class="block text-sm font-bold text-slate-700">۴. معمولاً چه مدت زمانی در چنین روزهايي براي انجام فعاليت هاي بدني متوسط صرف کرده اید؟</label>
+                            <div class="flex gap-3">
+                                <input type="number" id="ipaq_q4_h" placeholder="ساعت در روز" class="w-1/2 p-2 border rounded-lg text-sm bg-white">
+                                <input type="number" id="ipaq_q4_m" placeholder="دقیقه در روز" class="w-1/2 p-2 border rounded-lg text-sm bg-white">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPAQ Q5 & Q6: پیاده‌روی -->
+                <div class="bg-slate-50 p-4 rounded-xl mb-5 border">
+                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed">
+                        لطفاً مدت زمانی را که در طول 7 روز گذشته به پياده روي اختصاص داده اید، مدنظر قرار دهید. این قسمت پیاده روي در محل کار، در خانه، براي رفتن از محلی به محل دیگر و هر نوع پياده روي ديگر که شما به عنوان تفریح، ورزش، تمرینات جسماني يا در اوقات فراغت انجام داده اید را شامل می شود.
+                    </p>
+                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed">
+                        ۵. در طول 7 روز اخیر چند روز آن به مدت حداقل 10 دقیقه و به صورت پیوسته پياده روي داشته اید؟
+                    </label>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <input type="number" id="ipaq_q5" min="0" max="7" class="w-32 p-2 border rounded-lg text-sm bg-white" placeholder="روز در هفته">
+                            <label class="flex items-center gap-2 cursor-pointer text-sm">
+                                <input type="checkbox" id="ipaq_q5_none" onchange="toggleIPAQSkip('ipaq_q5', 'ipaq_q6_box', this)">
+                                <span>پياده روي نداشته ام (مراجعه به سؤال ۷)</span>
+                            </label>
+                        </div>
+                        <div id="ipaq_q6_box" class="space-y-2 pt-2 border-t">
+                            <label class="block text-sm font-bold text-slate-700">۶. معمولاً چه مدت زمانی در چنین روزهايي براي پياده روي صرف کرده اید؟</label>
+                            <div class="flex gap-3">
+                                <input type="number" id="ipaq_q6_h" placeholder="ساعت در روز" class="w-1/2 p-2 border rounded-lg text-sm bg-white">
+                                <input type="number" id="ipaq_q6_m" placeholder="دقیقه در روز" class="w-1/2 p-2 border rounded-lg text-sm bg-white">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IPAQ Q7: نشستن -->
+                <div class="bg-slate-50 p-4 rounded-xl mb-6 border">
+                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed">
+                        آخرین سؤال مربوط به اوقاتی است که شما در طول 7 روز اخیر به نشستن اختصاص داده اید که شامل نشستن در محل کار، در خانه، هنگام انجام تکالیف و در اوقات فراغت میباشد. این زمان نشستن پشت میز، نشستن یا لم دادن هنگام تماشاي تلوزيون و مطالعه و زماني که براي نشستن با دوستان و فامیل اختصاص داده اید را هم شامل می شود.
+                    </p>
+                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed">
+                        ۷. در طول 7 روز اخیر چه مدت زمانی را در هر روز به نشستن اختصاص داده اید؟
+                    </label>
+                    <div class="flex gap-3">
+                        <input type="number" id="ipaq_q7_h" placeholder="الف) ساعت در روز" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                        <input type="number" id="ipaq_q7_m" placeholder="ب) دقیقه در روز" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <button type="button" onclick="goToStep(10)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
                     <button type="button" onclick="processAndSubmit()" class="w-2/3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">محاسبه و ثبت نهایی 🚀</button>
                 </div>
             </div>
 
-            <!-- ================= STEP 11: نتیجه نهایی و توصیه‌های بازطراحی‌شده WHO 2020 ================= -->
-            <div class="step-card animate__animated animate__fadeIn" id="step11">
+            <!-- ================= STEP 12: نتیجه نهایی ================= -->
+            <div class="step-card animate__animated animate__fadeIn" id="step_result">
                 <h2 class="font-black text-emerald-800 border-b-2 border-emerald-200 pb-3 mb-6 text-center text-lg md:text-xl">نتایج تحلیلی شاخص فعالیت بدنی (GPAQ)</h2>
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
-                    ✅ اطلاعات شما با موفقیت در سامانه ثبت شد. از مشارکت شما سپاسگزاریم!
+                    ✅ اطلاعات شما با موفقیت در سامانه دانشگاه ثبت شد. از مشارکت شما سپاسگزاریم!
                 </div>
                 
                 <div class="grid grid-cols-2 gap-4 mb-6 text-center">
@@ -569,15 +688,18 @@
         <input type="hidden" name="waist" id="h_waist">
         <input type="hidden" name="smoking" id="h_smoking">
         <input type="hidden" name="sleep" id="h_sleep">
+        <input type="hidden" name="phone" id="h_phone">
+        <input type="hidden" name="retest_agree" id="h_retest_agree">
         
         <input type="hidden" name="med_chronic" id="h_med_chronic">
         <input type="hidden" name="med_endocrine" id="h_med_endocrine">
         <input type="hidden" name="med_mobility" id="h_med_mobility">
         <input type="hidden" name="med_drugs" id="h_med_drugs">
-        <input type="hidden" name="med_drugDetails" id="h_med_drugDetails"> <!-- فیلد جدید دوز و نام دارو -->
+        <input type="hidden" name="med_drugDetails" id="h_med_drugDetails">
         
         <input type="hidden" name="amts_score" id="h_amts_score"> 
         
+        <!-- GPAQ Fields -->
         <input type="hidden" name="q1" id="h_q1">
         <input type="hidden" name="q2" id="h_q2">
         <input type="hidden" name="q3_h" id="h_q3_h">
@@ -601,6 +723,19 @@
         <input type="hidden" name="q16_h" id="h_q16_h">
         <input type="hidden" name="q16_m" id="h_q16_m">
         
+        <!-- IPAQ Fields -->
+        <input type="hidden" name="ipaq_q1" id="h_ipaq_q1">
+        <input type="hidden" name="ipaq_q2_h" id="h_ipaq_q2_h">
+        <input type="hidden" name="ipaq_q2_m" id="h_ipaq_q2_m">
+        <input type="hidden" name="ipaq_q3" id="h_ipaq_q3">
+        <input type="hidden" name="ipaq_q4_h" id="h_ipaq_q4_h">
+        <input type="hidden" name="ipaq_q4_m" id="h_ipaq_q4_m">
+        <input type="hidden" name="ipaq_q5" id="h_ipaq_q5">
+        <input type="hidden" name="ipaq_q6_h" id="h_ipaq_q6_h">
+        <input type="hidden" name="ipaq_q6_m" id="h_ipaq_q6_m">
+        <input type="hidden" name="ipaq_q7_h" id="h_ipaq_q7_h">
+        <input type="hidden" name="ipaq_q7_m" id="h_ipaq_q7_m">
+
         <input type="hidden" name="totalMet" id="h_totalMet">
         <input type="hidden" name="category" id="h_category">
         <input type="hidden" name="sedentaryHours" id="h_sedentaryHours">
@@ -623,7 +758,6 @@
             }
         }
 
-        // مدیریت تغییر وضعیت چک‌باکس‌های بیماری مزمن
         function handleChronicChange(checkbox) {
             const noneCheckbox = document.getElementById('chronic_none');
             if (checkbox.checked) {
@@ -649,7 +783,6 @@
             }
         }
 
-        // تابع فعال‌سازی فیلد جزئیات و دوز داروها
         function toggleDrugDetails() {
             const drugVal = document.getElementById('med_drugs').value;
             const container = document.getElementById('drugDetailsContainer');
@@ -663,9 +796,24 @@
             }
         }
 
+        function toggleIPAQSkip(inputDaysId, boxId, checkbox) {
+            const daysInput = document.getElementById(inputDaysId);
+            const box = document.getElementById(boxId);
+            if (checkbox.checked) {
+                daysInput.value = "0";
+                daysInput.disabled = true;
+                box.style.display = "none";
+            } else {
+                daysInput.value = "";
+                daysInput.disabled = false;
+                box.style.display = "block";
+            }
+        }
+
         function goToStep(targetStep) {
             document.querySelectorAll('.step-card').forEach(el => el.classList.remove('active'));
-            document.getElementById('step' + targetStep).classList.add('active');
+            const targetEl = (typeof targetStep === 'string') ? document.getElementById(targetStep) : document.getElementById('step' + targetStep);
+            if (targetEl) targetEl.classList.add('active');
             window.scrollTo(0,0);
         }
 
@@ -697,7 +845,6 @@
             }
         }
 
-        // اعتبارسنجی بخش دوم (داروها و بیماری‌ها)
         function validateAndNextStep2() {
             const drugVal = document.getElementById('med_drugs').value;
             const drugDetails = document.getElementById('med_drugDetails').value;
@@ -748,6 +895,16 @@
 
         function handleSkip(selectId, nextStep) {
             goToStep(nextStep);
+        }
+
+        // بررسی اینکه بعد از اتمام GPAQ به IPAQ برود یا مستقیم ثبت شود
+        function nextAfterGPAQ() {
+            const retestAgree = document.getElementById('retest_agree').checked;
+            if (retestAgree) {
+                goToStep('step_ipaq'); // باز شدن پرسشنامه IPAQ جهت روایی همگرا
+            } else {
+                processAndSubmit(); // پرش از IPAQ و ثبت مستقیم
+            }
         }
 
         function getVal(id) {
@@ -816,14 +973,12 @@
             document.getElementById('res_total_met').innerText = grandTotalMET.toFixed(0) + " MET-min";
             document.getElementById('res_category').innerText = category;
 
-            // استخراج بیماری‌های مزمن انتخاب‌شده
             let selectedChronic = [];
             document.querySelectorAll('input[name="chronic"]:checked').forEach(cb => {
                 selectedChronic.push(cb.value);
             });
             let chronicStr = selectedChronic.length > 0 ? selectedChronic.join("، ") : "هیچکدام";
 
-            // تولید توصیه‌های هوشمند و بالینی بر اساس WHO Guidelines 2020
             const ageVal = parseInt(document.getElementById('age').value) || 30;
             const mobilityVal = document.getElementById('med_mobility').value;
             const isMeets = grandTotalMET >= 600;
@@ -882,7 +1037,7 @@
 
             document.getElementById('ai_recommendation').innerHTML = recHTML;
 
-            // پر کردن مقادیر فرم مخفی برای ارسال به شیت
+            // پر کردن مقادیر فرم مخفی
             document.getElementById('h_age').value = getVal('age');
             document.getElementById('h_gender').value = getVal('gender');
             document.getElementById('h_education').value = getVal('education');
@@ -896,6 +1051,8 @@
             document.getElementById('h_waist').value = getVal('waist');
             document.getElementById('h_smoking').value = getVal('smoking');
             document.getElementById('h_sleep').value = getVal('sleep');
+            document.getElementById('h_phone').value = getVal('phone');
+            document.getElementById('h_retest_agree').value = document.getElementById('retest_agree').checked ? "بله" : "خیر";
             
             document.getElementById('h_med_chronic').value = chronicStr;
             document.getElementById('h_med_endocrine').value = getVal('med_endocrine');
@@ -914,6 +1071,7 @@
                 document.getElementById('h_amts_score').value = "-";
             }
 
+            // GPAQ
             let q1Val = getVal('q1');
             document.getElementById('h_q1').value = q1Val;
             document.getElementById('h_q2').value = (q1Val.includes('بله')) ? getVal('q2') : '-';
@@ -947,12 +1105,42 @@
             document.getElementById('h_q16_h').value = getVal('q16_h');
             document.getElementById('h_q16_m').value = getVal('q16_m');
 
+            // IPAQ (اگر پر شده باشد)
+            if (document.getElementById('retest_agree').checked) {
+                document.getElementById('h_ipaq_q1').value = document.getElementById('ipaq_q1_none').checked ? "۰" : getVal('ipaq_q1');
+                document.getElementById('h_ipaq_q2_h').value = document.getElementById('ipaq_q1_none').checked ? "-" : getVal('ipaq_q2_h');
+                document.getElementById('h_ipaq_q2_m').value = document.getElementById('ipaq_q1_none').checked ? "-" : getVal('ipaq_q2_m');
+
+                document.getElementById('h_ipaq_q3').value = document.getElementById('ipaq_q3_none').checked ? "۰" : getVal('ipaq_q3');
+                document.getElementById('h_ipaq_q4_h').value = document.getElementById('ipaq_q3_none').checked ? "-" : getVal('ipaq_q4_h');
+                document.getElementById('h_ipaq_q4_m').value = document.getElementById('ipaq_q3_none').checked ? "-" : getVal('ipaq_q4_m');
+
+                document.getElementById('h_ipaq_q5').value = document.getElementById('ipaq_q5_none').checked ? "۰" : getVal('ipaq_q5');
+                document.getElementById('h_ipaq_q6_h').value = document.getElementById('ipaq_q5_none').checked ? "-" : getVal('ipaq_q6_h');
+                document.getElementById('h_ipaq_q6_m').value = document.getElementById('ipaq_q5_none').checked ? "-" : getVal('ipaq_q6_m');
+
+                document.getElementById('h_ipaq_q7_h').value = getVal('ipaq_q7_h');
+                document.getElementById('h_ipaq_q7_m').value = getVal('ipaq_q7_m');
+            } else {
+                document.getElementById('h_ipaq_q1').value = "-";
+                document.getElementById('h_ipaq_q2_h').value = "-";
+                document.getElementById('h_ipaq_q2_m').value = "-";
+                document.getElementById('h_ipaq_q3').value = "-";
+                document.getElementById('h_ipaq_q4_h').value = "-";
+                document.getElementById('h_ipaq_q4_m').value = "-";
+                document.getElementById('h_ipaq_q5').value = "-";
+                document.getElementById('h_ipaq_q6_h').value = "-";
+                document.getElementById('h_ipaq_q6_m').value = "-";
+                document.getElementById('h_ipaq_q7_h').value = "-";
+                document.getElementById('h_ipaq_q7_m').value = "-";
+            }
+
             document.getElementById('h_totalMet').value = grandTotalMET.toFixed(0);
             document.getElementById('h_category').value = category;
             document.getElementById('h_sedentaryHours').value = sedHours.toFixed(1);
 
             document.getElementById('hiddenGoogleForm').submit();
-            goToStep(11);
+            goToStep('step_result');
         }
     </script>
 </body>
