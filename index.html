@@ -10,19 +10,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;900&display=swap');
         body, p, label, input, select, button, div, span, li, h1, h2, h3, h4 { 
-            font-family: 'Vazirmatn', Tahoma, sans-serif; font-size: 15px; line-height: 1.8;
+            font-family: 'Vazirmatn', Tahoma, sans-serif; 
+            font-size: 15px; 
+            line-height: 1.8;
         }
-        body { background-color: #f1f5f9; }
+        body { background-color: #f8fafc; }
         .step-card { display: none; }
         .step-card.active { display: block; }
         input, select { font-size: 14px !important; }
     </style>
 </head>
-<body class="min-h-screen py-6 px-4 flex items-center justify-center">
+<body class="min-h-screen py-8 px-4 flex items-center justify-center">
 
-    <div class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative">
+    <div class="w-full max-w-2xl bg-white rounded-3xl shadow-xl border border-slate-200/80 overflow-hidden relative">
         <div class="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 p-6 text-white text-center">
             <h1 class="text-xl md:text-2xl font-black tracking-wide mb-1">سامانه هوشمند ارزیابی فعالیت فیزیکی (GPAQ)</h1>
             <p class="text-indigo-100 text-xs md:text-sm">طرح تحقیقاتی ملی و دانشگاهی</p>
@@ -30,125 +32,152 @@
 
         <div class="p-6 md:p-8">
 
-            <!-- ================= بخش اول: اطلاعات جمعیت‌شناختی و اجتماعی - اقتصادی ================= -->
+            <!-- ================= بخش اول: اطلاعات جمعیت‌شناختی و تن‌سنجی (طراحی متقارن) ================= -->
             <div class="step-card active animate__animated animate__fadeIn" id="step1">
-                <div class="bg-indigo-50 border border-indigo-200 p-5 rounded-2xl mb-8 shadow-sm">
-                    <div class="flex justify-center mb-4">
-                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
+                <div class="bg-indigo-50/70 border border-indigo-100 p-5 rounded-2xl mb-8 shadow-sm">
+                    <div class="flex justify-center mb-3">
+                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 110px; height: 110px;" loop autoplay></lottie-player>
                     </div>
-                    <h3 class="font-bold text-indigo-900 text-center mb-3 text-lg">خوش آمدید! 🌸</h3>
-                    <p class="text-sm md:text-base text-indigo-900 leading-loose mb-4 text-justify">
+                    <h3 class="font-bold text-indigo-900 text-center mb-2 text-lg">خوش آمدید! 🌸</h3>
+                    <p class="text-sm text-indigo-950 leading-loose mb-3 text-justify">
                         شما جهت شرکت در طرح تحقیقاتی با عنوان <b>«ترجمه و روان‌سنجی نسخه فارسی پرسشنامه جهانی فعالیت فیزیکی (GPAQ)»</b> دعوت شده‌اید. هدف از این پژوهش، ارزیابی دقیق سطح فعالیت بدنی در مشاغل و سبک زندگی جامعه است. مشارکت و پاسخ‌های صادقانه شما به ما در استانداردسازی این ابزار بین‌المللی متعلق به سازمان جهانی بهداشت (WHO) کمک شایانی خواهد کرد.
                     </p>
-                    <div class="bg-white p-4 rounded-xl text-xs md:text-sm text-slate-800 space-y-3 border border-indigo-100 leading-relaxed">
+                    <div class="bg-white p-3.5 rounded-xl text-xs md:text-sm text-slate-800 space-y-2 border border-indigo-100 leading-relaxed">
                         <p>🎓 <b>مجری طرح:</b> شایان فتاحیان (دانشجوی کارشناسی ارشد پرستاری، دانشگاه علوم پزشکی کاشان)</p>
                         <p>⚖️ <b>کد مصوب کمیته اخلاق:</b> <span class="font-bold text-indigo-700" dir="ltr">IR.KAUMS.NUHEPM.REC.1405.046</span></p>
                         <p>🔒 <b>محرمانگی:</b> به شما اطمینان می‌دهیم که تمامی اطلاعات فردی شما کاملاً محرمانه و ناشناس محفوظ خواهد ماند.</p>
                     </div>
                 </div>
+
+                <!-- مشخصات مصاحبه‌کننده -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-6">
+                    <label class="block font-bold text-indigo-950 mb-1.5 text-sm md:text-base">تکمیل‌کننده پرسشنامه: *</label>
+                    <select id="interviewer" class="w-full p-2.5 bg-white border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500 font-semibold text-slate-800">
+                        <option value="">انتخاب کنید...</option>
+                        <option value="پژوهشگر اصلی">پژوهشگر اصلی</option>
+                        <option value="همکار طرح">همکار طرح</option>
+                    </select>
+                </div>
+
+                <!-- بلوک ۱: متغیرهای دموگرافیک پایه -->
+                <div class="border border-slate-200 rounded-2xl p-4 md:p-5 mb-5 bg-white shadow-sm">
+                    <h3 class="font-bold text-slate-800 text-sm md:text-base mb-4 flex items-center gap-2 border-b pb-2">
+                        <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                        مشخصات جمعیت‌شناختی و اقتصادی
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">سن (سال): *</label>
+                            <input type="number" id="age" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً ۲۵">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">جنسیت: *</label>
+                            <select id="gender" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none">
+                                <option>مرد</option><option>زن</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">سطح تحصیلات:</label>
+                            <select id="education" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none">
+                                <option>بی‌سواد</option><option>خواندن و نوشتن</option><option>سیکل</option>
+                                <option>دیپلم</option><option>فوق‌دیپلم</option><option>لیسانس</option>
+                                <option>فوق‌لیسانس</option><option>دکترا</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">دین:</label>
+                            <select id="religion" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none">
+                                <option>اسلام-شیعه</option><option>اسلام-اهل‌تسنن</option><option>سایر ادیان</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">وضعیت تأهل:</label>
+                            <select id="marital" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none">
+                                <option>مجرد</option><option>متأهل</option><option>مطلقه</option><option>بیوه</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">وضعیت اقتصادی (خوداظهاری):</label>
+                            <select id="economy" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none">
+                                <option>خوب (کفاف هزینه‌ها و پس‌انداز)</option>
+                                <option>متوسط (کفاف مخارج پایه)</option>
+                                <option>ضعیف</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block font-medium text-slate-700 mb-1">گروه شغلی: *</label>
+                            <select id="job" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none" onchange="toggleJobTitle()">
+                                <option value="">انتخاب کنید...</option>
+                                <option value="بازنشسته / فاقد شغل">بازنشسته / فاقد شغل</option>
+                                <option value="خانه‌دار (بدون شغل بیرون از منزل)">خانه‌دار (بدون شغل بیرون از منزل)</option>
+                                <option value="دانشجو / محصل">دانشجو / محصل</option>
+                                <option value="مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
+                                <option value="مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)">مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)</option>
+                                <option value="مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2" id="jobTitleContainer" style="display: none;">
+                            <label class="block font-medium text-indigo-950 mb-1">عنوان دقیق شغل: *</label>
+                            <input type="text" id="jobTitle" class="w-full p-2.5 bg-white border border-indigo-200 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً: پرستار بخش ICU، معلم، کارمند بانک...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بلوک ۲: شاخص‌های آنتروپومتریک متقارن -->
+                <div class="border border-slate-200 rounded-2xl p-4 md:p-5 mb-5 bg-white shadow-sm">
+                    <h3 class="font-bold text-slate-800 text-sm md:text-base mb-4 flex items-center gap-2 border-b pb-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                        شاخص‌های تن‌سنجی (آنتروپومتریک)
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">وزن (کیلوگرم): *</label>
+                            <input type="number" id="weight" step="0.1" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" placeholder="بدون کفش">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">قد (سانتی‌متر): *</label>
+                            <input type="number" id="height" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" placeholder="مثلاً ۱۷۵">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">دور کمر (سانتی‌متر):</label>
+                            <input type="number" id="waist" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500" placeholder="اختیاری">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بلوک ۳: عادات سبک زندگی و ارتباط -->
+                <div class="border border-slate-200 rounded-2xl p-4 md:p-5 mb-6 bg-white shadow-sm">
+                    <h3 class="font-bold text-slate-800 text-sm md:text-base mb-4 flex items-center gap-2 border-b pb-2">
+                        <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+                        عادات سبک زندگی و همکاری
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">وضعیت استعمال دخانیات:</label>
+                            <select id="smoking" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none">
+                                <option>غیر سیگاری</option><option>سیگار / قلیان</option><option>ترک کرده</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">خواب شبانه‌روز (ساعت در ۲۴ ساعت):</label>
+                            <input type="number" id="sleep" value="7" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block font-medium text-slate-700 mb-1">شماره تماس همراه (اختیاری):</label>
+                            <input type="tel" id="phone" class="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+                        </div>
+                        <div class="md:col-span-2 pt-1">
+                            <label class="flex items-center gap-3 p-3 bg-indigo-50/60 border border-indigo-200 rounded-xl cursor-pointer hover:bg-indigo-100/50">
+                                <input type="checkbox" id="retest_agree" class="w-5 h-5 text-indigo-600 rounded">
+                                <span class="text-xs md:text-sm font-semibold text-indigo-950">مایل به همکاری مجدد و تکمیل مجدد پرسشنامه در مرحله بعد (یک ماه آینده) هستم.</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="step1_error" class="hidden mb-4 text-sm text-red-700 font-bold text-center bg-red-100 p-3 rounded-lg"></div>
                 
-                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center mb-6 border-t pt-6">متغیرهای جمعیت‌شناختی و اجتماعی - اقتصادی</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">سن (برحسب سال): *</label>
-                        <input type="number" id="age" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً 25">
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">جنسیت:</label>
-                        <select id="gender" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>مرد</option><option>زن</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">سطح تحصیلات:</label>
-                        <select id="education" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>بی‌سواد</option><option>خواندن و نوشتن</option><option>سیکل</option>
-                            <option>دیپلم</option><option>فوق‌دیپلم</option><option>لیسانس</option>
-                            <option>فوق‌لیسانس</option><option>دکترا</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">دین:</label>
-                        <select id="religion" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>اسلام-شیعه</option><option>اسلام-اهل‌تسنن</option><option>سایر ادیان</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">وضعیت تأهل:</label>
-                        <select id="marital" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>مجرد</option><option>متأهل</option><option>مطلقه</option><option>بیوه</option>
-                        </select>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block font-bold text-slate-700 mb-1">شغل: *</label>
-                        <select id="job" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" onchange="toggleJobTitle()">
-                            <option value="">انتخاب کنید...</option>
-                            <option value="بازنشسته / فاقد شغل">بازنشسته / فاقد شغل</option>
-                            <option value="خانه‌دار (بدون شغل بیرون از منزل)">خانه‌دار (بدون شغل بیرون از منزل)</option>
-                            <option value="دانشجو / محصل">دانشجو / محصل</option>
-                            <option value="مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)">مشاغل نشسته و کم‌تحرک (کارمند اداری، راننده، حسابدار)</option>
-                            <option value="مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)">مشاغل با تحرک و ایستادن متوسط (کادر درمان، معلم، فروشنده، آرایشگر)</option>
-                            <option value="مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)">مشاغل با فعالیت فیزیکی شدید (کارگر، کشاورز، باربر)</option>
-                        </select>
-                    </div>
-                    <div class="md:col-span-2" id="jobTitleContainer" style="display: none;">
-                        <label class="block font-bold text-slate-700 mb-1">عنوان دقیق شغل شما: *</label>
-                        <input type="text" id="jobTitle" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="مثلاً: پرستار بخش ICU، معلم، کارمند بانک...">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block font-bold text-slate-700 mb-1">وضعیت اقتصادی (تخمین خوداظهاری):</label>
-                        <select id="economy" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>خوب (کفاف هزینه‌ها و پس‌انداز)</option><option>متوسط (کفاف مخارج پایه)</option><option>ضعیف</option>
-                        </select>
-                    </div>
-                </div>
-
-                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center my-6 border-t pt-6">شاخص‌های آنتروپومتریک</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">وزن (کیلوگرم - بدون کفش و لباس): *</label>
-                        <input type="number" id="weight" step="0.1" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" placeholder="مثلاً 70">
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">قد (سانتی‌متر): *</label>
-                        <input type="number" id="height" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" placeholder="مثلاً 175">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block font-bold text-slate-700 mb-1">دور کمر (سانتی‌متر):</label>
-                        <input type="number" id="waist" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none" placeholder="اختیاری">
-                    </div>
-                </div>
-
-                <h2 class="font-bold text-base md:text-lg text-slate-800 text-center my-6 border-t pt-6">عادات سبک زندگی و ارتباط با آزمودنی</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">وضعیت استعمال دخانیات:</label>
-                        <select id="smoking" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                            <option>غیر سیگاری</option><option>سیگار / قلیان</option><option>ترک کرده</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">الگوی خواب شبانه‌روز (ساعت در ۲۴ ساعت):</label>
-                        <input type="number" id="sleep" value="7" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none">
-                    </div>
-                    
-                    <!-- اصلاح ۱: شماره تماس اختیاری -->
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">شماره تماس همراه (اختیاری):</label>
-                        <input type="tel" id="phone" class="w-full p-2.5 bg-slate-50 border rounded-xl outline-none focus:ring-2 focus:ring-indigo-500" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
-                    </div>
-
-                    <!-- اصلاح ۲: موافقت با بازآزمون و همکاری مجدد -->
-                    <div class="flex items-center pt-6">
-                        <label class="flex items-center gap-2 p-2.5 bg-indigo-50/70 border border-indigo-200 rounded-xl cursor-pointer hover:bg-indigo-100/50 w-full">
-                            <input type="checkbox" id="retest_agree" class="w-5 h-5 text-indigo-600 rounded">
-                            <span class="text-xs md:text-sm font-bold text-indigo-950">مایل به همکاری مجدد و تکمیل پرسشنامه در مرحله بعد (یک‌ماه آینده) هستم.</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div id="step1_error" class="hidden mt-4 text-sm text-red-700 font-bold text-center bg-red-100 p-3 rounded-lg"></div>
-                <button type="button" onclick="validateStep1()" class="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">
+                <button type="button" onclick="validateStep1()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">
                     ادامه به بخش سوابق پزشکی و غربالگری بالینی ➔
                 </button>
             </div>
@@ -200,7 +229,7 @@
 
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
                         <div>
-                            <label class="block font-bold text-slate-700 mb-2">سابقه مصرف دارویی خاص:</label>
+                            <label class="block font-bold text-slate-700 mb-2">سابقه مصرف داروی خاص:</label>
                             <select id="med_drugs" class="w-full p-2.5 border rounded-xl bg-white outline-none" onchange="toggleDrugDetails()">
                                 <option value="فاقد مصرف">فاقد مصرف</option>
                                 <option value="کورتیکواستروئیدها (کورتون‌ها)">کورتیکواستروئیدها (کورتون‌ها)</option>
@@ -234,43 +263,43 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <div class="bg-slate-50 p-3 rounded-lg border">
                             <label class="block font-bold mb-2">۱. سن خود را می‌داند؟</label>
-                            <select id="amts1" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts1" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
                             <label class="block font-bold mb-2">۲. زمان فعلی (ساعت) را می‌داند؟</label>
-                            <select id="amts2" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts2" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border md:col-span-2">
                             <label class="block font-bold mb-2">۳. آدرس حفظ شده را در انتهای تست یادآوری می‌کند؟</label>
-                            <select id="amts3" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts3" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
                             <label class="block font-bold mb-2">۴. سال فعلی را می‌داند؟</label>
-                            <select id="amts4" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts4" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
                             <label class="block font-bold mb-2">۵. نام مکان فعلی را می‌داند؟</label>
-                            <select id="amts5" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts5" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
                             <label class="block font-bold mb-2">۶. افراد اطراف را می‌شناسد؟</label>
-                            <select id="amts6" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts6" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
                             <label class="block font-bold mb-2">۷. تاریخ تولد خود را می‌داند؟</label>
-                            <select id="amts7" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts7" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
                             <label class="block font-bold mb-2">۸. سال وقوع انقلاب/جنگ را می‌داند؟</label>
-                            <select id="amts8" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts8" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border">
                             <label class="block font-bold mb-2">۹. نام رئیس‌جمهور فعلی را می‌داند؟</label>
-                            <select id="amts9" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts9" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                         <div class="bg-slate-50 p-3 rounded-lg border md:col-span-2">
                             <label class="block font-bold mb-2">۱۰. شمارش معکوس از ۲۰ تا ۱ را درست انجام می‌دهد؟</label>
-                            <select id="amts10" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح (۱)</option><option value="0">غلط (۰)</option></select>
+                            <select id="amts10" class="w-full p-2 border rounded-md"><option value="">انتخاب</option><option value="1">صحیح</option><option value="0">غلط</option></select>
                         </div>
                     </div>
                 </div>
@@ -284,7 +313,7 @@
             <!-- ================= پرسشنامه جهانی فعالیت فیزیکی (GPAQ): مقدمه ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step4">
                 <div class="flex justify-center mb-4">
-                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_tuq29v2e.json" background="transparent" speed="1" style="width: 140px; height: 140px;" loop autoplay></lottie-player>
+                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_tuq29v2e.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
                 </div>
                 <div class="bg-indigo-50/80 border border-indigo-200 p-5 rounded-2xl mb-8">
                     <h3 class="font-bold text-indigo-900 mb-3 text-base md:text-lg">پرسشنامه جهانی فعالیت فیزیکی (GPAQ) - مقدمه</h3>
@@ -304,7 +333,7 @@
             <!-- ================= فعالیت در محل کار (شدید) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step5">
                 <div class="flex justify-center mb-3">
-                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
+                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">فعالیت در محل کار</h3>
                 
@@ -316,24 +345,24 @@
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
                         1. آیا کارِ شما شامل فعالیت‌های بدنی شدید و سنگینی است که حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) طول بکشد و باعث شود به شدت نفس‌نفس بزنید یا ضربان قلبتان خیلی بالا برود؟ <br>
-                        <span class="text-xs md:text-sm font-normal text-slate-600">(مانند [حمل یا بلند کردن بارهای سنگین، کندن زمین یا کارهای ساختمانی])</span>
+                        <span class="text-xs md:text-sm font-normal text-slate-600">(مانند حمل یا بلند کردن بارهای سنگین، کندن زمین یا کارهای ساختمانی)</span>
                     </label>
                     <select id="q1" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q1', 'q1_sub')">
                         <option value="">انتخاب کنید</option>
-                        <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال ۴ بروید)</option>
+                        <option value="بله">بله</option>
+                        <option value="خیر">خیر</option>
                     </select>
                 </div>
                 <div id="q1_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">2. معمولا در طول یک هفته، چند روز در محل کارتان چنین فعالیت‌های شدید و سنگین را انجام می‌دهید؟</label>
-                        <input type="number" id="q2" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
+                        <input type="number" id="q2" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">3. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های شدید در محل کار می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q3_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q3_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q3_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                            <input type="number" id="q3_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
                         </div>
                     </div>
                 </div>
@@ -355,24 +384,24 @@
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
                         4. آیا کارِ شما شامل فعالیت‌های بدنی متوسط (سبک) است که حداقل ۱۰ دقیقه به‌طور مداوم (پشت‌سرهم) طول بکشد و باعث شود تنفس یا ضربان قلبتان فقط کمی تندتر شود؟ <br>
-                        <span class="text-xs md:text-sm font-normal text-slate-600">مانند راه رفتن سریع (یا جابه‌جا کردن بارهای سبک)</span>
+                        <span class="text-xs md:text-sm font-normal text-slate-600">مانند راه رفتن سریع یا جابه‌جا کردن بارهای سبک</span>
                     </label>
                     <select id="q4" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q4', 'q4_sub')">
                         <option value="">انتخاب کنید</option>
-                        <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 7 بروید)</option>
+                        <option value="بله">بله</option>
+                        <option value="خیر">خیر</option>
                     </select>
                 </div>
                 <div id="q4_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">5. معمولا در طول یک هفته، چند روز در محل کارتان چنین فعالیت‌های با شدت متوسط (سبک) را انجام می‌دهید؟</label>
-                        <input type="number" id="q5" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
+                        <input type="number" id="q5" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">6. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های با شدت متوسط (سبک) در محل کار می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q6_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q6_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q6_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                            <input type="number" id="q6_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
                         </div>
                     </div>
                 </div>
@@ -401,20 +430,20 @@
                     </label>
                     <select id="q7" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q7', 'q7_sub')">
                         <option value="">انتخاب کنید</option>
-                        <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 10 بروید)</option>
+                        <option value="بله">بله</option>
+                        <option value="خیر">خیر</option>
                     </select>
                 </div>
                 <div id="q7_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">8. معمولا در طول یک هفته، چند روز برای رفت‌وآمد به مکان‌های مختلف، حداقل ۱۰ دقیقه به‌طور مداوم پیاده‌روی یا دوچرخه‌سواری می‌کنید؟</label>
-                        <input type="number" id="q8" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
+                        <input type="number" id="q8" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">9. معمولا در طول یک روز، چقدر از وقتتان را صرفِ پیاده‌روی یا دوچرخه‌سواری برای رفت‌وآمد می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q9_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q9_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q9_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                            <input type="number" id="q9_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
                         </div>
                     </div>
                 </div>
@@ -443,20 +472,20 @@
                     </label>
                     <select id="q10" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q10', 'q10_sub')">
                         <option value="">انتخاب کنید</option>
-                        <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 13 بروید)</option>
+                        <option value="بله">بله</option>
+                        <option value="خیر">خیر</option>
                     </select>
                 </div>
                 <div id="q10_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">11. معمولا در طول یک هفته، چند روز چنین فعالیت‌های ورشی یا تفریحیِ شدید و سنگین را انجام می‌دهید؟</label>
-                        <input type="number" id="q11" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
+                        <input type="number" id="q11" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">12. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های ورزشی یا تفریحیِ شدید می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q12_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q12_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q12_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                            <input type="number" id="q12_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
                         </div>
                     </div>
                 </div>
@@ -481,20 +510,20 @@
                     </label>
                     <select id="q13" class="w-full p-2.5 border rounded-xl bg-white text-sm md:text-base" onchange="toggleSub('q13', 'q13_sub')">
                         <option value="">انتخاب کنید</option>
-                        <option value="بله">بله (۱)</option>
-                        <option value="خیر">خیر (۲) (اگر خیر، به سؤال 16 بروید)</option>
+                        <option value="بله">بله</option>
+                        <option value="خیر">خیر</option>
                     </select>
                 </div>
                 <div id="q13_sub" class="hidden space-y-5 bg-indigo-50/50 p-4 rounded-xl mb-6 border border-indigo-100">
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">14. معمولا در طول یک هفته، چند روز چنین فعالیت‌های ورزشی یا تفریحیِ با شدت متوسط (سبک) را انجام می‌دهید؟</label>
-                        <input type="number" id="q14" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm" placeholder="تعداد روز ها.....">
+                        <input type="number" id="q14" min="1" max="7" class="w-full p-2.5 border rounded-lg text-sm bg-white" placeholder="تعداد روزها (۱ تا ۷)">
                     </div>
                     <div>
                         <label class="block mb-2 font-bold text-slate-800 text-sm md:text-base">15. معمولا در طول یک روز، چقدر از وقتتان را صرف انجام این فعالیت‌های ورزشی یا تفریحیِ با شدت متوسط (سبک) می‌کنید؟</label>
                         <div class="flex gap-3">
-                            <input type="number" id="q15_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm">
-                            <input type="number" id="q15_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm">
+                            <input type="number" id="q15_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                            <input type="number" id="q15_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
                         </div>
                     </div>
                 </div>
@@ -508,7 +537,7 @@
             <div class="step-card animate__animated animate__fadeIn" id="step10">
                 <div class="bg-red-50 border-r-4 border-red-500 p-4 rounded-l-xl text-sm md:text-base text-red-900 mb-5 mt-4 leading-loose text-justify">
                     <b>رفتارهای کم‌تحرک:</b><br>
-                    سؤال بعدی درباره نشستن یا دراز کشیدن در محل کار، خانه، مسیر رفت‌وآمد، یا دورهمی با دوستان است. این زمان شامل زمان‌هایی است که صرف (نشستن پشت میز، نشستن کنار دوستان، مسافرت با ماشین، اتوبوس یا قطار، مطالعه کردن، بازی های کارتی، یا تماشای تلویزیون) می‌کنید؛ توجه داشته باشید که زمانِ خوابیدن را نباید حساب کنید!
+                    سؤال بعدی درباره نشستن یا دراز کشیدن در محل کار، خانه، مسیر رفت‌وآمد، یا دورهمی با دوستان است. این زمان شامل زمان‌هایی است که صرف نشستن پشت میز، نشستن کنار دوستان، مسافرت با ماشین، اتوبوس یا قطار، مطالعه کردن، بازی‌های کارتی، یا تماشای تلویزیون می‌کنید؛ توجه داشته باشید که زمانِ خوابیدن را نباید حساب کنید!
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">رفتارهای کم‌تحرک</h3>
                 
@@ -522,8 +551,8 @@
                         16. معمولا در طول یک روز، مجموعا چقدر از وقتتان را در حالت نشسته یا درازکش سپری می‌کنید؟
                     </label>
                     <div class="flex gap-3 text-base">
-                        <input type="number" id="q16_h" placeholder="......ساعت" class="w-1/2 p-2.5 border rounded-lg" value="6">
-                        <input type="number" id="q16_m" placeholder="...... دقیقه" class="w-1/2 p-2.5 border rounded-lg" value="0">
+                        <input type="number" id="q16_h" placeholder="ساعت" class="w-1/2 p-2.5 border rounded-lg bg-white" value="6">
+                        <input type="number" id="q16_m" placeholder="دقیقه" class="w-1/2 p-2.5 border rounded-lg bg-white" value="0">
                     </div>
                 </div>
                 <div class="flex gap-3">
@@ -532,7 +561,7 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 11: پرسشنامه بین‌المللی فعالیت بدنی (IPAQ) - روایی همگرا ================= -->
+            <!-- ================= STEP 11: پرسشنامه بین‌المللی فعالیت بدنی (IPAQ) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step_ipaq">
                 <div class="bg-indigo-50 border-r-4 border-indigo-600 p-4 rounded-l-xl text-indigo-950 mb-5 text-justify leading-relaxed">
                     <h3 class="font-bold text-base md:text-lg mb-2">پرسشنامه بين المللي فعاليت بدني (IPAQ)</h3>
@@ -541,12 +570,12 @@
                     </p>
                 </div>
 
-                <!-- IPAQ Q1 & Q2: فعالیت شدید -->
+                <!-- IPAQ Q1 & Q2 -->
                 <div class="bg-slate-50 p-4 rounded-xl mb-5 border">
-                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed">
+                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed text-justify">
                         تمام فعاليتهاي شديدي را که در طول 7 روز اخیر انجام داده اید، مدنظر قرار دهید. فعاليت هاي شدید به فعالیتهایی اطلاق می شود که قدرت بدني زيادي ميخواهد و باعث میشود بسیار شدیدتر از حالت عادي نفس بکشید. لطفاً فقط فعالیتهایی را مدنظر قرار دهید که حداقل به مدت 10 دقیقه به صورت پیوسته انجام داده اید.
                     </p>
-                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed">
+                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed text-justify">
                         ۱. در طول 7 روز اخیر چند روز آن فعالیت بدنی شدید مانند بلند کردن اجسام سنگین، حفاري (مثل کندن باغچه)، ايروبيك (ورزش هوازي)، دوچرخه سواري سريع، فوتبال و دویدن داشته اید؟
                     </label>
                     <div class="space-y-3">
@@ -554,7 +583,7 @@
                             <input type="number" id="ipaq_q1" min="0" max="7" class="w-32 p-2 border rounded-lg text-sm bg-white" placeholder="روز در هفته">
                             <label class="flex items-center gap-2 cursor-pointer text-sm">
                                 <input type="checkbox" id="ipaq_q1_none" onchange="toggleIPAQSkip('ipaq_q1', 'ipaq_q2_box', this)">
-                                <span>فعالیت بدنی شدید نداشته ام (مراجعه به سؤال ۳)</span>
+                                <span>فعالیت بدنی شدید نداشته ام</span>
                             </label>
                         </div>
                         <div id="ipaq_q2_box" class="space-y-2 pt-2 border-t">
@@ -567,12 +596,12 @@
                     </div>
                 </div>
 
-                <!-- IPAQ Q3 & Q4: فعالیت متوسط -->
+                <!-- IPAQ Q3 & Q4 -->
                 <div class="bg-slate-50 p-4 rounded-xl mb-5 border">
-                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed">
+                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed text-justify">
                         فعاليتهاي بدني متوسطي را که در طول 7 روز اخیر انجام داده اید، مدنظر قرار دهید. فعاليتهاي فيزيكي متوسط به فعالیتهایی اطلاق ميشود که قدرت متوسطي ميخواهد و باعث میشود شما کمی تندتر از حالت عادي نفس بکشید. لطفاً فقط فعالیتهایی را مدنظر قرار دهید که حداقل به مدت 10 دقیقه به صورت پیوسته انجام داده اید.
                     </p>
-                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed">
+                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed text-justify">
                         ۳. در طول 7 روز اخیر چند روز آن فعالیت فيزيكي متوسط مانند حمل بارهاي سبك، دوچرخه سواري با سرعت متوسط یا والیبال انجام داده اید؟ لطفاً پياده روي را به حساب نیاورید.
                     </label>
                     <div class="space-y-3">
@@ -580,7 +609,7 @@
                             <input type="number" id="ipaq_q3" min="0" max="7" class="w-32 p-2 border rounded-lg text-sm bg-white" placeholder="روز در هفته">
                             <label class="flex items-center gap-2 cursor-pointer text-sm">
                                 <input type="checkbox" id="ipaq_q3_none" onchange="toggleIPAQSkip('ipaq_q3', 'ipaq_q4_box', this)">
-                                <span>فعالیت بدني متوسط نداشته ام (مراجعه به سؤال ۵)</span>
+                                <span>فعالیت بدني متوسط نداشته ام</span>
                             </label>
                         </div>
                         <div id="ipaq_q4_box" class="space-y-2 pt-2 border-t">
@@ -593,12 +622,12 @@
                     </div>
                 </div>
 
-                <!-- IPAQ Q5 & Q6: پیاده‌روی -->
+                <!-- IPAQ Q5 & Q6 -->
                 <div class="bg-slate-50 p-4 rounded-xl mb-5 border">
-                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed">
+                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed text-justify">
                         لطفاً مدت زمانی را که در طول 7 روز گذشته به پياده روي اختصاص داده اید، مدنظر قرار دهید. این قسمت پیاده روي در محل کار، در خانه، براي رفتن از محلی به محل دیگر و هر نوع پياده روي ديگر که شما به عنوان تفریح، ورزش، تمرینات جسماني يا در اوقات فراغت انجام داده اید را شامل می شود.
                     </p>
-                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed">
+                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed text-justify">
                         ۵. در طول 7 روز اخیر چند روز آن به مدت حداقل 10 دقیقه و به صورت پیوسته پياده روي داشته اید؟
                     </label>
                     <div class="space-y-3">
@@ -606,7 +635,7 @@
                             <input type="number" id="ipaq_q5" min="0" max="7" class="w-32 p-2 border rounded-lg text-sm bg-white" placeholder="روز در هفته">
                             <label class="flex items-center gap-2 cursor-pointer text-sm">
                                 <input type="checkbox" id="ipaq_q5_none" onchange="toggleIPAQSkip('ipaq_q5', 'ipaq_q6_box', this)">
-                                <span>پياده روي نداشته ام (مراجعه به سؤال ۷)</span>
+                                <span>پياده روي نداشته ام</span>
                             </label>
                         </div>
                         <div id="ipaq_q6_box" class="space-y-2 pt-2 border-t">
@@ -619,17 +648,17 @@
                     </div>
                 </div>
 
-                <!-- IPAQ Q7: نشستن -->
+                <!-- IPAQ Q7 -->
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border">
-                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed">
+                    <p class="text-xs md:text-sm text-slate-700 mb-2 leading-relaxed text-justify">
                         آخرین سؤال مربوط به اوقاتی است که شما در طول 7 روز اخیر به نشستن اختصاص داده اید که شامل نشستن در محل کار، در خانه، هنگام انجام تکالیف و در اوقات فراغت میباشد. این زمان نشستن پشت میز، نشستن یا لم دادن هنگام تماشاي تلوزيون و مطالعه و زماني که براي نشستن با دوستان و فامیل اختصاص داده اید را هم شامل می شود.
                     </p>
-                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed">
+                    <label class="block font-bold text-slate-800 mb-3 text-sm md:text-base leading-relaxed text-justify">
                         ۷. در طول 7 روز اخیر چه مدت زمانی را در هر روز به نشستن اختصاص داده اید؟
                     </label>
                     <div class="flex gap-3">
-                        <input type="number" id="ipaq_q7_h" placeholder="الف) ساعت در روز" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
-                        <input type="number" id="ipaq_q7_m" placeholder="ب) دقیقه در روز" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                        <input type="number" id="ipaq_q7_h" placeholder="ساعت در روز" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
+                        <input type="number" id="ipaq_q7_m" placeholder="دقیقه در روز" class="w-1/2 p-2.5 border rounded-lg text-sm bg-white">
                     </div>
                 </div>
 
@@ -639,7 +668,7 @@
                 </div>
             </div>
 
-            <!-- ================= STEP 12: نتیجه نهایی ================= -->
+            <!-- ================= STEP 12: نتیجه نهایی و توصیه‌های بازطراحی‌شده WHO 2020 ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step_result">
                 <h2 class="font-black text-emerald-800 border-b-2 border-emerald-200 pb-3 mb-6 text-center text-lg md:text-xl">نتایج تحلیلی شاخص فعالیت بدنی (GPAQ)</h2>
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
@@ -675,6 +704,7 @@
     <!-- فرم مخفی برای ارسال به گوگل شیت -->
     <iframe name="hidden_iframe" style="display:none;"></iframe>
     <form id="hiddenGoogleForm" action="https://script.google.com/macros/s/AKfycbxWYemRTUxFXKo4p3oJPlpGSMgfjc8fUW27Cp6g2edC16_tgrGk0kXdpB6gtmg6swQnQA/exec" method="GET" target="hidden_iframe" style="display:none;">
+        <input type="hidden" name="interviewer" id="h_interviewer">
         <input type="hidden" name="age" id="h_age">
         <input type="hidden" name="gender" id="h_gender">
         <input type="hidden" name="education" id="h_education">
@@ -715,7 +745,6 @@
         <input type="hidden" name="q10" id="h_q10">
         <input type="hidden" name="q11" id="h_q11">
         <input type="hidden" name="q12_h" id="h_q12_h">
-        <input type="hidden" name="q12_m" id="h_q12_m">
         <input type="hidden" name="q13" id="h_q13">
         <input type="hidden" name="q14" id="h_q14">
         <input type="hidden" name="q15_h" id="h_q15_h">
@@ -818,6 +847,7 @@
         }
 
         function validateStep1() {
+            const interviewer = document.getElementById('interviewer').value;
             const age = document.getElementById('age').value;
             const weight = document.getElementById('weight').value;
             const height = document.getElementById('height').value;
@@ -829,9 +859,11 @@
                 isJobValid = false;
             }
 
-            if(!age || !weight || !height || job === '' || !isJobValid) {
+            if(!interviewer || !age || !weight || !height || job === '' || !isJobValid) {
                 const errorDiv = document.getElementById('step1_error');
-                if(job === '') {
+                if(!interviewer) {
+                    errorDiv.innerText = "لطفاً مشخص نمایید تکمیل‌کننده فرم چه کسی است (پژوهشگر اصلی یا همکار).";
+                } else if(job === '') {
                     errorDiv.innerText = "لطفاً شغل خود را انتخاب کنید.";
                 } else if(!isJobValid) {
                     errorDiv.innerText = "لطفاً عنوان دقیق شغل خود را وارد کنید.";
@@ -897,13 +929,12 @@
             goToStep(nextStep);
         }
 
-        // بررسی اینکه بعد از اتمام GPAQ به IPAQ برود یا مستقیم ثبت شود
         function nextAfterGPAQ() {
             const retestAgree = document.getElementById('retest_agree').checked;
             if (retestAgree) {
-                goToStep('step_ipaq'); // باز شدن پرسشنامه IPAQ جهت روایی همگرا
+                goToStep('step_ipaq'); 
             } else {
-                processAndSubmit(); // پرش از IPAQ و ثبت مستقیم
+                processAndSubmit(); 
             }
         }
 
@@ -920,7 +951,7 @@
         function processAndSubmit() {
             let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
 
-            if (document.getElementById('q1').value.includes('بله')) {
+            if (document.getElementById('q1').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
                     alert("خطا: زمان وارد شده برای فعالیت شغلی شدید غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
                 }
@@ -928,7 +959,7 @@
                 let m = ((parseFloat(document.getElementById('q3_h').value)||0)*60) + (parseFloat(document.getElementById('q3_m').value)||0);
                 workVigorous = d * m * 8.0;
             }
-            if (document.getElementById('q4').value.includes('بله')) {
+            if (document.getElementById('q4').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q6_h').value, document.getElementById('q6_m').value)) {
                     alert("خطا: زمان وارد شده برای فعالیت شغلی متوسط غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
                 }
@@ -936,7 +967,7 @@
                 let m = ((parseFloat(document.getElementById('q6_h').value)||0)*60) + (parseFloat(document.getElementById('q6_m').value)||0);
                 workModerate = d * m * 4.0;
             }
-            if (document.getElementById('q7').value.includes('بله')) {
+            if (document.getElementById('q7').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q9_h').value, document.getElementById('q9_m').value)) {
                     alert("خطا: زمان وارد شده برای رفت‌وآمد غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
                 }
@@ -944,7 +975,7 @@
                 let m = ((parseFloat(document.getElementById('q9_h').value)||0)*60) + (parseFloat(document.getElementById('q9_m').value)||0);
                 transport = d * m * 4.0;
             }
-            if (document.getElementById('q10').value.includes('بله')) {
+            if (document.getElementById('q10').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q12_h').value, document.getElementById('q12_m').value)) {
                     alert("خطا: زمان وارد شده برای تفریحات شدید غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
                 }
@@ -952,7 +983,7 @@
                 let m = ((parseFloat(document.getElementById('q12_h').value)||0)*60) + (parseFloat(document.getElementById('q12_m').value)||0);
                 recVigorous = d * m * 8.0;
             }
-            if (document.getElementById('q13').value.includes('بله')) {
+            if (document.getElementById('q13').value === 'بله') {
                 if(!checkDailyLimit(document.getElementById('q15_h').value, document.getElementById('q15_m').value)) {
                     alert("خطا: زمان وارد شده برای تفریحات متوسط غیرمنطقی است (بیشتر از ۱۶ ساعت در روز). لطفاً اصلاح کنید."); return;
                 }
@@ -1038,6 +1069,7 @@
             document.getElementById('ai_recommendation').innerHTML = recHTML;
 
             // پر کردن مقادیر فرم مخفی
+            document.getElementById('h_interviewer').value = getVal('interviewer');
             document.getElementById('h_age').value = getVal('age');
             document.getElementById('h_gender').value = getVal('gender');
             document.getElementById('h_education').value = getVal('education');
@@ -1074,38 +1106,38 @@
             // GPAQ
             let q1Val = getVal('q1');
             document.getElementById('h_q1').value = q1Val;
-            document.getElementById('h_q2').value = (q1Val.includes('بله')) ? getVal('q2') : '-';
-            document.getElementById('h_q3_h').value = (q1Val.includes('بله')) ? getVal('q3_h') : '-';
-            document.getElementById('h_q3_m').value = (q1Val.includes('بله')) ? getVal('q3_m') : '-';
+            document.getElementById('h_q2').value = (q1Val === 'بله') ? getVal('q2') : '-';
+            document.getElementById('h_q3_h').value = (q1Val === 'بله') ? getVal('q3_h') : '-';
+            document.getElementById('h_q3_m').value = (q1Val === 'بله') ? getVal('q3_m') : '-';
 
             let q4Val = getVal('q4');
             document.getElementById('h_q4').value = q4Val;
-            document.getElementById('h_q5').value = (q4Val.includes('بله')) ? getVal('q5') : '-';
-            document.getElementById('h_q6_h').value = (q4Val.includes('بله')) ? getVal('q6_h') : '-';
-            document.getElementById('h_q6_m').value = (q4Val.includes('بله')) ? getVal('q6_m') : '-';
+            document.getElementById('h_q5').value = (q4Val === 'بله') ? getVal('q5') : '-';
+            document.getElementById('h_q6_h').value = (q4Val === 'بله') ? getVal('q6_h') : '-';
+            document.getElementById('h_q6_m').value = (q4Val === 'بله') ? getVal('q6_m') : '-';
 
             let q7Val = getVal('q7');
             document.getElementById('h_q7').value = q7Val;
-            document.getElementById('h_q8').value = (q7Val.includes('بله')) ? getVal('q8') : '-';
-            document.getElementById('h_q9_h').value = (q7Val.includes('بله')) ? getVal('q9_h') : '-';
-            document.getElementById('h_q9_m').value = (q7Val.includes('بله')) ? getVal('q9_m') : '-';
+            document.getElementById('h_q8').value = (q7Val === 'بله') ? getVal('q8') : '-';
+            document.getElementById('h_q9_h').value = (q7Val === 'بله') ? getVal('q9_h') : '-';
+            document.getElementById('h_q9_m').value = (q7Val === 'بله') ? getVal('q9_m') : '-';
 
             let q10Val = getVal('q10');
             document.getElementById('h_q10').value = q10Val;
-            document.getElementById('h_q11').value = (q10Val.includes('بله')) ? getVal('q11') : '-';
-            document.getElementById('h_q12_h').value = (q10Val.includes('بله')) ? getVal('q12_h') : '-';
-            document.getElementById('h_q12_m').value = (q10Val.includes('بله')) ? getVal('q12_m') : '-';
+            document.getElementById('h_q11').value = (q10Val === 'بله') ? getVal('q11') : '-';
+            document.getElementById('h_q12_h').value = (q10Val === 'بله') ? getVal('q12_h') : '-';
+            document.getElementById('h_q12_m').value = (q10Val === 'بله') ? getVal('q12_m') : '-';
 
             let q13Val = getVal('q13');
             document.getElementById('h_q13').value = q13Val;
-            document.getElementById('h_q14').value = (q13Val.includes('بله')) ? getVal('q14') : '-';
-            document.getElementById('h_q15_h').value = (q13Val.includes('بله')) ? getVal('q15_h') : '-';
-            document.getElementById('h_q15_m').value = (q13Val.includes('بله')) ? getVal('q15_m') : '-';
+            document.getElementById('h_q14').value = (q13Val === 'بله') ? getVal('q14') : '-';
+            document.getElementById('h_q15_h').value = (q13Val === 'بله') ? getVal('q15_h') : '-';
+            document.getElementById('h_q15_m').value = (q13Val === 'بله') ? getVal('q15_m') : '-';
 
             document.getElementById('h_q16_h').value = getVal('q16_h');
             document.getElementById('h_q16_m').value = getVal('q16_m');
 
-            // IPAQ (اگر پر شده باشد)
+            // IPAQ
             if (document.getElementById('retest_agree').checked) {
                 document.getElementById('h_ipaq_q1').value = document.getElementById('ipaq_q1_none').checked ? "۰" : getVal('ipaq_q1');
                 document.getElementById('h_ipaq_q2_h').value = document.getElementById('ipaq_q1_none').checked ? "-" : getVal('ipaq_q2_h');
