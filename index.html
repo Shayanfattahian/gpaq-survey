@@ -658,17 +658,25 @@
 
                 <div class="flex gap-3">
                     <button type="button" onclick="goToStep(10)" class="w-1/3 bg-slate-200 text-slate-700 font-bold text-base py-3.5 rounded-xl">قبلی</button>
-                    <button type="button" onclick="processAndSubmit()" class="w-2/3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">محاسبه و ثبت نهایی 🚀</button>
+                    <button type="button" id="btn_ipaq_submit" onclick="processAndSubmit()" class="w-2/3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base py-3.5 rounded-xl shadow-lg transition">محاسبه و ثبت نهایی 🚀</button>
                 </div>
             </div>
 
             <!-- ================= STEP 12: نتیجه نهایی ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step_result">
                 <h2 class="font-black text-emerald-800 border-b-2 border-emerald-200 pb-3 mb-6 text-center text-lg md:text-xl">نتایج تحلیلی شاخص فعالیت بدنی (GPAQ)</h2>
+                
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
                     ✅ اطلاعات شما با موفقیت در سامانه دانشگاه ثبت شد. از مشارکت شما سپاسگزاریم!
                 </div>
                 
+                <!-- دکمه دانلود فایل پشتیبان در صورت خطای شبکه -->
+                <div id="backupDownloadBox" class="hidden mb-6 text-center">
+                    <button type="button" onclick="downloadBackupCSV()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-md text-sm">
+                        📥 دانلود فایل پشتیبان این پرسشنامه (CSV)
+                    </button>
+                </div>
+
                 <div class="grid grid-cols-2 gap-4 mb-6 text-center">
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
                         <span class="text-xs md:text-sm text-slate-500 block mb-2">مجموع MET هفته:</span>
@@ -695,76 +703,10 @@
         </div>
     </div>
 
-    <!-- فرم مخفی برای ارسال به گوگل شیت -->
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
-    <form id="hiddenGoogleForm" action="https://script.google.com/macros/s/AKfycbxWYemRTUxFXKo4p3oJPlpGSMgfjc8fUW27Cp6g2edC16_tgrGk0kXdpB6gtmg6swQnQA/exec" method="GET" target="hidden_iframe" style="display:none;">
-        <input type="hidden" name="interviewer" id="h_interviewer">
-        <input type="hidden" name="age" id="h_age">
-        <input type="hidden" name="gender" id="h_gender">
-        <input type="hidden" name="education" id="h_education">
-        <input type="hidden" name="religion" id="h_religion">
-        <input type="hidden" name="marital" id="h_marital">
-        <input type="hidden" name="job" id="h_job">
-        <input type="hidden" name="jobTitle" id="h_jobTitle"> 
-        <input type="hidden" name="economy" id="h_economy">
-        <input type="hidden" name="weight" id="h_weight">
-        <input type="hidden" name="height" id="h_height">
-        <input type="hidden" name="waist" id="h_waist">
-        <input type="hidden" name="smoking" id="h_smoking">
-        <input type="hidden" name="sleep" id="h_sleep">
-        <input type="hidden" name="phone" id="h_phone">
-        <input type="hidden" name="retest_agree" id="h_retest_agree">
-        
-        <input type="hidden" name="med_chronic" id="h_med_chronic">
-        <input type="hidden" name="med_endocrine" id="h_med_endocrine">
-        <input type="hidden" name="med_mobility" id="h_med_mobility">
-        <input type="hidden" name="med_drugs" id="h_med_drugs">
-        <input type="hidden" name="med_drugDetails" id="h_med_drugDetails">
-        
-        <input type="hidden" name="amts_score" id="h_amts_score"> 
-        
-        <!-- GPAQ Fields -->
-        <input type="hidden" name="q1" id="h_q1">
-        <input type="hidden" name="q2" id="h_q2">
-        <input type="hidden" name="q3_h" id="h_q3_h">
-        <input type="hidden" name="q3_m" id="h_q3_m">
-        <input type="hidden" name="q4" id="h_q4">
-        <input type="hidden" name="q5" id="h_q5">
-        <input type="hidden" name="q6_h" id="h_q6_h">
-        <input type="hidden" name="q6_m" id="h_q6_m">
-        <input type="hidden" name="q7" id="h_q7">
-        <input type="hidden" name="q8" id="h_q8">
-        <input type="hidden" name="q9_h" id="h_q9_h">
-        <input type="hidden" name="q9_m" id="h_q9_m">
-        <input type="hidden" name="q10" id="h_q10">
-        <input type="hidden" name="q11" id="h_q11">
-        <input type="hidden" name="q12_h" id="h_q12_h">
-        <input type="hidden" name="q13" id="h_q13">
-        <input type="hidden" name="q14" id="h_q14">
-        <input type="hidden" name="q15_h" id="h_q15_h">
-        <input type="hidden" name="q15_m" id="h_q15_m">
-        <input type="hidden" name="q16_h" id="h_q16_h">
-        <input type="hidden" name="q16_m" id="h_q16_m">
-        
-        <!-- IPAQ Fields -->
-        <input type="hidden" name="ipaq_q1" id="h_ipaq_q1">
-        <input type="hidden" name="ipaq_q2_h" id="h_ipaq_q2_h">
-        <input type="hidden" name="ipaq_q2_m" id="h_ipaq_q2_m">
-        <input type="hidden" name="ipaq_q3" id="h_ipaq_q3">
-        <input type="hidden" name="ipaq_q4_h" id="h_ipaq_q4_h">
-        <input type="hidden" name="ipaq_q4_m" id="h_ipaq_q4_m">
-        <input type="hidden" name="ipaq_q5" id="h_ipaq_q5">
-        <input type="hidden" name="ipaq_q6_h" id="h_ipaq_q6_h">
-        <input type="hidden" name="ipaq_q6_m" id="h_ipaq_q6_m">
-        <input type="hidden" name="ipaq_q7_h" id="h_ipaq_q7_h">
-        <input type="hidden" name="ipaq_q7_m" id="h_ipaq_q7_m">
-
-        <input type="hidden" name="totalMet" id="h_totalMet">
-        <input type="hidden" name="category" id="h_category">
-        <input type="hidden" name="sedentaryHours" id="h_sedentaryHours">
-    </form>
-
     <script>
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWYemRTUxFXKo4p3oJPlpGSMgfjc8fUW27Cp6g2edC16_tgrGk0kXdpB6gtmg6swQnQA/exec";
+        let lastSubmittedPayload = null;
+
         document.addEventListener("DOMContentLoaded", function() {
             toggleJobTitle();
             toggleDrugDetails();
@@ -950,7 +892,7 @@
 
         function getVal(id) {
             const el = document.getElementById(id);
-            return (el && el.value !== undefined && el.value !== "") ? el.value : "-";
+            return (el && el.value !== undefined && el.value.toString().trim() !== "") ? el.value.toString().trim() : "-";
         }
 
         function checkDailyLimit(hours, mins) {
@@ -958,253 +900,277 @@
             return totalMins <= 960; 
         }
 
-        function processAndSubmit() {
-            try {
-                let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
+        async function processAndSubmit() {
+            let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
 
-                if (document.getElementById('q1').value === 'بله') {
-                    if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
-                        alert("خطا: زمان فعالیت شغلی شدید بیشتر از ۱۶ ساعت در روز است."); return;
-                    }
-                    let d = parseFloat(document.getElementById('q2').value) || 0;
-                    let m = ((parseFloat(document.getElementById('q3_h').value)||0)*60) + (parseFloat(document.getElementById('q3_m').value)||0);
-                    workVigorous = d * m * 8.0;
+            if (document.getElementById('q1').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
+                    alert("خطا: زمان فعالیت شغلی شدید بیشتر از ۱۶ ساعت در روز است."); return;
                 }
-                if (document.getElementById('q4').value === 'بله') {
-                    if(!checkDailyLimit(document.getElementById('q6_h').value, document.getElementById('q6_m').value)) {
-                        alert("خطا: زمان فعالیت شغلی متوسط بیشتر از ۱۶ ساعت در روز است."); return;
-                    }
-                    let d = parseFloat(document.getElementById('q5').value) || 0;
-                    let m = ((parseFloat(document.getElementById('q6_h').value)||0)*60) + (parseFloat(document.getElementById('q6_m').value)||0);
-                    workModerate = d * m * 4.0;
+                let d = parseFloat(document.getElementById('q2').value) || 0;
+                let m = ((parseFloat(document.getElementById('q3_h').value)||0)*60) + (parseFloat(document.getElementById('q3_m').value)||0);
+                workVigorous = d * m * 8.0;
+            }
+            if (document.getElementById('q4').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q6_h').value, document.getElementById('q6_m').value)) {
+                    alert("خطا: زمان فعالیت شغلی متوسط بیشتر از ۱۶ ساعت در روز است."); return;
                 }
-                if (document.getElementById('q7').value === 'بله') {
-                    if(!checkDailyLimit(document.getElementById('q9_h').value, document.getElementById('q9_m').value)) {
-                        alert("خطا: زمان رفت‌وآمد بیشتر از ۱۶ ساعت در روز است."); return;
-                    }
-                    let d = parseFloat(document.getElementById('q8').value) || 0;
-                    let m = ((parseFloat(document.getElementById('q9_h').value)||0)*60) + (parseFloat(document.getElementById('q9_m').value)||0);
-                    transport = d * m * 4.0;
+                let d = parseFloat(document.getElementById('q5').value) || 0;
+                let m = ((parseFloat(document.getElementById('q6_h').value)||0)*60) + (parseFloat(document.getElementById('q6_m').value)||0);
+                workModerate = d * m * 4.0;
+            }
+            if (document.getElementById('q7').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q9_h').value, document.getElementById('q9_m').value)) {
+                    alert("خطا: زمان رفت‌وآمد بیشتر از ۱۶ ساعت در روز است."); return;
                 }
-                if (document.getElementById('q10').value === 'بله') {
-                    if(!checkDailyLimit(document.getElementById('q12_h').value, document.getElementById('q12_m').value)) {
-                        alert("خطا: زمان تفریحات شدید بیشتر از ۱۶ ساعت در روز است."); return;
-                    }
-                    let d = parseFloat(document.getElementById('q11').value) || 0;
-                    let m = ((parseFloat(document.getElementById('q12_h').value)||0)*60) + (parseFloat(document.getElementById('q12_m').value)||0);
-                    recVigorous = d * m * 8.0;
+                let d = parseFloat(document.getElementById('q8').value) || 0;
+                let m = ((parseFloat(document.getElementById('q9_h').value)||0)*60) + (parseFloat(document.getElementById('q9_m').value)||0);
+                transport = d * m * 4.0;
+            }
+            if (document.getElementById('q10').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q12_h').value, document.getElementById('q12_m').value)) {
+                    alert("خطا: زمان تفریحات شدید بیشتر از ۱۶ ساعت در روز است."); return;
                 }
-                if (document.getElementById('q13').value === 'بله') {
-                    if(!checkDailyLimit(document.getElementById('q15_h').value, document.getElementById('q15_m').value)) {
-                        alert("خطا: زمان تفریحات متوسط بیشتر از ۱۶ ساعت در روز است."); return;
-                    }
-                    let d = parseFloat(document.getElementById('q14').value) || 0;
-                    let m = ((parseFloat(document.getElementById('q15_h').value)||0)*60) + (parseFloat(document.getElementById('q15_m').value)||0);
-                    recModerate = d * m * 4.0;
+                let d = parseFloat(document.getElementById('q11').value) || 0;
+                let m = ((parseFloat(document.getElementById('q12_h').value)||0)*60) + (parseFloat(document.getElementById('q12_m').value)||0);
+                recVigorous = d * m * 8.0;
+            }
+            if (document.getElementById('q13').value === 'بله') {
+                if(!checkDailyLimit(document.getElementById('q15_h').value, document.getElementById('q15_m').value)) {
+                    alert("خطا: زمان تفریحات متوسط بیشتر از ۱۶ ساعت در روز است."); return;
                 }
+                let d = parseFloat(document.getElementById('q14').value) || 0;
+                let m = ((parseFloat(document.getElementById('q15_h').value)||0)*60) + (parseFloat(document.getElementById('q15_m').value)||0);
+                recModerate = d * m * 4.0;
+            }
 
-                let grandTotalMET = workVigorous + workModerate + transport + recVigorous + recModerate;
-                
-                let category = "نامطلوب / کم‌تحرک (Not meeting WHO recommendations)"; 
-                if (grandTotalMET >= 600) {
-                    category = "مطلوب (Meets WHO recommendations)"; 
-                }
+            let grandTotalMET = workVigorous + workModerate + transport + recVigorous + recModerate;
+            let category = (grandTotalMET >= 600) ? "مطلوب (Meets WHO recommendations)" : "نامطلوب / کم‌تحرک (Not meeting WHO recommendations)";
+            let sedHours = (parseFloat(document.getElementById('q16_h').value)||0) + ((parseFloat(document.getElementById('q16_m').value)||0)/60);
 
-                let sedHours = (parseFloat(document.getElementById('q16_h').value)||0) + ((parseFloat(document.getElementById('q16_m').value)||0)/60);
+            document.getElementById('res_total_met').innerText = grandTotalMET.toFixed(0) + " MET-min";
+            document.getElementById('res_category').innerText = category;
 
-                document.getElementById('res_total_met').innerText = grandTotalMET.toFixed(0) + " MET-min";
-                document.getElementById('res_category').innerText = category;
+            let selectedChronic = [];
+            document.querySelectorAll('input[name="chronic"]:checked').forEach(cb => {
+                selectedChronic.push(cb.value);
+            });
+            let chronicStr = selectedChronic.length > 0 ? selectedChronic.join("، ") : "هیچکدام";
 
-                let selectedChronic = [];
-                document.querySelectorAll('input[name="chronic"]:checked').forEach(cb => {
-                    selectedChronic.push(cb.value);
-                });
-                let chronicStr = selectedChronic.length > 0 ? selectedChronic.join("، ") : "هیچکدام";
+            const ageVal = parseInt(document.getElementById('age').value) || 30;
+            const mobilityVal = document.getElementById('med_mobility').value;
+            const isMeets = grandTotalMET >= 600;
 
-                const ageVal = parseInt(document.getElementById('age').value) || 30;
-                const mobilityVal = document.getElementById('med_mobility').value;
-                const isMeets = grandTotalMET >= 600;
-
-                let recHTML = "";
-
-                if (isMeets) {
-                    recHTML += `<div class="p-3 bg-emerald-50 border-r-4 border-emerald-500 rounded-lg">
-                        <b class="text-emerald-900">✅ وضعیت فعالیت هوازی:</b> 
-                        مجموع فعالیت فیزیکی هفتگی شما در محدوده استاندارد سلامت سازمان جهانی بهداشت قرار دارد. این سطح از تحرک، ریسک بیماری‌های قلبی-عروقی، پرفشاری خون، دیابت نوع ۲ و سرطان‌ها را به میزان معناداری کاهش می‌دهد.
-                    </div>`;
-                } else {
-                    recHTML += `<div class="p-3 bg-amber-50 border-r-4 border-amber-500 rounded-lg">
-                        <b class="text-amber-900">⚠️ وضعیت فعالیت هوازی:</b> 
-                        سطح تحرک بدنی شما کمتر از آستانه توصیه‌شده WHO است. هرگونه افزایش تدریجی تحرک حتی با فعالیت‌های روزمره سبک و پیاده‌روی سریع دارای منافع مستقیم برای سلامت عمومی است.
-                    </div>`;
-                }
-
-                recHTML += `<div class="p-3 bg-indigo-50 border-r-4 border-indigo-500 rounded-lg">
-                    <b class="text-indigo-900">💪 تمرینات تقویت عضلات (Muscle Strengthening):</b> 
-                    بر اساس دستورالعمل WHO، توصیه اکید می‌شود حداقل <b>۲ روز در هفته</b> تمرینات مقاومتی و تقویت‌کننده عضلانی با شدت متوسط یا بیشتر که کلیه گروه‌های عضلانی اصلی را درگیر کنند، انجام دهید.
+            let recHTML = "";
+            if (isMeets) {
+                recHTML += `<div class="p-3 bg-emerald-50 border-r-4 border-emerald-500 rounded-lg">
+                    <b class="text-emerald-900">✅ وضعیت فعالیت هوازی:</b> 
+                    مجموع فعالیت فیزیکی هفتگی شما در محدوده استاندارد سلامت سازمان جهانی بهداشت قرار دارد. این سطح از تحرک، ریسک بیماری‌های قلبی-عروقی، پرفشاری خون، دیابت نوع ۲ و سرطان‌ها را به میزان معناداری کاهش می‌دهد.
                 </div>`;
+            } else {
+                recHTML += `<div class="p-3 bg-amber-50 border-r-4 border-amber-500 rounded-lg">
+                    <b class="text-amber-900">⚠️ وضعیت فعالیت هوازی:</b> 
+                    سطح تحرک بدنی شما کمتر از آستانه توصیه‌شده WHO است. هرگونه افزایش تدریجی تحرک حتی با فعالیت‌های روزمره سبک و پیاده‌روی سریع دارای منافع مستقیم برای سلامت عمومی است.
+                </div>`;
+            }
 
-                if (ageVal >= 65) {
-                    recHTML += `<div class="p-3 bg-purple-50 border-r-4 border-purple-500 rounded-lg">
-                        <b class="text-purple-900">👴 توصیه‌های ویژه گروه سنی ۶۵ سال به بالا (Older Adults):</b> 
-                        سازمان جهانی بهداشت تأکید می‌کند که سالمندان باید حداقل <b>۳ روز در هفته</b> تمرینات چندوجهی با تمرکز بر تعادل عملکردی و تمرینات قدرتی انجام دهند تا از خطر زمین خوردن پیشگیری شود.
-                    </div>`;
+            recHTML += `<div class="p-3 bg-indigo-50 border-r-4 border-indigo-500 rounded-lg">
+                <b class="text-indigo-900">💪 تمرینات تقویت عضلات (Muscle Strengthening):</b> 
+                بر اساس دستورالعمل WHO، توصیه اکید می‌شود حداقل <b>۲ روز در هفته</b> تمرینات مقاومتی و تقویت‌کننده عضلانی با شدت متوسط یا بیشتر که کلیه گروه‌های عضلانی اصلی را درگیر کنند، انجام دهید.
+            </div>`;
+
+            if (ageVal >= 65) {
+                recHTML += `<div class="p-3 bg-purple-50 border-r-4 border-purple-500 rounded-lg">
+                    <b class="text-purple-900">👴 توصیه‌های ویژه گروه سنی ۶۵ سال به بالا (Older Adults):</b> 
+                    سازمان جهانی بهداشت تأکید می‌کند که سالمندان باید حداقل <b>۳ روز در هفته</b> تمرینات چندوجهی با تمرکز بر تعادل عملکردی و تمرینات قدرتی انجام دهند تا از خطر زمین خوردن پیشگیری شود.
+                </div>`;
+            }
+
+            if (sedHours > 7.5) {
+                recHTML += `<div class="p-3 bg-rose-50 border-r-4 border-rose-500 rounded-lg">
+                    <b class="text-rose-900">🪑 رفتار کم‌تحرک و زمان نشستن بالا (${sedHours.toFixed(1)} ساعت در روز):</b> 
+                    مدت‌زمان نشستن روزانه شما بالاست. طبق گایدلاین WHO، باید زمان‌های بی‌تحرکی طولانی را با فعالیت‌های سبک بشکنید و حجم فعالیت بدنی خود را فراتر از حداقل‌های توصیه شده افزایش دهید.
+                </div>`;
+            } else {
+                recHTML += `<div class="p-3 bg-slate-50 border-r-4 border-slate-400 rounded-lg">
+                    <b class="text-slate-800">⏱️ مدیریت نشستن روزانه (${sedHours.toFixed(1)} ساعت):</b> 
+                    میزان رفتار کم‌تحرک شما در وضعیت کنترل‌شده قرار دارد. وضعیت نشستن پشت میز را در فواصل ۴۵ دقیقه‌ای تغییر دهید.
+                </div>`;
+            }
+
+            if (chronicStr !== "هیچکدام") {
+                recHTML += `<div class="p-3 bg-blue-50 border-r-4 border-blue-500 rounded-lg">
+                    <b class="text-blue-900">🩺 توصیه برای بیماری‌های مزمن گزارش‌شده (${chronicStr}):</b> 
+                    بر اساس راهنمای ۲۰۲۰ سازمان جهانی بهداشت، فعالیت بدنی منظم در افراد دارای بیماری مزمن کاملاً ایمن و برای کنترل پیشرفت بیماری ضروری است.
+                </div>`;
+            }
+
+            if (mobilityVal !== "فاقد محدودیت") {
+                recHTML += `<div class="p-3 bg-teal-50 border-r-4 border-teal-500 rounded-lg">
+                    <b class="text-teal-900">♿ ملاحظات محدودیت حرکتی (${mobilityVal}):</b> 
+                    طبق دستورالعمل افراد دارای محدودیت، انجام فعالیت بدنی متناسب با توان حرکتی ایمن است و می‌تواند به شکل تمرینات بالاتنه انجام شود.
+                </div>`;
+            }
+
+            document.getElementById('ai_recommendation').innerHTML = recHTML;
+
+            // تغییر وضعیت دکمه‌ها به حالت در حال ارسال
+            const btn10 = document.getElementById('btn_step10_next');
+            const btnIpaq = document.getElementById('btn_ipaq_submit');
+            if (btn10) { btn10.disabled = true; btn10.innerText = "⏳ در حال ثبت در سرور دانشگاه..."; }
+            if (btnIpaq) { btnIpaq.disabled = true; btnIpaq.innerText = "⏳ در حال ثبت در سرور دانشگاه..."; }
+
+            // آماده‌سازی داده‌ها برای ارسال استاندارد POST
+            const rawJob = document.getElementById('job').value;
+            const retestAgreeEl = document.getElementById('retest_agree');
+            const isRetestAgree = retestAgreeEl && retestAgreeEl.checked;
+
+            let amtsScoreStr = "-";
+            if (ageVal > 65) {
+                let amtsScore = 0;
+                for(let i=1; i<=10; i++) {
+                    amtsScore += parseInt(document.getElementById('amts'+i).value) || 0;
                 }
+                amtsScoreStr = amtsScore.toString();
+            }
 
-                if (sedHours > 7.5) {
-                    recHTML += `<div class="p-3 bg-rose-50 border-r-4 border-rose-500 rounded-lg">
-                        <b class="text-rose-900">🪑 رفتار کم‌تحرک و زمان نشستن بالا (${sedHours.toFixed(1)} ساعت در روز):</b> 
-                        مدت‌زمان نشستن روزانه شما بالاست. طبق گایدلاین WHO، باید زمان‌های بی‌تحرکی طولانی را با فعالیت‌های سبک بشکنید و حجم فعالیت بدنی خود را فراتر از حداقل‌های توصیه شده افزایش دهید.
-                    </div>`;
-                } else {
-                    recHTML += `<div class="p-3 bg-slate-50 border-r-4 border-slate-400 rounded-lg">
-                        <b class="text-slate-800">⏱️ مدیریت نشستن روزانه (${sedHours.toFixed(1)} ساعت):</b> 
-                        میزان رفتار کم‌تحرک شما در وضعیت کنترل‌شده قرار دارد. وضعیت نشستن پشت میز را در فواصل ۴۵ دقیقه‌ای تغییر دهید.
-                    </div>`;
-                }
+            let q1Val = getVal('q1'), q4Val = getVal('q4'), q7Val = getVal('q7'), q10Val = getVal('q10'), q13Val = getVal('q13');
 
-                if (chronicStr !== "هیچکدام") {
-                    recHTML += `<div class="p-3 bg-blue-50 border-r-4 border-blue-500 rounded-lg">
-                        <b class="text-blue-900">🩺 توصیه برای بیماری‌های مزمن گزارش‌شده (${chronicStr}):</b> 
-                        بر اساس راهنمای ۲۰۲۰ سازمان جهانی بهداشت، فعالیت بدنی منظم در افراد دارای بیماری مزمن کاملاً ایمن و برای کنترل پیشرفت بیماری ضروری است.
-                    </div>`;
-                }
+            const q1None = document.getElementById('ipaq_q1_none');
+            const isQ1None = q1None && q1None.checked;
+            const q3None = document.getElementById('ipaq_q3_none');
+            const isQ3None = q3None && q3None.checked;
+            const q5None = document.getElementById('ipaq_q5_none');
+            const isQ5None = q5None && q5None.checked;
 
-                if (mobilityVal !== "فاقد محدودیت") {
-                    recHTML += `<div class="p-3 bg-teal-50 border-r-4 border-teal-500 rounded-lg">
-                        <b class="text-teal-900">♿ ملاحظات محدودیت حرکتی (${mobilityVal}):</b> 
-                        طبق دستورالعمل افراد دارای محدودیت، انجام فعالیت بدنی متناسب با توان حرکتی ایمن است و می‌تواند به شکل تمرینات بالاتنه انجام شود.
-                    </div>`;
-                }
-
-                document.getElementById('ai_recommendation').innerHTML = recHTML;
-
-                // پر کردن فرم مخفی
-                document.getElementById('h_interviewer').value = getVal('interviewer');
-                document.getElementById('h_age').value = getVal('age');
-                document.getElementById('h_gender').value = getVal('gender');
-                document.getElementById('h_education').value = getVal('education');
-                document.getElementById('h_religion').value = getVal('religion');
-                document.getElementById('h_marital').value = getVal('marital');
+            const payload = {
+                interviewer: getVal('interviewer'),
+                age: getVal('age'),
+                gender: getVal('gender'),
+                education: getVal('education'),
+                religion: getVal('religion'),
+                marital: getVal('marital'),
+                job: jobLabelsMap[rawJob] || "-",
+                jobTitle: getVal('jobTitle'),
+                economy: getVal('economy'),
+                weight: getVal('weight'),
+                height: getVal('height'),
+                waist: getVal('waist'),
+                smoking: getVal('smoking'),
+                sleep: getVal('sleep'),
+                phone: getVal('phone'),
+                retest_agree: isRetestAgree ? "بله" : "خیر",
+                med_chronic: chronicStr,
+                med_endocrine: getVal('med_endocrine'),
+                med_mobility: getVal('med_mobility'),
+                med_drugs: getVal('med_drugs'),
+                med_drugDetails: getVal('med_drugDetails'),
+                amts_score: amtsScoreStr,
                 
-                const rawJob = document.getElementById('job').value;
-                document.getElementById('h_job').value = jobLabelsMap[rawJob] || "-";
-                document.getElementById('h_jobTitle').value = getVal('jobTitle');
+                q1: q1Val,
+                q2: (q1Val === 'بله') ? getVal('q2') : '-',
+                q3_h: (q1Val === 'بله') ? getVal('q3_h') : '-',
+                q3_m: (q1Val === 'بله') ? getVal('q3_m') : '-',
                 
-                document.getElementById('h_economy').value = getVal('economy');
-                document.getElementById('h_weight').value = getVal('weight');
-                document.getElementById('h_height').value = getVal('height');
-                document.getElementById('h_waist').value = getVal('waist');
-                document.getElementById('h_smoking').value = getVal('smoking');
-                document.getElementById('h_sleep').value = getVal('sleep');
-                document.getElementById('h_phone').value = getVal('phone');
+                q4: q4Val,
+                q5: (q4Val === 'بله') ? getVal('q5') : '-',
+                q6_h: (q4Val === 'بله') ? getVal('q6_h') : '-',
+                q6_m: (q4Val === 'بله') ? getVal('q6_m') : '-',
                 
-                const retestAgreeEl = document.getElementById('retest_agree');
-                const isRetestAgree = retestAgreeEl && retestAgreeEl.checked;
-                document.getElementById('h_retest_agree').value = isRetestAgree ? "بله" : "خیر";
+                q7: q7Val,
+                q8: (q7Val === 'بله') ? getVal('q8') : '-',
+                q9_h: (q7Val === 'بله') ? getVal('q9_h') : '-',
+                q9_m: (q7Val === 'بله') ? getVal('q9_m') : '-',
                 
-                document.getElementById('h_med_chronic').value = chronicStr;
-                document.getElementById('h_med_endocrine').value = getVal('med_endocrine');
-                document.getElementById('h_med_mobility').value = getVal('med_mobility');
-                document.getElementById('h_med_drugs').value = getVal('med_drugs');
-                document.getElementById('h_med_drugDetails').value = getVal('med_drugDetails');
+                q10: q10Val,
+                q11: (q10Val === 'بله') ? getVal('q11') : '-',
+                q12_h: (q10Val === 'بله') ? getVal('q12_h') : '-',
+                q12_m: (q10Val === 'بله') ? getVal('q12_m') : '-',
+                
+                q13: q13Val,
+                q14: (q13Val === 'بله') ? getVal('q14') : '-',
+                q15_h: (q13Val === 'بله') ? getVal('q15_h') : '-',
+                q15_m: (q13Val === 'بله') ? getVal('q15_m') : '-',
+                
+                q16_h: getVal('q16_h'),
+                q16_m: getVal('q16_m'),
+                
+                ipaq_q1: isRetestAgree ? (isQ1None ? "0" : getVal('ipaq_q1')) : "-",
+                ipaq_q2_h: isRetestAgree ? (isQ1None ? "-" : getVal('ipaq_q2_h')) : "-",
+                ipaq_q2_m: isRetestAgree ? (isQ1None ? "-" : getVal('ipaq_q2_m')) : "-",
+                
+                ipaq_q3: isRetestAgree ? (isQ3None ? "0" : getVal('ipaq_q3')) : "-",
+                ipaq_q4_h: isRetestAgree ? (isQ3None ? "-" : getVal('ipaq_q4_h')) : "-",
+                ipaq_q4_m: isRetestAgree ? (isQ3None ? "-" : getVal('ipaq_q4_m')) : "-",
+                
+                ipaq_q5: isRetestAgree ? (isQ5None ? "0" : getVal('ipaq_q5')) : "-",
+                ipaq_q6_h: isRetestAgree ? (isQ5None ? "-" : getVal('ipaq_q6_h')) : "-",
+                ipaq_q6_m: isRetestAgree ? (isQ5None ? "-" : getVal('ipaq_q6_m')) : "-",
+                
+                ipaq_q7_h: isRetestAgree ? getVal('ipaq_q7_h') : "-",
+                ipaq_q7_m: isRetestAgree ? getVal('ipaq_q7_m') : "-",
+                
+                totalMet: grandTotalMET.toFixed(0),
+                category: category,
+                sedentaryHours: sedHours.toFixed(1)
+            };
 
-                const age = parseInt(document.getElementById('age').value) || 0;
-                if (age > 65) {
-                    let amtsScore = 0;
-                    for(let i=1; i<=10; i++) {
-                        amtsScore += parseInt(document.getElementById('amts'+i).value) || 0;
-                    }
-                    document.getElementById('h_amts_score').value = amtsScore;
-                } else {
-                    document.getElementById('h_amts_score').value = "-";
-                }
+            lastSubmittedPayload = payload;
 
-                // GPAQ
-                let q1Val = getVal('q1');
-                document.getElementById('h_q1').value = q1Val;
-                document.getElementById('h_q2').value = (q1Val === 'بله') ? getVal('q2') : '-';
-                document.getElementById('h_q3_h').value = (q1Val === 'بله') ? getVal('q3_h') : '-';
-                document.getElementById('h_q3_m').value = (q1Val === 'بله') ? getVal('q3_m') : '-';
+            // ذخیره در حافظه مرورگر به عنوان پشتیبان اضطراری
+            try {
+                let localHistory = JSON.parse(localStorage.getItem('gpaq_backup_records') || "[]");
+                localHistory.push({ date: new Date().toISOString(), ...payload });
+                localStorage.setItem('gpaq_backup_records', JSON.stringify(localHistory));
+            } catch(e) {}
 
-                let q4Val = getVal('q4');
-                document.getElementById('h_q4').value = q4Val;
-                document.getElementById('h_q5').value = (q4Val === 'بله') ? getVal('q5') : '-';
-                document.getElementById('h_q6_h').value = (q4Val === 'بله') ? getVal('q6_h') : '-';
-                document.getElementById('h_q6_m').value = (q4Val === 'بله') ? getVal('q6_m') : '-';
+            // ارسال با متد POST بدون محدودیت کاراکتر
+            const formData = new URLSearchParams();
+            for (const key in payload) {
+                formData.append(key, payload[key]);
+            }
 
-                let q7Val = getVal('q7');
-                document.getElementById('h_q7').value = q7Val;
-                document.getElementById('h_q8').value = (q7Val === 'بله') ? getVal('q8') : '-';
-                document.getElementById('h_q9_h').value = (q7Val === 'بله') ? getVal('q9_h') : '-';
-                document.getElementById('h_q9_m').value = (q7Val === 'بله') ? getVal('q9_m') : '-';
+            const statusAlert = document.getElementById('statusAlert');
+            const backupBox = document.getElementById('backupDownloadBox');
 
-                let q10Val = getVal('q10');
-                document.getElementById('h_q10').value = q10Val;
-                document.getElementById('h_q11').value = (q10Val === 'بله') ? getVal('q11') : '-';
-                document.getElementById('h_q12_h').value = (q10Val === 'بله') ? getVal('q12_h') : '-';
-                document.getElementById('h_q12_m').value = (q10Val === 'بله') ? getVal('q12_m') : '-';
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: formData.toString()
+                });
 
-                let q13Val = getVal('q13');
-                document.getElementById('h_q13').value = q13Val;
-                document.getElementById('h_q14').value = (q13Val === 'بله') ? getVal('q14') : '-';
-                document.getElementById('h_q15_h').value = (q13Val === 'بله') ? getVal('q15_h') : '-';
-                document.getElementById('h_q15_m').value = (q13Val === 'بله') ? getVal('q15_m') : '-';
-
-                document.getElementById('h_q16_h').value = getVal('q16_h');
-                document.getElementById('h_q16_m').value = getVal('q16_m');
-
-                // خواندن کاملاً امن مقادیر IPAQ
-                if (isRetestAgree) {
-                    const q1None = document.getElementById('ipaq_q1_none');
-                    const isQ1None = q1None && q1None.checked;
-                    document.getElementById('h_ipaq_q1').value = isQ1None ? "۰" : getVal('ipaq_q1');
-                    document.getElementById('h_ipaq_q2_h').value = isQ1None ? "-" : getVal('ipaq_q2_h');
-                    document.getElementById('h_ipaq_q2_m').value = isQ1None ? "-" : getVal('ipaq_q2_m');
-
-                    const q3None = document.getElementById('ipaq_q3_none');
-                    const isQ3None = q3None && q3None.checked;
-                    document.getElementById('h_ipaq_q3').value = isQ3None ? "۰" : getVal('ipaq_q3');
-                    document.getElementById('h_ipaq_q4_h').value = isQ3None ? "-" : getVal('ipaq_q4_h');
-                    document.getElementById('h_ipaq_q4_m').value = isQ3None ? "-" : getVal('ipaq_q4_m');
-
-                    const q5None = document.getElementById('ipaq_q5_none');
-                    const isQ5None = q5None && q5None.checked;
-                    document.getElementById('h_ipaq_q5').value = isQ5None ? "۰" : getVal('ipaq_q5');
-                    document.getElementById('h_ipaq_q6_h').value = isQ5None ? "-" : getVal('ipaq_q6_h');
-                    document.getElementById('h_ipaq_q6_m').value = isQ5None ? "-" : getVal('ipaq_q6_m');
-
-                    document.getElementById('h_ipaq_q7_h').value = getVal('ipaq_q7_h');
-                    document.getElementById('h_ipaq_q7_m').value = getVal('ipaq_q7_m');
-                } else {
-                    document.getElementById('h_ipaq_q1').value = "-";
-                    document.getElementById('h_ipaq_q2_h').value = "-";
-                    document.getElementById('h_ipaq_q2_m').value = "-";
-                    document.getElementById('h_ipaq_q3').value = "-";
-                    document.getElementById('h_ipaq_q4_h').value = "-";
-                    document.getElementById('h_ipaq_q4_m').value = "-";
-                    document.getElementById('h_ipaq_q5').value = "-";
-                    document.getElementById('h_ipaq_q6_h').value = "-";
-                    document.getElementById('h_ipaq_q6_m').value = "-";
-                    document.getElementById('h_ipaq_q7_h').value = "-";
-                    document.getElementById('h_ipaq_q7_m').value = "-";
-                }
-
-                document.getElementById('h_totalMet').value = grandTotalMET.toFixed(0);
-                document.getElementById('h_category').value = category;
-                document.getElementById('h_sedentaryHours').value = sedHours.toFixed(1);
-
-                const hiddenForm = document.getElementById('hiddenGoogleForm');
-                if (hiddenForm) {
-                    hiddenForm.submit();
-                }
-
-            } catch (err) {
-                console.error("Critical Submission Error:", err);
+                statusAlert.className = "mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300";
+                statusAlert.innerText = "✅ اطلاعات شما با موفقیت در سامانه گوگل شیت دانشگاه ثبت شد. از مشارکت شما سپاسگزاریم!";
+                backupBox.classList.remove('hidden'); // نمایش دکمه پشتیبان برای اطمینان ۱۰۰ درصدی پژوهشگر
+            } catch (error) {
+                statusAlert.className = "mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-red-100 text-red-900 border border-red-300";
+                statusAlert.innerText = "⚠️ ارتباط با سرور گوگل به دلیل اختلال اینترنت برقرار نشد! لطفاً حتماً با دکمه زیر فایل پشتیبان این پرسشنامه را دانلود کنید.";
+                backupBox.classList.remove('hidden');
             } finally {
-                // تضمین باز شدن کارت نتایج تحت هر شرایطی
+                if (btn10) { btn10.disabled = false; btn10.innerText = "تایید و ادامه ➔"; }
+                if (btnIpaq) { btnIpaq.disabled = false; btnIpaq.innerText = "محاسبه و ثبت نهایی 🚀"; }
                 goToStep('step_result');
             }
+        }
+
+        // تابع دانلود پشتیبان به صورت فایل اکسل/CSV
+        function downloadBackupCSV() {
+            if (!lastSubmittedPayload) return;
+            const headers = Object.keys(lastSubmittedPayload);
+            const values = headers.map(k => `"${(lastSubmittedPayload[k] || '').toString().replace(/"/g, '""')}"`);
+            const csvContent = "\uFEFF" + headers.join(",") + "\n" + values.join(",");
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", `GPAQ_Backup_${lastSubmittedPayload.age || 'record'}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
 </body>
