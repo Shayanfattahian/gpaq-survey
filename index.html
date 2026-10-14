@@ -669,13 +669,6 @@
                 <div id="statusAlert" class="mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300">
                     ✅ اطلاعات شما با موفقیت در سامانه دانشگاه ثبت شد. از مشارکت شما سپاسگزاریم!
                 </div>
-                
-                <!-- دکمه دانلود فایل پشتیبان در صورت خطای شبکه -->
-                <div id="backupDownloadBox" class="hidden mb-6 text-center">
-                    <button type="button" onclick="downloadBackupCSV()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 px-6 rounded-xl shadow-md text-sm">
-                        📥 دانلود فایل پشتیبان این پرسشنامه (CSV)
-                    </button>
-                </div>
 
                 <div class="grid grid-cols-2 gap-4 mb-6 text-center">
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
@@ -705,7 +698,6 @@
 
     <script>
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWYemRTUxFXKo4p3oJPlpGSMgfjc8fUW27Cp6g2edC16_tgrGk0kXdpB6gtmg6swQnQA/exec";
-        let lastSubmittedPayload = null;
 
         document.addEventListener("DOMContentLoaded", function() {
             toggleJobTitle();
@@ -1014,13 +1006,11 @@
 
             document.getElementById('ai_recommendation').innerHTML = recHTML;
 
-            // تغییر وضعیت دکمه‌ها به حالت در حال ارسال
             const btn10 = document.getElementById('btn_step10_next');
             const btnIpaq = document.getElementById('btn_ipaq_submit');
             if (btn10) { btn10.disabled = true; btn10.innerText = "⏳ در حال ثبت در سرور دانشگاه..."; }
             if (btnIpaq) { btnIpaq.disabled = true; btnIpaq.innerText = "⏳ در حال ثبت در سرور دانشگاه..."; }
 
-            // آماده‌سازی داده‌ها برای ارسال استاندارد POST
             const rawJob = document.getElementById('job').value;
             const retestAgreeEl = document.getElementById('retest_agree');
             const isRetestAgree = retestAgreeEl && retestAgreeEl.checked;
@@ -1115,23 +1105,12 @@
                 sedentaryHours: sedHours.toFixed(1)
             };
 
-            lastSubmittedPayload = payload;
-
-            // ذخیره در حافظه مرورگر به عنوان پشتیبان اضطراری
-            try {
-                let localHistory = JSON.parse(localStorage.getItem('gpaq_backup_records') || "[]");
-                localHistory.push({ date: new Date().toISOString(), ...payload });
-                localStorage.setItem('gpaq_backup_records', JSON.stringify(localHistory));
-            } catch(e) {}
-
-            // ارسال با متد POST بدون محدودیت کاراکتر
             const formData = new URLSearchParams();
             for (const key in payload) {
                 formData.append(key, payload[key]);
             }
 
             const statusAlert = document.getElementById('statusAlert');
-            const backupBox = document.getElementById('backupDownloadBox');
 
             try {
                 await fetch(GOOGLE_SCRIPT_URL, {
@@ -1144,33 +1123,15 @@
                 });
 
                 statusAlert.className = "mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-emerald-100 text-emerald-900 border border-emerald-300";
-                statusAlert.innerText = "✅ اطلاعات شما با موفقیت در سامانه گوگل شیت دانشگاه ثبت شد. از مشارکت شما سپاسگزاریم!";
-                backupBox.classList.remove('hidden'); // نمایش دکمه پشتیبان برای اطمینان ۱۰۰ درصدی پژوهشگر
+                statusAlert.innerText = "✅ اطلاعات شما با موفقیت در سامانه دانشگاه ثبت شد. از مشارکت شما سپاسگزاریم!";
             } catch (error) {
                 statusAlert.className = "mb-6 text-sm md:text-base font-bold text-center p-4 rounded-xl bg-red-100 text-red-900 border border-red-300";
-                statusAlert.innerText = "⚠️ ارتباط با سرور گوگل به دلیل اختلال اینترنت برقرار نشد! لطفاً حتماً با دکمه زیر فایل پشتیبان این پرسشنامه را دانلود کنید.";
-                backupBox.classList.remove('hidden');
+                statusAlert.innerText = "⚠️ اختلال در اتصال به اینترنت! لطفاً اتصال خود را بررسی کرده و مجدداً تلاش کنید.";
             } finally {
                 if (btn10) { btn10.disabled = false; btn10.innerText = "تایید و ادامه ➔"; }
                 if (btnIpaq) { btnIpaq.disabled = false; btnIpaq.innerText = "محاسبه و ثبت نهایی 🚀"; }
                 goToStep('step_result');
             }
-        }
-
-        // تابع دانلود پشتیبان به صورت فایل اکسل/CSV
-        function downloadBackupCSV() {
-            if (!lastSubmittedPayload) return;
-            const headers = Object.keys(lastSubmittedPayload);
-            const values = headers.map(k => `"${(lastSubmittedPayload[k] || '').toString().replace(/"/g, '""')}"`);
-            const csvContent = "\uFEFF" + headers.join(",") + "\n" + values.join(",");
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement("a");
-            link.setAttribute("href", url);
-            link.setAttribute("download", `GPAQ_Backup_${lastSubmittedPayload.age || 'record'}.csv`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         }
     </script>
 </body>
