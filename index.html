@@ -835,11 +835,9 @@
             const box = document.getElementById(boxId);
             if (checkbox.checked) {
                 daysInput.value = "0";
-                daysInput.disabled = true;
                 box.style.display = "none";
             } else {
                 daysInput.value = "";
-                daysInput.disabled = false;
                 box.style.display = "block";
             }
         }
@@ -961,243 +959,252 @@
         }
 
         function processAndSubmit() {
-            let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
-
-            if (document.getElementById('q1').value === 'بله') {
-                if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
-                    alert("خطا: زمان فعالیت شغلی شدید بیشتر از ۱۶ ساعت در روز است."); return;
-                }
-                let d = parseFloat(document.getElementById('q2').value) || 0;
-                let m = ((parseFloat(document.getElementById('q3_h').value)||0)*60) + (parseFloat(document.getElementById('q3_m').value)||0);
-                workVigorous = d * m * 8.0;
-            }
-            if (document.getElementById('q4').value === 'بله') {
-                if(!checkDailyLimit(document.getElementById('q6_h').value, document.getElementById('q6_m').value)) {
-                    alert("خطا: زمان فعالیت شغلی متوسط بیشتر از ۱۶ ساعت در روز است."); return;
-                }
-                let d = parseFloat(document.getElementById('q5').value) || 0;
-                let m = ((parseFloat(document.getElementById('q6_h').value)||0)*60) + (parseFloat(document.getElementById('q6_m').value)||0);
-                workModerate = d * m * 4.0;
-            }
-            if (document.getElementById('q7').value === 'بله') {
-                if(!checkDailyLimit(document.getElementById('q9_h').value, document.getElementById('q9_m').value)) {
-                    alert("خطا: زمان رفت‌وآمد بیشتر از ۱۶ ساعت در روز است."); return;
-                }
-                let d = parseFloat(document.getElementById('q8').value) || 0;
-                let m = ((parseFloat(document.getElementById('q9_h').value)||0)*60) + (parseFloat(document.getElementById('q9_m').value)||0);
-                transport = d * m * 4.0;
-            }
-            if (document.getElementById('q10').value === 'بله') {
-                if(!checkDailyLimit(document.getElementById('q12_h').value, document.getElementById('q12_m').value)) {
-                    alert("خطا: زمان تفریحات شدید بیشتر از ۱۶ ساعت در روز است."); return;
-                }
-                let d = parseFloat(document.getElementById('q11').value) || 0;
-                let m = ((parseFloat(document.getElementById('q12_h').value)||0)*60) + (parseFloat(document.getElementById('q12_m').value)||0);
-                recVigorous = d * m * 8.0;
-            }
-            if (document.getElementById('q13').value === 'بله') {
-                if(!checkDailyLimit(document.getElementById('q15_h').value, document.getElementById('q15_m').value)) {
-                    alert("خطا: زمان تفریحات متوسط بیشتر از ۱۶ ساعت در روز است."); return;
-                }
-                let d = parseFloat(document.getElementById('q14').value) || 0;
-                let m = ((parseFloat(document.getElementById('q15_h').value)||0)*60) + (parseFloat(document.getElementById('q15_m').value)||0);
-                recModerate = d * m * 4.0;
-            }
-
-            let grandTotalMET = workVigorous + workModerate + transport + recVigorous + recModerate;
-            
-            let category = "نامطلوب / کم‌تحرک (Not meeting WHO recommendations)"; 
-            if (grandTotalMET >= 600) {
-                category = "مطلوب (Meets WHO recommendations)"; 
-            }
-
-            let sedHours = (parseFloat(document.getElementById('q16_h').value)||0) + ((parseFloat(document.getElementById('q16_m').value)||0)/60);
-
-            document.getElementById('res_total_met').innerText = grandTotalMET.toFixed(0) + " MET-min";
-            document.getElementById('res_category').innerText = category;
-
-            let selectedChronic = [];
-            document.querySelectorAll('input[name="chronic"]:checked').forEach(cb => {
-                selectedChronic.push(cb.value);
-            });
-            let chronicStr = selectedChronic.length > 0 ? selectedChronic.join("، ") : "هیچکدام";
-
-            const ageVal = parseInt(document.getElementById('age').value) || 30;
-            const mobilityVal = document.getElementById('med_mobility').value;
-            const isMeets = grandTotalMET >= 600;
-
-            let recHTML = "";
-
-            if (isMeets) {
-                recHTML += `<div class="p-3 bg-emerald-50 border-r-4 border-emerald-500 rounded-lg">
-                    <b class="text-emerald-900">✅ وضعیت فعالیت هوازی:</b> 
-                    مجموع فعالیت فیزیکی هفتگی شما در محدوده استاندارد سلامت سازمان جهانی بهداشت (حداقل ۱۵۰ تا ۳۰۰ دقیقه فعالیت با شدت متوسط یا ۷۵ تا ۱۵۰ دقیقه فعالیت با شدت زیاد در هفته) قرار دارد. این سطح از تحرک، ریسک بیماری‌های قلبی-عروقی، پرفشاری خون، دیابت نوع ۲ و سرطان‌ها را به میزان معناداری کاهش می‌دهد.
-                </div>`;
-            } else {
-                recHTML += `<div class="p-3 bg-amber-50 border-r-4 border-amber-500 rounded-lg">
-                    <b class="text-amber-900">⚠️ وضعیت فعالیت هوازی:</b> 
-                    سطح تحرک بدنی شما کمتر از آستانه توصیه‌شده WHO (معادل ۱۵۰ دقیقه فعالیت متوسط در هفته یا ۶۰۰ MET-دقیقه) است. بر اساس اصل <i>«Doing some physical activity is better than doing none»</i>، هرگونه افزایش تدریجی تحرک حتی با فعالیت‌های روزمره سبک و پیاده‌روی سریع دارای منافع مستقیم برای سلامت عمومی است.
-                </div>`;
-            }
-
-            recHTML += `<div class="p-3 bg-indigo-50 border-r-4 border-indigo-500 rounded-lg">
-                <b class="text-indigo-900">💪 تمرینات تقویت عضلات (Muscle Strengthening):</b> 
-                بر اساس دستورالعمل WHO، توصیه اکید می‌شود حداقل <b>۲ روز در هفته</b> تمرینات مقاومتی و تقویت‌کننده عضلانی با شدت متوسط یا بیشتر که کلیه گروه‌های عضلانی اصلی (پاها، بالاتنه، شکم و پشت) را درگیر کنند، انجام دهید.
-            </div>`;
-
-            if (ageVal >= 65) {
-                recHTML += `<div class="p-3 bg-purple-50 border-r-4 border-purple-500 rounded-lg">
-                    <b class="text-purple-900">👴 توصیه‌های ویژه گروه سنی ۶۵ سال به بالا (Older Adults):</b> 
-                    سازمان جهانی بهداشت تأکید می‌کند که سالمندان باید حداقل <b>۳ روز در هفته</b> تمرینات چندوجهی (Multicomponent Physical Activity) با تمرکز بر تعادل عملکردی (Functional Balance) و تمرینات قدرتی با شدت متوسط تا بیشتر انجام دهند تا ظرفیت عملکردی حفظ شده و از خطر زمین خوردن (Falls Prevention) پیشگیری شود.
-                </div>`;
-            }
-
-            if (sedHours > 7.5) {
-                recHTML += `<div class="p-3 bg-rose-50 border-r-4 border-rose-500 rounded-lg">
-                    <b class="text-rose-900">🪑 رفتار کم‌تحرک و زمان نشستن بالا (${sedHours.toFixed(1)} ساعت در روز):</b> 
-                    مدت‌زمان نشستن روزانه شما بالاست. طبق گایدلاین WHO، برای تعدیل اثرات سوء نشستن طولانی‌مدت بر سلامت متابولیک، باید زمان‌های بی‌تحرکی طولانی را با فعالیت‌های سبک (ایستادن، راه رفتن کوتاه) بشکنید و در صورت امکان حجم فعالیت بدنی متوسط تا شدید هفتگی خود را فراتر از حداقل‌های توصیه شده افزایش دهید.
-                </div>`;
-            } else {
-                recHTML += `<div class="p-3 bg-slate-50 border-r-4 border-slate-400 rounded-lg">
-                    <b class="text-slate-800">⏱️ مدیریت نشستن روزانه (${sedHours.toFixed(1)} ساعت):</b> 
-                    میزان رفتار کم‌تحرک شما در وضعیت کنترل‌شده قرار دارد. توصیه می‌شود وضعیت نشستن پشت میز یا صفحه نمایش را در فواصل ۴۵ دقیقه‌ای تغییر داده و از تحرک مقطعی غافل نشوید.
-                </div>`;
-            }
-
-            if (chronicStr !== "هیچکدام") {
-                recHTML += `<div class="p-3 bg-blue-50 border-r-4 border-blue-500 rounded-lg">
-                    <b class="text-blue-900">🩺 توصیه برای بیماری‌های مزمن گزارش‌شده (${chronicStr}):</b> 
-                    بر اساس راهنمای ۲۰۲۰ سازمان جهانی بهداشت، فعالیت بدنی منظم در افراد مبتلا به ${chronicStr} کاملاً ایمن و به عنوان یک مداخله استاندارد درمانی برای کنترل پیشرفت بیماری توصیه می‌شود. شروع باید با شدت سبک تا متوسط و با افزایش تدریجی مدت‌زمان باشد.
-                </div>`;
-            }
-
-            if (mobilityVal !== "فاقد محدودیت") {
-                recHTML += `<div class="p-3 bg-teal-50 border-r-4 border-teal-500 rounded-lg">
-                    <b class="text-teal-900">♿ ملاحظات محدودیت حرکتی (${mobilityVal}):</b> 
-                    طبق دستورالعمل افراد دارای محدودیت عملکردی، انجام فعالیت بدنی متناسب با توان حرکتی ایمن است. فعالیت‌ها باید متناسب با توان عضلانی، بدون ایجاد فشار مضاعف و در صورت نیاز با تمرینات بالاتنه یا حرکات نشسته اجرا شوند.
-                </div>`;
-            }
-
-            document.getElementById('ai_recommendation').innerHTML = recHTML;
-
-            // پر کردن فرم مخفی
-            document.getElementById('h_interviewer').value = getVal('interviewer');
-            document.getElementById('h_age').value = getVal('age');
-            document.getElementById('h_gender').value = getVal('gender');
-            document.getElementById('h_education').value = getVal('education');
-            document.getElementById('h_religion').value = getVal('religion');
-            document.getElementById('h_marital').value = getVal('marital');
-            
-            const rawJob = document.getElementById('job').value;
-            document.getElementById('h_job').value = jobLabelsMap[rawJob] || "-";
-            document.getElementById('h_jobTitle').value = getVal('jobTitle');
-            
-            document.getElementById('h_economy').value = getVal('economy');
-            document.getElementById('h_weight').value = getVal('weight');
-            document.getElementById('h_height').value = getVal('height');
-            document.getElementById('h_waist').value = getVal('waist');
-            document.getElementById('h_smoking').value = getVal('smoking');
-            document.getElementById('h_sleep').value = getVal('sleep');
-            document.getElementById('h_phone').value = getVal('phone');
-            
-            const retestAgreeEl = document.getElementById('retest_agree');
-            const isRetestAgree = retestAgreeEl && retestAgreeEl.checked;
-            document.getElementById('h_retest_agree').value = isRetestAgree ? "بله" : "خیر";
-            
-            document.getElementById('h_med_chronic').value = chronicStr;
-            document.getElementById('h_med_endocrine').value = getVal('med_endocrine');
-            document.getElementById('h_med_mobility').value = getVal('med_mobility');
-            document.getElementById('h_med_drugs').value = getVal('med_drugs');
-            document.getElementById('h_med_drugDetails').value = getVal('med_drugDetails');
-
-            const age = parseInt(document.getElementById('age').value) || 0;
-            if (age > 65) {
-                let amtsScore = 0;
-                for(let i=1; i<=10; i++) {
-                    amtsScore += parseInt(document.getElementById('amts'+i).value) || 0;
-                }
-                document.getElementById('h_amts_score').value = amtsScore;
-            } else {
-                document.getElementById('h_amts_score').value = "-";
-            }
-
-            // GPAQ
-            let q1Val = getVal('q1');
-            document.getElementById('h_q1').value = q1Val;
-            document.getElementById('h_q2').value = (q1Val === 'بله') ? getVal('q2') : '-';
-            document.getElementById('h_q3_h').value = (q1Val === 'بله') ? getVal('q3_h') : '-';
-            document.getElementById('h_q3_m').value = (q1Val === 'بله') ? getVal('q3_m') : '-';
-
-            let q4Val = getVal('q4');
-            document.getElementById('h_q4').value = q4Val;
-            document.getElementById('h_q5').value = (q4Val === 'بله') ? getVal('q5') : '-';
-            document.getElementById('h_q6_h').value = (q4Val === 'بله') ? getVal('q6_h') : '-';
-            document.getElementById('h_q6_m').value = (q4Val === 'بله') ? getVal('q6_m') : '-';
-
-            let q7Val = getVal('q7');
-            document.getElementById('h_q7').value = q7Val;
-            document.getElementById('h_q8').value = (q7Val === 'بله') ? getVal('q8') : '-';
-            document.getElementById('h_q9_h').value = (q7Val === 'بله') ? getVal('q9_h') : '-';
-            document.getElementById('h_q9_m').value = (q7Val === 'بله') ? getVal('q9_m') : '-';
-
-            let q10Val = getVal('q10');
-            document.getElementById('h_q10').value = q10Val;
-            document.getElementById('h_q11').value = (q10Val === 'بله') ? getVal('q11') : '-';
-            document.getElementById('h_q12_h').value = (q10Val === 'بله') ? getVal('q12_h') : '-';
-            document.getElementById('h_q12_m').value = (q10Val === 'بله') ? getVal('q12_m') : '-';
-
-            let q13Val = getVal('q13');
-            document.getElementById('h_q13').value = q13Val;
-            document.getElementById('h_q14').value = (q13Val === 'بله') ? getVal('q14') : '-';
-            document.getElementById('h_q15_h').value = (q13Val === 'بله') ? getVal('q15_h') : '-';
-            document.getElementById('h_q15_m').value = (q13Val === 'بله') ? getVal('q15_m') : '-';
-
-            document.getElementById('h_q16_h').value = getVal('q16_h');
-            document.getElementById('h_q16_m').value = getVal('q16_m');
-
-            // IPAQ
-            if (isRetestAgree) {
-                const q1None = document.getElementById('ipaq_q1_none');
-                document.getElementById('h_ipaq_q1').value = (q1None && q1None.checked) ? "۰" : getVal('ipaq_q1');
-                document.getElementById('h_ipaq_q2_h').value = (q1None && q1None.checked) ? "-" : getVal('ipaq_q2_h');
-                document.getElementById('h_ipaq_q2_m').value = (q1None && q1None.checked) ? "-" : getVal('ipaq_q2_m');
-
-                const q3None = document.getElementById('ipaq_q3_none');
-                document.getElementById('h_ipaq_q3').value = (q3None && q3None.checked) ? "۰" : getVal('ipaq_q3');
-                document.getElementById('h_ipaq_q4_h').value = (q3None && q3None.checked) ? "-" : getVal('ipaq_q4_h');
-                document.getElementById('h_ipaq_q4_m').value = (q3None && q3None.checked) ? "-" : getVal('ipaq_q4_m');
-
-                const q5None = document.getElementById('ipaq_q5_none');
-                document.getElementById('h_ipaq_q5').value = (q5None && q5None.checked) ? "۰" : getVal('ipaq_q5');
-                document.getElementById('h_ipaq_q6_h').value = (q5None && q5None.checked) ? "-" : getVal('ipaq_q6_h');
-                document.getElementById('h_ipaq_q6_m').value = (q5None && q5None.checked) ? "-" : getVal('ipaq_q6_m');
-
-                document.getElementById('h_ipaq_q7_h').value = getVal('ipaq_q7_h');
-                document.getElementById('h_ipaq_q7_m').value = getVal('ipaq_q7_m');
-            } else {
-                document.getElementById('h_ipaq_q1').value = "-";
-                document.getElementById('h_ipaq_q2_h').value = "-";
-                document.getElementById('h_ipaq_q2_m').value = "-";
-                document.getElementById('h_ipaq_q3').value = "-";
-                document.getElementById('h_ipaq_q4_h').value = "-";
-                document.getElementById('h_ipaq_q4_m').value = "-";
-                document.getElementById('h_ipaq_q5').value = "-";
-                document.getElementById('h_ipaq_q6_h').value = "-";
-                document.getElementById('h_ipaq_q6_m').value = "-";
-                document.getElementById('h_ipaq_q7_h').value = "-";
-                document.getElementById('h_ipaq_q7_m').value = "-";
-            }
-
-            document.getElementById('h_totalMet').value = grandTotalMET.toFixed(0);
-            document.getElementById('h_category').value = category;
-            document.getElementById('h_sedentaryHours').value = sedHours.toFixed(1);
-
             try {
-                document.getElementById('hiddenGoogleForm').submit();
+                let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
+
+                if (document.getElementById('q1').value === 'بله') {
+                    if(!checkDailyLimit(document.getElementById('q3_h').value, document.getElementById('q3_m').value)) {
+                        alert("خطا: زمان فعالیت شغلی شدید بیشتر از ۱۶ ساعت در روز است."); return;
+                    }
+                    let d = parseFloat(document.getElementById('q2').value) || 0;
+                    let m = ((parseFloat(document.getElementById('q3_h').value)||0)*60) + (parseFloat(document.getElementById('q3_m').value)||0);
+                    workVigorous = d * m * 8.0;
+                }
+                if (document.getElementById('q4').value === 'بله') {
+                    if(!checkDailyLimit(document.getElementById('q6_h').value, document.getElementById('q6_m').value)) {
+                        alert("خطا: زمان فعالیت شغلی متوسط بیشتر از ۱۶ ساعت در روز است."); return;
+                    }
+                    let d = parseFloat(document.getElementById('q5').value) || 0;
+                    let m = ((parseFloat(document.getElementById('q6_h').value)||0)*60) + (parseFloat(document.getElementById('q6_m').value)||0);
+                    workModerate = d * m * 4.0;
+                }
+                if (document.getElementById('q7').value === 'بله') {
+                    if(!checkDailyLimit(document.getElementById('q9_h').value, document.getElementById('q9_m').value)) {
+                        alert("خطا: زمان رفت‌وآمد بیشتر از ۱۶ ساعت در روز است."); return;
+                    }
+                    let d = parseFloat(document.getElementById('q8').value) || 0;
+                    let m = ((parseFloat(document.getElementById('q9_h').value)||0)*60) + (parseFloat(document.getElementById('q9_m').value)||0);
+                    transport = d * m * 4.0;
+                }
+                if (document.getElementById('q10').value === 'بله') {
+                    if(!checkDailyLimit(document.getElementById('q12_h').value, document.getElementById('q12_m').value)) {
+                        alert("خطا: زمان تفریحات شدید بیشتر از ۱۶ ساعت در روز است."); return;
+                    }
+                    let d = parseFloat(document.getElementById('q11').value) || 0;
+                    let m = ((parseFloat(document.getElementById('q12_h').value)||0)*60) + (parseFloat(document.getElementById('q12_m').value)||0);
+                    recVigorous = d * m * 8.0;
+                }
+                if (document.getElementById('q13').value === 'بله') {
+                    if(!checkDailyLimit(document.getElementById('q15_h').value, document.getElementById('q15_m').value)) {
+                        alert("خطا: زمان تفریحات متوسط بیشتر از ۱۶ ساعت در روز است."); return;
+                    }
+                    let d = parseFloat(document.getElementById('q14').value) || 0;
+                    let m = ((parseFloat(document.getElementById('q15_h').value)||0)*60) + (parseFloat(document.getElementById('q15_m').value)||0);
+                    recModerate = d * m * 4.0;
+                }
+
+                let grandTotalMET = workVigorous + workModerate + transport + recVigorous + recModerate;
+                
+                let category = "نامطلوب / کم‌تحرک (Not meeting WHO recommendations)"; 
+                if (grandTotalMET >= 600) {
+                    category = "مطلوب (Meets WHO recommendations)"; 
+                }
+
+                let sedHours = (parseFloat(document.getElementById('q16_h').value)||0) + ((parseFloat(document.getElementById('q16_m').value)||0)/60);
+
+                document.getElementById('res_total_met').innerText = grandTotalMET.toFixed(0) + " MET-min";
+                document.getElementById('res_category').innerText = category;
+
+                let selectedChronic = [];
+                document.querySelectorAll('input[name="chronic"]:checked').forEach(cb => {
+                    selectedChronic.push(cb.value);
+                });
+                let chronicStr = selectedChronic.length > 0 ? selectedChronic.join("، ") : "هیچکدام";
+
+                const ageVal = parseInt(document.getElementById('age').value) || 30;
+                const mobilityVal = document.getElementById('med_mobility').value;
+                const isMeets = grandTotalMET >= 600;
+
+                let recHTML = "";
+
+                if (isMeets) {
+                    recHTML += `<div class="p-3 bg-emerald-50 border-r-4 border-emerald-500 rounded-lg">
+                        <b class="text-emerald-900">✅ وضعیت فعالیت هوازی:</b> 
+                        مجموع فعالیت فیزیکی هفتگی شما در محدوده استاندارد سلامت سازمان جهانی بهداشت قرار دارد. این سطح از تحرک، ریسک بیماری‌های قلبی-عروقی، پرفشاری خون، دیابت نوع ۲ و سرطان‌ها را به میزان معناداری کاهش می‌دهد.
+                    </div>`;
+                } else {
+                    recHTML += `<div class="p-3 bg-amber-50 border-r-4 border-amber-500 rounded-lg">
+                        <b class="text-amber-900">⚠️ وضعیت فعالیت هوازی:</b> 
+                        سطح تحرک بدنی شما کمتر از آستانه توصیه‌شده WHO است. هرگونه افزایش تدریجی تحرک حتی با فعالیت‌های روزمره سبک و پیاده‌روی سریع دارای منافع مستقیم برای سلامت عمومی است.
+                    </div>`;
+                }
+
+                recHTML += `<div class="p-3 bg-indigo-50 border-r-4 border-indigo-500 rounded-lg">
+                    <b class="text-indigo-900">💪 تمرینات تقویت عضلات (Muscle Strengthening):</b> 
+                    بر اساس دستورالعمل WHO، توصیه اکید می‌شود حداقل <b>۲ روز در هفته</b> تمرینات مقاومتی و تقویت‌کننده عضلانی با شدت متوسط یا بیشتر که کلیه گروه‌های عضلانی اصلی را درگیر کنند، انجام دهید.
+                </div>`;
+
+                if (ageVal >= 65) {
+                    recHTML += `<div class="p-3 bg-purple-50 border-r-4 border-purple-500 rounded-lg">
+                        <b class="text-purple-900">👴 توصیه‌های ویژه گروه سنی ۶۵ سال به بالا (Older Adults):</b> 
+                        سازمان جهانی بهداشت تأکید می‌کند که سالمندان باید حداقل <b>۳ روز در هفته</b> تمرینات چندوجهی با تمرکز بر تعادل عملکردی و تمرینات قدرتی انجام دهند تا از خطر زمین خوردن پیشگیری شود.
+                    </div>`;
+                }
+
+                if (sedHours > 7.5) {
+                    recHTML += `<div class="p-3 bg-rose-50 border-r-4 border-rose-500 rounded-lg">
+                        <b class="text-rose-900">🪑 رفتار کم‌تحرک و زمان نشستن بالا (${sedHours.toFixed(1)} ساعت در روز):</b> 
+                        مدت‌زمان نشستن روزانه شما بالاست. طبق گایدلاین WHO، باید زمان‌های بی‌تحرکی طولانی را با فعالیت‌های سبک بشکنید و حجم فعالیت بدنی خود را فراتر از حداقل‌های توصیه شده افزایش دهید.
+                    </div>`;
+                } else {
+                    recHTML += `<div class="p-3 bg-slate-50 border-r-4 border-slate-400 rounded-lg">
+                        <b class="text-slate-800">⏱️ مدیریت نشستن روزانه (${sedHours.toFixed(1)} ساعت):</b> 
+                        میزان رفتار کم‌تحرک شما در وضعیت کنترل‌شده قرار دارد. وضعیت نشستن پشت میز را در فواصل ۴۵ دقیقه‌ای تغییر دهید.
+                    </div>`;
+                }
+
+                if (chronicStr !== "هیچکدام") {
+                    recHTML += `<div class="p-3 bg-blue-50 border-r-4 border-blue-500 rounded-lg">
+                        <b class="text-blue-900">🩺 توصیه برای بیماری‌های مزمن گزارش‌شده (${chronicStr}):</b> 
+                        بر اساس راهنمای ۲۰۲۰ سازمان جهانی بهداشت، فعالیت بدنی منظم در افراد دارای بیماری مزمن کاملاً ایمن و برای کنترل پیشرفت بیماری ضروری است.
+                    </div>`;
+                }
+
+                if (mobilityVal !== "فاقد محدودیت") {
+                    recHTML += `<div class="p-3 bg-teal-50 border-r-4 border-teal-500 rounded-lg">
+                        <b class="text-teal-900">♿ ملاحظات محدودیت حرکتی (${mobilityVal}):</b> 
+                        طبق دستورالعمل افراد دارای محدودیت، انجام فعالیت بدنی متناسب با توان حرکتی ایمن است و می‌تواند به شکل تمرینات بالاتنه انجام شود.
+                    </div>`;
+                }
+
+                document.getElementById('ai_recommendation').innerHTML = recHTML;
+
+                // پر کردن فرم مخفی
+                document.getElementById('h_interviewer').value = getVal('interviewer');
+                document.getElementById('h_age').value = getVal('age');
+                document.getElementById('h_gender').value = getVal('gender');
+                document.getElementById('h_education').value = getVal('education');
+                document.getElementById('h_religion').value = getVal('religion');
+                document.getElementById('h_marital').value = getVal('marital');
+                
+                const rawJob = document.getElementById('job').value;
+                document.getElementById('h_job').value = jobLabelsMap[rawJob] || "-";
+                document.getElementById('h_jobTitle').value = getVal('jobTitle');
+                
+                document.getElementById('h_economy').value = getVal('economy');
+                document.getElementById('h_weight').value = getVal('weight');
+                document.getElementById('h_height').value = getVal('height');
+                document.getElementById('h_waist').value = getVal('waist');
+                document.getElementById('h_smoking').value = getVal('smoking');
+                document.getElementById('h_sleep').value = getVal('sleep');
+                document.getElementById('h_phone').value = getVal('phone');
+                
+                const retestAgreeEl = document.getElementById('retest_agree');
+                const isRetestAgree = retestAgreeEl && retestAgreeEl.checked;
+                document.getElementById('h_retest_agree').value = isRetestAgree ? "بله" : "خیر";
+                
+                document.getElementById('h_med_chronic').value = chronicStr;
+                document.getElementById('h_med_endocrine').value = getVal('med_endocrine');
+                document.getElementById('h_med_mobility').value = getVal('med_mobility');
+                document.getElementById('h_med_drugs').value = getVal('med_drugs');
+                document.getElementById('h_med_drugDetails').value = getVal('med_drugDetails');
+
+                const age = parseInt(document.getElementById('age').value) || 0;
+                if (age > 65) {
+                    let amtsScore = 0;
+                    for(let i=1; i<=10; i++) {
+                        amtsScore += parseInt(document.getElementById('amts'+i).value) || 0;
+                    }
+                    document.getElementById('h_amts_score').value = amtsScore;
+                } else {
+                    document.getElementById('h_amts_score').value = "-";
+                }
+
+                // GPAQ
+                let q1Val = getVal('q1');
+                document.getElementById('h_q1').value = q1Val;
+                document.getElementById('h_q2').value = (q1Val === 'بله') ? getVal('q2') : '-';
+                document.getElementById('h_q3_h').value = (q1Val === 'بله') ? getVal('q3_h') : '-';
+                document.getElementById('h_q3_m').value = (q1Val === 'بله') ? getVal('q3_m') : '-';
+
+                let q4Val = getVal('q4');
+                document.getElementById('h_q4').value = q4Val;
+                document.getElementById('h_q5').value = (q4Val === 'بله') ? getVal('q5') : '-';
+                document.getElementById('h_q6_h').value = (q4Val === 'بله') ? getVal('q6_h') : '-';
+                document.getElementById('h_q6_m').value = (q4Val === 'بله') ? getVal('q6_m') : '-';
+
+                let q7Val = getVal('q7');
+                document.getElementById('h_q7').value = q7Val;
+                document.getElementById('h_q8').value = (q7Val === 'بله') ? getVal('q8') : '-';
+                document.getElementById('h_q9_h').value = (q7Val === 'بله') ? getVal('q9_h') : '-';
+                document.getElementById('h_q9_m').value = (q7Val === 'بله') ? getVal('q9_m') : '-';
+
+                let q10Val = getVal('q10');
+                document.getElementById('h_q10').value = q10Val;
+                document.getElementById('h_q11').value = (q10Val === 'بله') ? getVal('q11') : '-';
+                document.getElementById('h_q12_h').value = (q10Val === 'بله') ? getVal('q12_h') : '-';
+                document.getElementById('h_q12_m').value = (q10Val === 'بله') ? getVal('q12_m') : '-';
+
+                let q13Val = getVal('q13');
+                document.getElementById('h_q13').value = q13Val;
+                document.getElementById('h_q14').value = (q13Val === 'بله') ? getVal('q14') : '-';
+                document.getElementById('h_q15_h').value = (q13Val === 'بله') ? getVal('q15_h') : '-';
+                document.getElementById('h_q15_m').value = (q13Val === 'بله') ? getVal('q15_m') : '-';
+
+                document.getElementById('h_q16_h').value = getVal('q16_h');
+                document.getElementById('h_q16_m').value = getVal('q16_m');
+
+                // خواندن کاملاً امن مقادیر IPAQ
+                if (isRetestAgree) {
+                    const q1None = document.getElementById('ipaq_q1_none');
+                    const isQ1None = q1None && q1None.checked;
+                    document.getElementById('h_ipaq_q1').value = isQ1None ? "۰" : getVal('ipaq_q1');
+                    document.getElementById('h_ipaq_q2_h').value = isQ1None ? "-" : getVal('ipaq_q2_h');
+                    document.getElementById('h_ipaq_q2_m').value = isQ1None ? "-" : getVal('ipaq_q2_m');
+
+                    const q3None = document.getElementById('ipaq_q3_none');
+                    const isQ3None = q3None && q3None.checked;
+                    document.getElementById('h_ipaq_q3').value = isQ3None ? "۰" : getVal('ipaq_q3');
+                    document.getElementById('h_ipaq_q4_h').value = isQ3None ? "-" : getVal('ipaq_q4_h');
+                    document.getElementById('h_ipaq_q4_m').value = isQ3None ? "-" : getVal('ipaq_q4_m');
+
+                    const q5None = document.getElementById('ipaq_q5_none');
+                    const isQ5None = q5None && q5None.checked;
+                    document.getElementById('h_ipaq_q5').value = isQ5None ? "۰" : getVal('ipaq_q5');
+                    document.getElementById('h_ipaq_q6_h').value = isQ5None ? "-" : getVal('ipaq_q6_h');
+                    document.getElementById('h_ipaq_q6_m').value = isQ5None ? "-" : getVal('ipaq_q6_m');
+
+                    document.getElementById('h_ipaq_q7_h').value = getVal('ipaq_q7_h');
+                    document.getElementById('h_ipaq_q7_m').value = getVal('ipaq_q7_m');
+                } else {
+                    document.getElementById('h_ipaq_q1').value = "-";
+                    document.getElementById('h_ipaq_q2_h').value = "-";
+                    document.getElementById('h_ipaq_q2_m').value = "-";
+                    document.getElementById('h_ipaq_q3').value = "-";
+                    document.getElementById('h_ipaq_q4_h').value = "-";
+                    document.getElementById('h_ipaq_q4_m').value = "-";
+                    document.getElementById('h_ipaq_q5').value = "-";
+                    document.getElementById('h_ipaq_q6_h').value = "-";
+                    document.getElementById('h_ipaq_q6_m').value = "-";
+                    document.getElementById('h_ipaq_q7_h').value = "-";
+                    document.getElementById('h_ipaq_q7_m').value = "-";
+                }
+
+                document.getElementById('h_totalMet').value = grandTotalMET.toFixed(0);
+                document.getElementById('h_category').value = category;
+                document.getElementById('h_sedentaryHours').value = sedHours.toFixed(1);
+
+                const hiddenForm = document.getElementById('hiddenGoogleForm');
+                if (hiddenForm) {
+                    hiddenForm.submit();
+                }
+
             } catch (err) {
-                console.error("Submission error:", err);
+                console.error("Critical Submission Error:", err);
+            } finally {
+                // تضمین باز شدن کارت نتایج تحت هر شرایطی
+                goToStep('step_result');
             }
-            goToStep('step_result');
         }
     </script>
 </body>
