@@ -326,7 +326,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">ویدیوی راهنما: فعالیت کاری شدید (تنفس تند، عرق و تپش بالا)</p>
-                    <video autoplay muted loop playsinline preload="auto" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
+                    <video controls preload="metadata" playsinline class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
                         <source src="work-vigorous.mp4" type="video/mp4">
                         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
@@ -368,7 +368,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">ویدیوی راهنما: فعالیت کاری با شدت متوسط (تنفس آرام و پوست خشک)</p>
-                    <video autoplay muted loop playsinline preload="auto" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
+                    <video controls preload="metadata" playsinline class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
                         <source src="work-moderate.mp4" type="video/mp4">
                         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
@@ -456,7 +456,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">ویدیوی راهنما: فعالیت تفریحی شدید (نفس‌نفس زدن و خستگی ورزشی)</p>
-                    <video autoplay muted loop playsinline preload="auto" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
+                    <video controls preload="metadata" playsinline class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
                         <source src="rec-vigorous.mp4" type="video/mp4">
                         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
@@ -497,7 +497,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">ویدیوی راهنما: فعالیت تفریحی با شدت متوسط (پیاده‌روی راحت و شاداب)</p>
-                    <video autoplay muted loop playsinline preload="auto" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
+                    <video controls preload="metadata" playsinline class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
                         <source src="rec-moderate.mp4" type="video/mp4">
                         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
@@ -565,7 +565,7 @@
                 <div class="bg-indigo-50 border-r-4 border-indigo-600 p-4 rounded-l-xl text-indigo-950 mb-5 text-justify leading-relaxed">
                     <h3 class="font-bold text-base md:text-lg mb-2">پرسشنامه بين المللي فعاليت بدني (IPAQ)</h3>
                     <p class="text-xs md:text-sm">
-                        ما قصد داریم درباره فعاليتهاي بدني که مردم به عنوان بخشی از زندگي روزمره شان انجام می دهند، اطلاعات کسب کنیم. سؤالها در مورد زمانهایی خواهد بود که شما در طول 7 روز گذشته به صورت حرکات بدني فعال بوده اید. لطفاً به تك تك سؤالات پاسخ دهید حتی اگر خود را فرد فعالی به حساب نمی آورید. لطفاً فعالیتهایی را که در محل کار یا به عنوان بخشی از کار منزل و حیاط (باغچه)، رفتن از جایی به جاي ديگر، تمرینات ورزشی و فعالیتهایی که به عنوان سرگرمی در اوقات فراغت انجام می دهید، مدنظر قرار دهید.
+                        ما قصد داریم درباره فعاليتهاي بدني که مردم به عنوان بخشی از زندگي روزمره شان انجام می دهند، اطلاعات کسب کنیم. سؤالها در مورد زمانهایی خواهد بود که شما در طول 7 روز گذشته به صورت حرکات بدني فعال بوده اید. لطفاً به تك تك سؤالات پاسخ دهید حتی اگر خود را فرد فعالی به حساب نمی آورید. لطفاً فعالیتهایی را که در محل کار یا به عنوان بخشی از کار منزل و حیاط (باغچه), رفتن از جایی به جاي ديگر, تمرینات ورزشی و فعالیتهایی که به عنوان سرگرمی در اوقات فراغت انجام می دهید, مدنظر قرار دهید.
                     </p>
                 </div>
 
@@ -781,16 +781,16 @@
             }
         }
 
-        // تابع متوقف‌کننده صدا و ویدیوها هنگام جابجایی بین مراحل
-        function stopAllVideos() {
+        // تابع متوقف‌کننده ویدیوها هنگام جابجایی بین مراحل
+        function pauseAllVideos() {
             document.querySelectorAll('video').forEach(video => {
                 video.pause();
-                video.currentTime = 0;
+                video.currentTime = 0; // برگرداندن ویدیو به فریم اول
             });
         }
 
         function goToStep(targetStep) {
-            stopAllVideos(); // متوقف کردن تمام ویدیوها هنگام تعویض صفحه
+            pauseAllVideos(); // توقف کامل تمام صداها و ویدیوها هنگام تغییر صفحه
             document.querySelectorAll('.step-card').forEach(el => el.classList.remove('active'));
             const targetEl = (typeof targetStep === 'string') ? document.getElementById(targetStep) : document.getElementById('step' + targetStep);
             if (targetEl) {
@@ -907,7 +907,7 @@
         }
 
         async function processAndSubmit() {
-            stopAllVideos(); // متوقف کردن ویدیوها هنگام ثبت نهایی
+            pauseAllVideos(); // توقف ویدیوها هنگام ثبت نهایی
             let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
 
             if (document.getElementById('q1').value === 'بله') {
