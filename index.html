@@ -326,7 +326,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">ویدیوی راهنما: فعالیت کاری شدید (تنفس تند، عرق و تپش بالا)</p>
-                    <video controls preload="metadata" playsinline class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
+                    <video autoplay muted loop playsinline preload="auto" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
                         <source src="work-vigorous.mp4" type="video/mp4">
                         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
@@ -368,7 +368,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">ویدیوی راهنما: فعالیت کاری با شدت متوسط (تنفس آرام و پوست خشک)</p>
-                    <video controls preload="metadata" playsinline class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
+                    <video autoplay muted loop playsinline preload="auto" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
                         <source src="work-moderate.mp4" type="video/mp4">
                         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
@@ -456,7 +456,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">ویدیوی راهنما: فعالیت تفریحی شدید (نفس‌نفس زدن و خستگی ورزشی)</p>
-                    <video controls preload="metadata" playsinline class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
+                    <video autoplay muted loop playsinline preload="auto" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
                         <source src="rec-vigorous.mp4" type="video/mp4">
                         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
@@ -497,7 +497,7 @@
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
                     <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">ویدیوی راهنما: فعالیت تفریحی با شدت متوسط (پیاده‌روی راحت و شاداب)</p>
-                    <video controls preload="metadata" playsinline class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
+                    <video autoplay muted loop playsinline preload="auto" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200 bg-black">
                         <source src="rec-moderate.mp4" type="video/mp4">
                         مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
@@ -781,7 +781,16 @@
             }
         }
 
+        // تابع متوقف‌کننده صدا و ویدیوها هنگام جابجایی بین مراحل
+        function stopAllVideos() {
+            document.querySelectorAll('video').forEach(video => {
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
+
         function goToStep(targetStep) {
+            stopAllVideos(); // متوقف کردن تمام ویدیوها هنگام تعویض صفحه
             document.querySelectorAll('.step-card').forEach(el => el.classList.remove('active'));
             const targetEl = (typeof targetStep === 'string') ? document.getElementById(targetStep) : document.getElementById('step' + targetStep);
             if (targetEl) {
@@ -898,6 +907,7 @@
         }
 
         async function processAndSubmit() {
+            stopAllVideos(); // متوقف کردن ویدیوها هنگام ثبت نهایی
             let workVigorous = 0, workModerate = 0, transport = 0, recVigorous = 0, recModerate = 0;
 
             if (document.getElementById('q1').value === 'بله') {
