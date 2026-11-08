@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سامانه سنجش فعالیت فیزیکی GPAQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;900&display=swap');
@@ -33,9 +32,6 @@
             <!-- ================= بخش اول: اطلاعات جمعیت‌شناختی و تن‌سنجی ================= -->
             <div class="step-card active animate__animated animate__fadeIn" id="step1">
                 <div class="bg-indigo-50/70 border border-indigo-100 p-5 rounded-2xl mb-8 shadow-sm">
-                    <div class="flex justify-center mb-3">
-                        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_5njp3vgg.json" background="transparent" speed="1" style="width: 110px; height: 110px;" loop autoplay></lottie-player>
-                    </div>
                     <h3 class="font-bold text-indigo-900 text-center mb-2 text-lg">خوش آمدید! 🌸</h3>
                     <p class="text-sm text-indigo-950 leading-loose mb-3 text-justify">
                         شما جهت شرکت در طرح تحقیقاتی با عنوان <b>«ترجمه و روان‌سنجی نسخه فارسی پرسشنامه جهانی فعالیت فیزیکی (GPAQ)»</b> دعوت شده‌اید. هدف از این پژوهش، ارزیابی دقیق سطح فعالیت بدنی در مشاغل و سبک زندگی جامعه است. مشارکت و پاسخ‌های صادقانه شما به ما در استانداردسازی این ابزار بین‌المللی متعلق به سازمان جهانی بهداشت (WHO) کمک شایانی خواهد کرد.
@@ -54,6 +50,9 @@
                         <option value="پژوهشگر اصلی">پژوهشگر اصلی</option>
                         <option value="همکار طرح">همکار طرح</option>
                     </select>
+                    <p class="text-red-600 text-xs md:text-sm font-bold mt-2 leading-relaxed">
+                        ضمن تشکر از همکاری شما، لطفا گزینه <b>همکار طرح</b> را انتخاب نمایید.
+                    </p>
                 </div>
 
                 <div class="border border-slate-200 rounded-2xl p-4 md:p-5 mb-5 bg-white shadow-sm">
@@ -306,9 +305,6 @@
 
             <!-- ================= پرسشنامه جهانی فعالیت فیزیکی (GPAQ): مقدمه ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step4">
-                <div class="flex justify-center mb-4">
-                    <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_tuq29v2e.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
-                </div>
                 <div class="bg-indigo-50/80 border border-indigo-200 p-5 rounded-2xl mb-8">
                     <h3 class="font-bold text-indigo-900 mb-3 text-base md:text-lg">پرسشنامه جهانی فعالیت فیزیکی (GPAQ) - مقدمه</h3>
                     <p class="text-sm md:text-base text-indigo-900 leading-loose mb-4 text-justify">
@@ -326,9 +322,6 @@
 
             <!-- ================= فعالیت در محل کار (شدید) ================= -->
             <div class="step-card animate__animated animate__fadeIn" id="step5">
-                <div class="flex justify-center mb-3">
-                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_m64ro1p0.json" background="transparent" speed="1" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
-                </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">فعالیت در محل کار</h3>
                 
                 <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
@@ -418,6 +411,11 @@
                     سؤالات این بخش، شامل فعالیت‌های بدنی در محل کار نمی‌شود. حالا می‌خواهم درباره روش معمولِ رفت‌وآمد شما به مکان‌های مختلف سؤال کنم. مثلاً رفتن به محل کار، خرید، بازار، یا مکان‌های مذهبی
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">رفت‌وآمد به مکان‌های مختلف</h3>
+                
+                <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
+                    <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">کارت راهنما: نمونه فعالیت‌های رفت‌وآمد و سفر فعال (Show Card)</p>
+                    <img src="travel.jpg" loading="lazy" decoding="async" alt="رفت‌وآمد فعال" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
+                </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
@@ -541,6 +539,11 @@
                     سؤال بعدی درباره نشستن یا دراز کشیدن در محل کار، خانه، مسیر رفت‌وآمد، یا دورهمی با دوستان است. این زمان شامل زمان‌هایی است که صرف نشستن پشت میز، نشستن کنار دوستان، مسافرت با ماشین، اتوبوس یا قطار، مطالعه کردن، بازی‌های کارتی، یا تماشای تلویزیون می‌کنید؛ توجه داشته باشید که زمانِ خوابیدن را نباید حساب کنید!
                 </div>
                 <h3 class="font-bold text-slate-800 mb-5 text-center text-base md:text-lg">رفتارهای کم‌تحرک</h3>
+                
+                <div class="bg-indigo-50/60 p-4 rounded-2xl mb-6 border border-indigo-100 text-center shadow-sm">
+                    <p class="text-xs md:text-sm font-bold text-indigo-900 mb-2">کارت راهنما: نمونه رفتارهای نشسته و کم‌تحرک در منزل (Show Card)</p>
+                    <img src="sedentary.jpg" loading="lazy" decoding="async" alt="رفتارهای کم‌تحرک" class="w-full max-w-sm mx-auto rounded-xl shadow-md border border-indigo-200">
+                </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl mb-6 border border-slate-200">
                     <label class="block text-sm md:text-base font-bold text-slate-800 mb-4 leading-loose text-justify">
